@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic
+namespace BusinnesEntity
 {
-    public class Class1
+    public class BEMateriales : BEEntity
     {
+        public string Nombre { get; set; }
     }
 }

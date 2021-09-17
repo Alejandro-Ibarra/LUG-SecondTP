@@ -8,6 +8,6 @@ namespace BusinnesEntity
 {
     public class BEMusculo : BEEntity
     {
-        string Nombre { get; set; }
+        public string Nombre { get; set; }
     }
 }

@@ -45,12 +45,5 @@ namespace GUI
         {
 
         }
-
-        private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUI_Herramientas oGUI_Herramientas = new GUI_Herramientas();
-            oGUI_Herramientas.MdiParent = this;
-            oGUI_Herramientas.Show();
-        }
     }
 }

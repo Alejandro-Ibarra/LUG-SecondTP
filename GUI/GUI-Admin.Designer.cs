@@ -30,15 +30,44 @@ namespace GUI
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.musculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.herramientasToolStripMenuItem,
+            this.musculosToolStripMenuItem,
+            this.ejerciciosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // herramientasToolStripMenuItem
+            // 
+            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.herramientasToolStripMenuItem.Text = "Materiales";
+            this.herramientasToolStripMenuItem.Click += new System.EventHandler(this.herramientasToolStripMenuItem_Click);
+            // 
+            // musculosToolStripMenuItem
+            // 
+            this.musculosToolStripMenuItem.Name = "musculosToolStripMenuItem";
+            this.musculosToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.musculosToolStripMenuItem.Text = "Musculos";
+            this.musculosToolStripMenuItem.Click += new System.EventHandler(this.musculosToolStripMenuItem_Click);
+            // 
+            // ejerciciosToolStripMenuItem
+            // 
+            this.ejerciciosToolStripMenuItem.Name = "ejerciciosToolStripMenuItem";
+            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
+            this.ejerciciosToolStripMenuItem.Click += new System.EventHandler(this.ejerciciosToolStripMenuItem_Click);
             // 
             // GUI_Admin
             // 
@@ -50,6 +79,8 @@ namespace GUI
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GUI_Admin";
             this.Text = "GUI_Admin";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,5 +89,8 @@ namespace GUI
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem musculosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ejerciciosToolStripMenuItem;
     }
 }

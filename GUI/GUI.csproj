@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,17 +52,29 @@
     <Compile Include="GUI-Admin.Designer.cs">
       <DependentUpon>GUI-Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Herramientas.cs">
+    <Compile Include="GUI-Ejercicios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Herramientas.Designer.cs">
-      <DependentUpon>GUI-Herramientas.cs</DependentUpon>
+    <Compile Include="GUI-Ejercicios.Designer.cs">
+      <DependentUpon>GUI-Ejercicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Materiales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Materiales.Designer.cs">
+      <DependentUpon>GUI-Materiales.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI-MenuPrincipal.Designer.cs">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Musculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Musculos.Designer.cs">
+      <DependentUpon>GUI-Musculos.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-User.cs">
       <SubType>Form</SubType>

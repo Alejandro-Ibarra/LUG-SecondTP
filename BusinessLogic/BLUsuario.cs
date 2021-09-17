@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinnesEntity
+namespace BusinessLogic
 {
-    public class BEHerramientas : BEEntity
+    public class BLUsuario
     {
-        string Nombre { get; set; }
     }
 }

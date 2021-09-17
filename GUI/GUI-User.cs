@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using BusinnesEntity;
+using BusinessLogic;
 
 namespace GUI
 {
@@ -15,6 +18,19 @@ namespace GUI
         public GUI_User()
         {
             InitializeComponent();
+            oBEusuario = new BEUsuario();
+        }
+
+        BEUsuario oBEusuario;
+
+        private void Ingreso_Materiales_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Alta_usuario_Click(object sender, EventArgs e)
+        {
+            oBEusuario.no = Interaction.InputBox("Ingrese el nombre")
         }
     }
 }
