@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinnesEntity
 {
-    class Exercises
+    public class BERutina : BEEntity
     {
+        
     }
 }

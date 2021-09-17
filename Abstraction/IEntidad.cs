@@ -9,6 +9,6 @@ namespace Abstraction
     public interface IEntidad
     {
         int Codigo { get; set; }
-        string Nombre { get; set; }
+        
     }
 }

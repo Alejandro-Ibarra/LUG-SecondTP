@@ -51,11 +51,17 @@
     <Compile Include="GUI-Admin.Designer.cs">
       <DependentUpon>GUI-Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Menu.cs">
+    <Compile Include="GUI-Herramientas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Menu.Designer.cs">
-      <DependentUpon>GUI-Menu.cs</DependentUpon>
+    <Compile Include="GUI-Herramientas.Designer.cs">
+      <DependentUpon>GUI-Herramientas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-MenuPrincipal.Designer.cs">
+      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-User.cs">
       <SubType>Form</SubType>
@@ -71,8 +77,8 @@
     <EmbeddedResource Include="GUI-User.resx">
       <DependentUpon>GUI-User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-Menu.resx">
-      <DependentUpon>GUI-Menu.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-MenuPrincipal.resx">
+      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +101,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{8c67943f-3534-4e0a-b695-aca8b8c8166b}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinnesEntity\BusinnesEntity.csproj">
+      <Project>{bbf4da1e-8db6-49f7-8172-ff82b4467deb}</Project>
+      <Name>BusinnesEntity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

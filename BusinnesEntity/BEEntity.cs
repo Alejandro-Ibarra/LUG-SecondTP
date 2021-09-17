@@ -7,7 +7,9 @@ using Abstraction;
 
 namespace BusinnesEntity
 {
-    class Entidad : IEntidad
+    public class BEEntity : IEntidad
     {
+        public int Codigo { get; set; }
+
     }
 }

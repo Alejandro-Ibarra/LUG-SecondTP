@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entidad.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="BEEjercicio.cs" />
+    <Compile Include="BEMusculo.cs" />
+    <Compile Include="BEHerramientas.cs" />
+    <Compile Include="BEEntity.cs" />
+    <Compile Include="BERutina.cs" />
+    <Compile Include="BEUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

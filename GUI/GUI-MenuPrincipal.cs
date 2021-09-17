@@ -19,12 +19,12 @@ namespace GUI
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,6 +44,13 @@ namespace GUI
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI_Herramientas oGUI_Herramientas = new GUI_Herramientas();
+            oGUI_Herramientas.MdiParent = this;
+            oGUI_Herramientas.Show();
         }
     }
 }

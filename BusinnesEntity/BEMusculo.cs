@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinnesEntity
 {
-    public class Muscle : Entity
+    public class BEMusculo : BEEntity
     {
-
+        string Nombre { get; set; }
     }
 }
