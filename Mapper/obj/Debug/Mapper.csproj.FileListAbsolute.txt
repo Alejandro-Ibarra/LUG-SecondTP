@@ -1,0 +1,13 @@
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\Mapper.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\Mapper.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\Abstraction.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\BusinnesEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\DataAccess.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\Abstraction.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\BusinnesEntity.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\bin\Debug\DataAccess.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\obj\Debug\Mapper.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\obj\Debug\Mapper.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\obj\Debug\Mapper.csproj.CopyComplete
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\obj\Debug\Mapper.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\Mapper\obj\Debug\Mapper.pdb

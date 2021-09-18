@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MEjercicio.cs" />
-    <Compile Include="MHerramienta.cs" />
+    <Compile Include="MMateriales.cs" />
     <Compile Include="MMusculo.cs" />
     <Compile Include="MRutina.cs" />
     <Compile Include="MUsuario.cs" />

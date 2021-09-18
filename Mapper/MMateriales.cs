@@ -9,24 +9,24 @@ using DataAccess;
 
 namespace Mapper
 {
-    class MHerramienta : IGestor<BEEjercicio>
+    public class MMateriales : IGestor<BEMateriales>
     {
-        public bool Baja(BEEjercicio Objeto)
+        public bool Baja(BEMateriales Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEEjercicio Objeto)
+        public bool Guardar(BEMateriales Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public BEEjercicio ListarObjeto(BEEjercicio Objeto)
+        public BEMateriales ListarObjeto(BEMateriales Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public List<BEEjercicio> ListarTodo()
+        public List<BEMateriales> ListarTodo()
         {
             throw new NotImplementedException();
         }

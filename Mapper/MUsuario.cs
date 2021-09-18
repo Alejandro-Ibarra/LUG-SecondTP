@@ -9,24 +9,43 @@ using DataAccess;
 
 namespace Mapper
 {
-    public class MUsuario : IGestor<BEEjercicio>
+    public class MUsuario : IGestor<BEUsuario>
     {
-        public bool Baja(BEEjercicio Objeto)
+        Conexion Conexion;
+
+        public bool Baja(BEUsuario oBEUsuario)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEEjercicio Objeto)
+        public bool Guardar(BEUsuario oBEUsuario)
         {
-            throw new NotImplementedException();
+            
+            string ConsultaSql;
+            if (oBEUsuario.Codigo == 0)
+            {
+                ConsultaSql = "Insert into Usuario (Nombre, Apellido,DNI, Sexo) " +
+                    "values('" + oBEUsuario.Nombre + "', '" + oBEUsuario.Apellido + "', " + oBEUsuario.DNI + ",'" + oBEUsuario.Sexo + "' ) ";
+            }
+            else
+            {
+                ConsultaSql = "Update Usuario SET Nombre = '" + oBEUsuario.Nombre + "', Apellido = '" + oBEUsuario.Apellido + "', DNI = '" + oBEUsuario.DNI + "', Sexo = '" + oBEUsuario.Sexo + "' where codigo = " + oBEUsuario.Codigo + "";
+            }
+            Conexion = new Conexion();
+            return Conexion.Escribir(ConsultaSql);
+
         }
 
-        public BEEjercicio ListarObjeto(BEEjercicio Objeto)
+        public BEUsuario ListarObjeto(BEUsuario oBEUsuario)
         {
-            throw new NotImplementedException();
+            Conexion = new Conexion();
+
+            string ConsultaSql = "Select Codigo,Nombre,Apellido,Sexo from Usuario where DNI = " + oBEUsuario.DNI + "";
+
+            return Conexion.LeerUsuario(ConsultaSql);
         }
 
-        public List<BEEjercicio> ListarTodo()
+        public List<BEUsuario> ListarTodo()
         {
             throw new NotImplementedException();
         }

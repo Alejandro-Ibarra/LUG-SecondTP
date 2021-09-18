@@ -9,7 +9,7 @@ using DataAccess;
 
 namespace Mapper
 {
-    class MRutina
+    public class MRutina
     {
     }
 }

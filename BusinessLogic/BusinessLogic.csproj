@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BLMateriales.cs" />
+    <Compile Include="BLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +53,10 @@
     <ProjectReference Include="..\BusinnesEntity\BusinnesEntity.csproj">
       <Project>{bbf4da1e-8db6-49f7-8172-ff82b4467deb}</Project>
       <Name>BusinnesEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mapper\Mapper.csproj">
+      <Project>{3f24b42e-73f2-4a68-b346-56b25c6c3a49}</Project>
+      <Name>Mapper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

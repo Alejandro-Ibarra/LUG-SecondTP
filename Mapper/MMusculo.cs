@@ -9,24 +9,24 @@ using DataAccess;
 
 namespace Mapper
 {
-    class MMusculo : IGestor<BEEjercicio>
+    public class MMusculo : IGestor<BEMusculo>
     {
-        public bool Baja(BEEjercicio Objeto)
+        bool IGestor<BEMusculo>.Baja(BEMusculo Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEEjercicio Objeto)
+        bool IGestor<BEMusculo>.Guardar(BEMusculo Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public BEEjercicio ListarObjeto(BEEjercicio Objeto)
+        BEMusculo IGestor<BEMusculo>.ListarObjeto(BEMusculo Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public List<BEEjercicio> ListarTodo()
+        List<BEMusculo> IGestor<BEMusculo>.ListarTodo()
         {
             throw new NotImplementedException();
         }

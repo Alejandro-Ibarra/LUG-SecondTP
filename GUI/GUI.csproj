@@ -87,6 +87,9 @@
     <EmbeddedResource Include="GUI-Admin.resx">
       <DependentUpon>GUI-Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Materiales.resx">
+      <DependentUpon>GUI-Materiales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-User.resx">
       <DependentUpon>GUI-User.cs</DependentUpon>
     </EmbeddedResource>

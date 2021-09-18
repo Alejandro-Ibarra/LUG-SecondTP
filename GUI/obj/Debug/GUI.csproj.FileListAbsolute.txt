@@ -29,3 +29,7 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ult
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.exe
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\Mapper.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\DataAccess.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\Mapper.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\DataAccess.pdb
