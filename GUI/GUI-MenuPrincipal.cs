@@ -34,16 +34,16 @@ namespace GUI
             oGUI_User.Show();
         }
 
-        private void administradorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUI_Admin oGUI_Admin = new GUI_Admin();
-            oGUI_Admin.MdiParent = this;
-            oGUI_Admin.Show();
-        }
-
         private void Menu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI_Materiales oGUI_Materiales = new GUI_Materiales();
+            oGUI_Materiales.MdiParent = this;
+            oGUI_Materiales.Show();
         }
     }
 }

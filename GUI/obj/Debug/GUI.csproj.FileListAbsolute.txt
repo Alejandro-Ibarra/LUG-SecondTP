@@ -20,7 +20,6 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ult
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\BusinnesEntity.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\Abstraction.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
-C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_Admin.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_User.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.Menu.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.Properties.Resources.resources
@@ -33,3 +32,5 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ult
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\DataAccess.dll
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\Mapper.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\DataAccess.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_Materiales.resources
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_Musculos.resources

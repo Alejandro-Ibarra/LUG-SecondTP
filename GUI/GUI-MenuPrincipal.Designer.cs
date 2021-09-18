@@ -33,7 +33,9 @@ namespace GUI
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ejerciciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.musculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,18 +69,31 @@ namespace GUI
             // administradorToolStripMenuItem
             // 
             this.administradorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem1});
+            this.materialesToolStripMenuItem,
+            this.ejerciciosToolStripMenuItem,
+            this.musculosToolStripMenuItem});
             this.administradorToolStripMenuItem.Name = "administradorToolStripMenuItem";
             this.administradorToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.administradorToolStripMenuItem.Text = "Administrador";
-            this.administradorToolStripMenuItem.Click += new System.EventHandler(this.administradorToolStripMenuItem_Click);
             // 
-            // salirToolStripMenuItem1
+            // materialesToolStripMenuItem
             // 
-            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
-            this.salirToolStripMenuItem1.Text = "Salir";
-            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
+            this.materialesToolStripMenuItem.Name = "materialesToolStripMenuItem";
+            this.materialesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materialesToolStripMenuItem.Text = "Materiales";
+            this.materialesToolStripMenuItem.Click += new System.EventHandler(this.materialesToolStripMenuItem_Click);
+            // 
+            // ejerciciosToolStripMenuItem
+            // 
+            this.ejerciciosToolStripMenuItem.Name = "ejerciciosToolStripMenuItem";
+            this.ejerciciosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ejerciciosToolStripMenuItem.Text = "Ejercicios";
+            // 
+            // musculosToolStripMenuItem
+            // 
+            this.musculosToolStripMenuItem.Name = "musculosToolStripMenuItem";
+            this.musculosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.musculosToolStripMenuItem.Text = "Musculos";
             // 
             // Menu
             // 
@@ -104,7 +119,9 @@ namespace GUI
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administradorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem materialesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ejerciciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem musculosToolStripMenuItem;
     }
 }
 

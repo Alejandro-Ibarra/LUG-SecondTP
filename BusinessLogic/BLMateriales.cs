@@ -9,7 +9,7 @@ using Mapper;
 
 namespace BusinessLogic
 {
-    class BLMateriales : IGestor<BEMateriales>
+    public class BLMateriales : IGestor<BEMateriales>
     {
         public BLMateriales()
         {

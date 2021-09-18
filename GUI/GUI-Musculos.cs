@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void GUI_Musculos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Boton_Alta_Materiales_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -128,5 +128,9 @@ namespace GUI
         }
         #endregion
 
+        private void GUI_User_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

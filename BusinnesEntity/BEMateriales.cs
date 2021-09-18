@@ -9,5 +9,6 @@ namespace BusinnesEntity
     public class BEMateriales : BEEntity
     {
         public string Nombre { get; set; }
+        public int Peso { get; set; }
     }
 }

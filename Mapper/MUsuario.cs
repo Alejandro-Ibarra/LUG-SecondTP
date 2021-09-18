@@ -11,7 +11,7 @@ namespace Mapper
 {
     public class MUsuario : IGestor<BEUsuario>
     {
-        Conexion Conexion;
+        Conexion oConexion;
 
         public bool Baja(BEUsuario oBEUsuario)
         {
@@ -31,18 +31,15 @@ namespace Mapper
             {
                 ConsultaSql = "Update Usuario SET Nombre = '" + oBEUsuario.Nombre + "', Apellido = '" + oBEUsuario.Apellido + "', DNI = '" + oBEUsuario.DNI + "', Sexo = '" + oBEUsuario.Sexo + "' where codigo = " + oBEUsuario.Codigo + "";
             }
-            Conexion = new Conexion();
-            return Conexion.Escribir(ConsultaSql);
-
+            oConexion = new Conexion();
+            return oConexion.Escribir(ConsultaSql);
         }
 
         public BEUsuario ListarObjeto(BEUsuario oBEUsuario)
         {
-            Conexion = new Conexion();
-
             string ConsultaSql = "Select Codigo,Nombre,Apellido,Sexo from Usuario where DNI = " + oBEUsuario.DNI + "";
-
-            return Conexion.LeerUsuario(ConsultaSql);
+            oConexion = new Conexion();
+            return oConexion.LeerUsuario(ConsultaSql);
         }
 
         public List<BEUsuario> ListarTodo()

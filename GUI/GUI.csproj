@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI-Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Admin.Designer.cs">
-      <DependentUpon>GUI-Admin.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI-Ejercicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,11 +78,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI-Admin.resx">
-      <DependentUpon>GUI-Admin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Materiales.resx">
       <DependentUpon>GUI-Materiales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Musculos.resx">
+      <DependentUpon>GUI-Musculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-User.resx">
       <DependentUpon>GUI-User.cs</DependentUpon>
