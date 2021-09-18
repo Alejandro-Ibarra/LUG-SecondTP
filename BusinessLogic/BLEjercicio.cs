@@ -37,5 +37,10 @@ namespace BusinessLogic
         {
             return oMEjercicio.ListarTodo();
         }
+
+        public void AgregarMaterial_ejercicio()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

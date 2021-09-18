@@ -52,5 +52,12 @@ namespace GUI
             oGUI_Musculo.MdiParent = this;
             oGUI_Musculo.Show();
         }
+
+        private void ejerciciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI_Ejercicios oGUI_Ejercicios = new GUI_Ejercicios();
+            oGUI_Ejercicios.MdiParent = this;
+            oGUI_Ejercicios.Show();
+        }
     }
 }

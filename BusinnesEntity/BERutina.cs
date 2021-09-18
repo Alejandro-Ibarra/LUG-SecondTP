@@ -8,6 +8,6 @@ namespace BusinnesEntity
 {
     public class BERutina : BEEntity
     {
-        
+        public int Repeticiones { get; set; }
     }
 }
