@@ -51,13 +51,14 @@ namespace GUI
             }
             oBLMateriales.Guardar(oBEMateriales);
             BorrarTextbox();
+            CargarGrilla();
         }
 
         private void Boton_Modificar_Materiales_Click(object sender, EventArgs e)
         {
             if (TextBox_Nombre.Text == null)
             {
-                Interaction.MsgBox("Seleccione el material a modifica");
+                Interaction.MsgBox("Seleccione el material a modificar");
             }
             else
             {

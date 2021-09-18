@@ -45,5 +45,12 @@ namespace GUI
             oGUI_Materiales.MdiParent = this;
             oGUI_Materiales.Show();
         }
+
+        private void musculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI_Musculos oGUI_Musculo = new GUI_Musculos();
+            oGUI_Musculo.MdiParent = this;
+            oGUI_Musculo.Show();
+        }
     }
 }

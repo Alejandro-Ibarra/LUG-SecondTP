@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,57 @@ namespace Mapper
 {
     public class MMusculo : IGestor<BEMusculo>
     {
-        bool IGestor<BEMusculo>.Baja(BEMusculo Objeto)
+        Conexion oConexion;
+
+        public bool Baja(BEMusculo oBEMusculo)
         {
             throw new NotImplementedException();
         }
 
-        bool IGestor<BEMusculo>.Guardar(BEMusculo Objeto)
+        public bool Guardar(BEMusculo oBEMusculo)
+        {
+            string Consulta_SQL;
+            if (oBEMusculo.Codigo == 0)
+            {
+                Consulta_SQL = "Insert into Musculo (Nombre)values('" + oBEMusculo.Nombre + "' )";
+            }
+            else
+            {
+                Consulta_SQL = "update Musculo SET Nombre = '" + oBEMusculo.Nombre + "'where Codigo = " + oBEMusculo.Codigo + "";
+            }
+
+            oConexion = new Conexion();
+            return oConexion.Escribir(Consulta_SQL);
+        }
+
+        public BEMusculo ListarObjeto(BEMusculo oBEMusculo)
         {
             throw new NotImplementedException();
         }
 
-        BEMusculo IGestor<BEMusculo>.ListarObjeto(BEMusculo Objeto)
+        public List<BEMusculo> ListarTodo()
         {
-            throw new NotImplementedException();
-        }
+            DataTable oDAtaTable;
+            oConexion = new Conexion();
+            oDAtaTable = oConexion.LeerTabla("Select Codigo, Nombre From Musculo");
 
-        List<BEMusculo> IGestor<BEMusculo>.ListarTodo()
-        {
-            throw new NotImplementedException();
+            List<BEMusculo> ListaMusculo = new List<BEMusculo>();
+
+            if (oDAtaTable.Rows.Count > 0)
+            {
+                foreach (DataRow item in oDAtaTable.Rows)
+                {
+                    BEMusculo oBEMusculo = new BEMusculo();
+                    oBEMusculo.Codigo = Convert.ToInt32(item[0]);
+                    oBEMusculo.Nombre = item[1].ToString();
+                    ListaMusculo.Add(oBEMusculo);
+                }
+            }
+            else
+            {
+                ListaMusculo = null;
+            }
+            return ListaMusculo;
         }
     }
 }

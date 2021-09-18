@@ -94,6 +94,7 @@ namespace GUI
             this.musculosToolStripMenuItem.Name = "musculosToolStripMenuItem";
             this.musculosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.musculosToolStripMenuItem.Text = "Musculos";
+            this.musculosToolStripMenuItem.Click += new System.EventHandler(this.musculosToolStripMenuItem_Click);
             // 
             // Menu
             // 

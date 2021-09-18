@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using BusinnesEntity;
+using BusinessLogic;
 
 namespace GUI
 {
@@ -16,5 +19,14 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+
+
+        private void GUI_Ejercicios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

@@ -78,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI-Ejercicios.resx">
+      <DependentUpon>GUI-Ejercicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Materiales.resx">
       <DependentUpon>GUI-Materiales.cs</DependentUpon>
     </EmbeddedResource>

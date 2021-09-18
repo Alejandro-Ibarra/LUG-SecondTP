@@ -34,3 +34,4 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ult
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\bin\Debug\DataAccess.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_Materiales.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_Musculos.resources
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\GUI\obj\Debug\GUI.GUI_Ejercicios.resources
