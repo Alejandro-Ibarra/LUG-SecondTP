@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="BEEjercicio.cs" />
     <Compile Include="BEMusculo.cs" />
-    <Compile Include="BEMateriales.cs" />
+    <Compile Include="BEMaterial.cs" />
     <Compile Include="BEEntity.cs" />
     <Compile Include="BERutina.cs" />
     <Compile Include="BEUsuario.cs" />

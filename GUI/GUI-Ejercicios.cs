@@ -19,7 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             oBEMusculo = new BEMusculo();
-            oBEMateriales = new BEMateriales();
+            oBEMateriales = new BEMaterial();
             oBEEjercicio= new BEEjercicio();
 
             oBLMusculo = new BLMusculo();
@@ -31,7 +31,7 @@ namespace GUI
         }
 
         BEMusculo oBEMusculo;
-        BEMateriales oBEMateriales;
+        BEMaterial oBEMateriales;
         BEEjercicio oBEEjercicio;
 
         BLMusculo oBLMusculo;
@@ -91,7 +91,7 @@ namespace GUI
             oRespuesta = MessageBox.Show("¿Posee material el ejercicio?", "Peso", MessageBoxButtons.YesNo);
             if (oRespuesta == DialogResult.Yes)
             {
-                oBEEjercicio.Materiales = (BEMateriales)ComboBox_Materiales.SelectedItem;
+                oBEEjercicio.Materiales = (BEMaterial)ComboBox_Materiales.SelectedItem;
             }
             else
             {
@@ -104,24 +104,51 @@ namespace GUI
 
         void InstanciarObjeto()
         {
-            oBEEjercicio.Nombre = TextBox_Nombre.Text;
-            oBEEjercicio.Codigo = int.Parse(TextBox_ID.Text);
+            oBEEjercicio.Nombre = TextBox_Nombre_Ejercicio.Text;
+            oBEEjercicio.Codigo = int.Parse(TextBox_ID_Ejercicio.Text);
         }
 
         void BorrarTextbox()
         {
-            TextBox_Nombre.Text = null;
-            TextBox_ID.Text = null;
+            TextBox_Nombre_Ejercicio.Text = null;
+            TextBox_ID_Ejercicio.Text = null;
         }
 
         private void Boton_Modificar_Ejercicio_Click(object sender, EventArgs e)
         {
-
+            oBEEjercicio.Codigo = 0;
+            oBEEjercicio.Nombre = TextBox_Nombre_Ejercicio.Text;
+            oBEEjercicio.Musculo = (BEMusculo)ComboBox_Musculos.SelectedItem;
+            DialogResult oRespuesta;
+            oRespuesta = MessageBox.Show("¿Posee material el ejercicio?", "Peso", MessageBoxButtons.YesNo);
+            if (oRespuesta == DialogResult.Yes)
+            {
+                oBEEjercicio.Materiales = (BEMaterial)ComboBox_Materiales.SelectedItem;
+            }
+            else
+            {
+                oBEEjercicio.Materiales = null;
+            }
+            oBLEjercicio.Guardar(oBEEjercicio);
+            BorrarTextbox();
+            CargarGrilla();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int codigo = int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            oBEEjercicio.Codigo = codigo;
+
+            BEEjercicio oBEEjAux;
+            oBEEjAux = oBLEjercicio.ListarObjeto(oBEEjercicio);
+            TextBox_ID_Ejercicio.Text = oBEEjAux.Codigo.ToString();
+            TextBox_Nombre_Ejercicio.Text = oBEEjAux.Nombre;
+            TextBox_ID_Musculo.Text = oBEEjAux.Musculo.Codigo.ToString();
+            TextBox_Nombre_Musculo.Text = oBEEjAux.Musculo.Nombre;
+            TextBox_ID_Material.Text = oBEEjAux.Materiales.Codigo.ToString();
+            TextBox_Nombre_Material.Text = oBEEjAux.Materiales.Nombre;
+            TextBox_Peso_Material.Text = oBEEjAux.Materiales.Peso.ToString();
+
         }
     }
 }

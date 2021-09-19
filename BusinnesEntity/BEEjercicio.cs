@@ -9,7 +9,7 @@ namespace BusinnesEntity
     public class BEEjercicio: BEEntity
     {
         public string Nombre { get; set; }
-        public BEMateriales Materiales{ get; set; }
+        public BEMaterial Materiales{ get; set; }
         public BEMusculo Musculo { get; set; }
     }
 }

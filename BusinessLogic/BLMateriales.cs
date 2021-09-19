@@ -9,7 +9,7 @@ using Mapper;
 
 namespace BusinessLogic
 {
-    public class BLMateriales : IGestor<BEMateriales>
+    public class BLMateriales : IGestor<BEMaterial>
     {
         public BLMateriales()
         {
@@ -18,23 +18,23 @@ namespace BusinessLogic
 
         MMateriales oMMAteriales;
         
-        public bool Baja(BEMateriales oBEMateriales)
+        public bool Baja(BEMaterial oBEMateriales)
         {
             return oMMAteriales.Baja(oBEMateriales);
         }
 
-        public bool Guardar(BEMateriales oBEMateriales)
+        public bool Guardar(BEMaterial oBEMateriales)
         {
             return oMMAteriales.Guardar(oBEMateriales);
             
         }
 
-        public BEMateriales ListarObjeto(BEMateriales oBEMateriales)
+        public BEMaterial ListarObjeto(BEMaterial oBEMateriales)
         {
             throw new NotImplementedException();
         }
 
-        public List<BEMateriales> ListarTodo()
+        public List<BEMaterial> ListarTodo()
         {
             return oMMAteriales.ListarTodo();
         }

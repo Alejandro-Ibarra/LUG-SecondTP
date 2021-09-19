@@ -19,15 +19,15 @@ namespace GUI
         {
             InitializeComponent();
             oBLMateriales = new BLMateriales();
-            oBEMateriales = new BEMateriales();
+            oBEMateriales = new BEMaterial();
         }
 
         BLMateriales oBLMateriales;
-        BEMateriales oBEMateriales;
+        BEMaterial oBEMateriales;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            oBEMateriales = (BEMateriales)this.dataGridView1.CurrentRow.DataBoundItem;
+            oBEMateriales = (BEMaterial)this.dataGridView1.CurrentRow.DataBoundItem;
             TextBox_Nombre.Text = oBEMateriales.Nombre;
             TextBox_Peso.Text = oBEMateriales.Peso.ToString();
             TextBox_ID.Text = oBEMateriales.Codigo.ToString();

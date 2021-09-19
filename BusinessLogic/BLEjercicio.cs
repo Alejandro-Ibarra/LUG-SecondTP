@@ -30,7 +30,7 @@ namespace BusinessLogic
 
         public BEEjercicio ListarObjeto(BEEjercicio oBEjercicio)
         {
-            throw new NotImplementedException();
+            return oMEjercicio.ListarObjeto(oBEjercicio);
         }
 
         public List<BEEjercicio> ListarTodo()

@@ -37,5 +37,11 @@ namespace BusinessLogic
         {
             throw new NotImplementedException();
         }
+
+        public bool AgregarUsuarioMaterial(BEUsuario oBEusuario, BEMaterial oBEMaterial)
+        {
+
+            return oMUsuario.AgregarUsuarioMaterial(oBEusuario, oBEMaterial);
+        }
     }
 }

@@ -10,16 +10,16 @@ using DataAccess;
 
 namespace Mapper
 {
-    public class MMateriales : IGestor<BEMateriales>
+    public class MMateriales : IGestor<BEMaterial>
     {
         Conexion oConexion;
 
-        public bool Baja(BEMateriales oBEMaterial)
+        public bool Baja(BEMaterial oBEMaterial)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BEMateriales oBEMaterial)
+        public bool Guardar(BEMaterial oBEMaterial)
         {
             string Consulta_SQL;
             if (oBEMaterial.Codigo == 0)
@@ -35,24 +35,24 @@ namespace Mapper
             return oConexion.Escribir(Consulta_SQL);
         }
 
-        public BEMateriales ListarObjeto(BEMateriales oBEMaterial)
+        public BEMaterial ListarObjeto(BEMaterial oBEMaterial)
         {
             throw new NotImplementedException();
         }
 
-        public List<BEMateriales> ListarTodo()
+        public List<BEMaterial> ListarTodo()
         {
             DataTable oDAtaTable;
             oConexion = new Conexion();
-            oDAtaTable = oConexion.LeerTabla("Select Codigo, Nombre, Peso From Materiales");
+            oDAtaTable = oConexion.LeerDataTable("Select Codigo, Nombre, Peso From Materiales");
 
-            List<BEMateriales> ListaMateriales = new List<BEMateriales>();
+            List<BEMaterial> ListaMateriales = new List<BEMaterial>();
 
             if (oDAtaTable.Rows.Count > 0)
             {
                 foreach (DataRow item in oDAtaTable.Rows)
                 {
-                    BEMateriales oBEMateriales = new BEMateriales();
+                    BEMaterial oBEMateriales = new BEMaterial();
                     oBEMateriales.Codigo = Convert.ToInt32(item[0]);
                     oBEMateriales.Nombre = item[1].ToString();
                     oBEMateriales.Peso = Convert.ToInt32(item[2]);

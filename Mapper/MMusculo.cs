@@ -44,7 +44,7 @@ namespace Mapper
         {
             DataTable oDAtaTable;
             oConexion = new Conexion();
-            oDAtaTable = oConexion.LeerTabla("Select Codigo, Nombre From Musculo");
+            oDAtaTable = oConexion.LeerDataTable("Select Codigo, Nombre From Musculo");
 
             List<BEMusculo> ListaMusculo = new List<BEMusculo>();
 

@@ -51,6 +51,7 @@ namespace GUI
             this.radioButton_Mod_Masc = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_rutina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Disponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Seleccionados)).BeginInit();
@@ -98,11 +99,11 @@ namespace GUI
             // 
             // Ingreso_Materiales
             // 
-            this.Ingreso_Materiales.Location = new System.Drawing.Point(486, 375);
+            this.Ingreso_Materiales.Location = new System.Drawing.Point(486, 313);
             this.Ingreso_Materiales.Name = "Ingreso_Materiales";
-            this.Ingreso_Materiales.Size = new System.Drawing.Size(91, 31);
+            this.Ingreso_Materiales.Size = new System.Drawing.Size(91, 37);
             this.Ingreso_Materiales.TabIndex = 5;
-            this.Ingreso_Materiales.Text = "Seleccione las herramientas que tiene y oprima el boton";
+            this.Ingreso_Materiales.Text = "Agregar Materiales";
             this.Ingreso_Materiales.UseVisualStyleBackColor = true;
             this.Ingreso_Materiales.Click += new System.EventHandler(this.Ingreso_Materiales_Click);
             // 
@@ -169,7 +170,7 @@ namespace GUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(494, 334);
+            this.label3.Location = new System.Drawing.Point(494, 284);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 12;
@@ -268,11 +269,21 @@ namespace GUI
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(486, 372);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 37);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Quitar Materiales";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // GUI_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 460);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton_Mod_Masc);
             this.Controls.Add(this.radioButton_Mod_Fem);
             this.Controls.Add(this.Boton_Aceptar_Cambios);
@@ -297,7 +308,6 @@ namespace GUI
             this.Controls.Add(this.groupBox2);
             this.Name = "GUI_User";
             this.Text = "GUI_User";
-            this.Load += new System.EventHandler(this.GUI_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_rutina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Disponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Seleccionados)).EndInit();
@@ -330,5 +340,6 @@ namespace GUI
         private System.Windows.Forms.RadioButton radioButton_Mod_Masc;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
     }
 }

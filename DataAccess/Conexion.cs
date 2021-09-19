@@ -16,7 +16,7 @@ namespace DataAccess
         private SqlConnection oConexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MiCadenaDeConexion"].ToString());
 
 
-        public DataTable LeerTabla(string Consulta_SQL)
+        public DataTable LeerDataTable(string Consulta_SQL)
         {
             DataTable tabla = new DataTable();
             try
@@ -35,34 +35,52 @@ namespace DataAccess
             return tabla;
         }
 
-        public BEUsuario LeerUsuario(string Consulta_SQL)
+        public DataSet LeerDataSet(string Consulta_SQL)
         {
-            oConexion.Open();
-            BEUsuario oBEUsuario = new BEUsuario();
-            SqlCommand command = new SqlCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = Consulta_SQL;
-            command.Connection = oConexion;
-            try 
+            DataSet oDataSet = new DataSet();
+            try
             {
-                SqlDataReader usuarioRecuperado = command.ExecuteReader();
-
-                usuarioRecuperado.Read();
-                oBEUsuario.Codigo = Convert.ToInt32(usuarioRecuperado[0]);
-                oBEUsuario.Nombre = usuarioRecuperado[1].ToString();
-                oBEUsuario.Apellido = usuarioRecuperado[2].ToString();
-                oBEUsuario.Sexo = usuarioRecuperado[3].ToString();
-
+                SqlDataAdapter oDataAdapter = new SqlDataAdapter(Consulta_SQL, oConexion);
+                oDataAdapter.Fill(oDataSet);
             }
             catch (SqlException ex)
-            {throw ex;}
+            { throw ex; }
             catch (Exception ex)
             { throw ex; }
             finally
             {
                 oConexion.Close();
             }
-            return oBEUsuario;
+            return oDataSet;
+        }
+
+        public BEEjercicio LeerEjercicio(string Consulta_SQL)
+        {
+            oConexion.Open();
+            BEEjercicio oBEEjercicio = new BEEjercicio();
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = Consulta_SQL;
+            command.Connection = oConexion;
+            try
+            {
+                SqlDataReader ejercicioRecuperado = command.ExecuteReader();
+
+                ejercicioRecuperado.Read();
+                oBEEjercicio.Nombre = ejercicioRecuperado[0].ToString();
+                oBEEjercicio.Musculo.Codigo = Convert.ToInt32(ejercicioRecuperado[1]);
+                oBEEjercicio.Materiales.Codigo = Convert.ToInt32(ejercicioRecuperado[2]);
+
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            {
+                oConexion.Close();
+            }
+            return oBEEjercicio;
         }
 
         public bool Escribir(string Consulta_SQL)

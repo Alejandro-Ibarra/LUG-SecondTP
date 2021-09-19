@@ -20,14 +20,32 @@ namespace GUI
             InitializeComponent();
             oBEUsuario = new BEUsuario();
             oBLUsuario = new BLUsuario();
+            oBEMateriales = new BEMaterial();
+            oBLMateriales = new BLMateriales();
+            
         }
 
         BEUsuario oBEUsuario;
+        BEMaterial oBEMateriales;
         BLUsuario oBLUsuario;
+        BLMateriales oBLMateriales;
 
-        private void Ingreso_Materiales_Click(object sender, EventArgs e)
+
+        private void Seleccionar_Usuario_Click(object sender, EventArgs e)
         {
+            BEUsuario oBEUsrAux;
+            int DNI = int.Parse(Interaction.InputBox("Ingrese su DNI"));
+            oBEUsuario.DNI = DNI;
+            oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
+            oBEUsrAux.DNI = DNI;
 
+            AsignarAControles(oBEUsrAux);
+
+            Boton_Alta_usuario.Visible = false;
+            radioButton_Alta_Fem.Visible = false;
+            radioButton_Alta_Masc.Visible = false;
+            groupBox1.Visible = false;
+            CargarGrillaMaterialesDisponibles();
         }
         #region ABM Usuario
 
@@ -50,6 +68,8 @@ namespace GUI
                 CargaDatos();
                 oBLUsuario.Guardar(oBEUsuario);
             }
+            AsignarAControles(oBEUsuario);
+            CargarGrillaMaterialesDisponibles();
         }
 
         private void CargaDatos()
@@ -73,7 +93,7 @@ namespace GUI
         private void Boton_Aceptar_Cambios_Click(object sender, EventArgs e)
         {
 
-            Asignar();
+            AsignarAUsuario();
             oBLUsuario.Guardar(oBEUsuario);
 
             TextBox_Nombre.Enabled = false;
@@ -85,28 +105,18 @@ namespace GUI
             Boton_Aceptar_Cambios.Enabled = false;
             Boton_Modificar_Datos.Enabled = true;
         }
+        #endregion
 
-        private void Seleccionar_Usuario_Click(object sender, EventArgs e)
+        void AsignarAControles(BEUsuario oBEUsuario)
         {
-            BEUsuario oBEusrAux = new BEUsuario();
-            int DNI = int.Parse(Interaction.InputBox("Ingrese su DNI"));
-            oBEUsuario.DNI = DNI;
-            oBEusrAux = oBLUsuario.ListarObjeto(oBEUsuario);
-            oBEusrAux.DNI = DNI;
-
-            TextBox_Apellido.Text = oBEusrAux.Apellido;
-            TextBox_Codigo.Text = oBEusrAux.Codigo.ToString();
-            TextBox_Nombre.Text = oBEusrAux.Nombre;
-            TextBox_Sexo.Text = oBEusrAux.Sexo;
-
-            Boton_Alta_usuario.Visible = false;
-            radioButton_Alta_Fem.Visible = false;
-            radioButton_Alta_Masc.Visible = false;
+            TextBox_Apellido.Text = oBEUsuario.Apellido;
+            TextBox_Codigo.Text = oBEUsuario.Codigo.ToString();
+            TextBox_Nombre.Text = oBEUsuario.Nombre;
+            TextBox_Sexo.Text = oBEUsuario.Sexo;
         }
 
-        void Asignar()
+        void AsignarAUsuario()
         {
-
             oBEUsuario.Nombre = TextBox_Nombre.Text;
             oBEUsuario.Apellido = TextBox_Apellido.Text;
             oBEUsuario.Codigo = int.Parse(TextBox_Codigo.Text);
@@ -115,22 +125,42 @@ namespace GUI
             {
                 oBEUsuario.Sexo = "Femenino";
             }
-            else if(radioButton_Mod_Masc.Checked == true)
+            else if (radioButton_Mod_Masc.Checked == true)
             {
                 oBEUsuario.Sexo = "Masculino";
             }
-
-            /*else
-            {
-                oBEUsuario.Sexo = TextBox_Sexo.Text;
-            }*/
-
         }
-        #endregion
 
-        private void GUI_User_Load(object sender, EventArgs e)
+        void CargarGrillaMaterialesDisponibles()
         {
+            Grilla_Materiales_Disponibles.DataSource = null;
+            Grilla_Materiales_Disponibles.DataSource = oBLMateriales.ListarTodo();
+        }
 
+        
+        private void Ingreso_Materiales_Click(object sender, EventArgs e)
+        {
+            oBEMateriales = (BEMaterial)this.Grilla_Materiales_Disponibles.CurrentRow.DataBoundItem;
+
+            if (oBEUsuario.Materiales != null)
+            {
+                foreach (BEMaterial Material in oBEUsuario.Materiales)
+                {
+                    if (Material.Codigo == oBEMateriales.Codigo)
+                    {
+                        MessageBox.Show("El Material " +oBEMateriales.Nombre+" ya esta ingresado");
+                        break;
+                    }
+                    else
+                    {
+                        oBLUsuario.AgregarUsuarioMaterial(oBEUsuario,oBEMateriales)
+                    }
+                }
+            }
+            else
+            {
+                oBLUsuario.AgregarUsuarioMaterial(oBEUsuario, oBEMateriales);
+            }
         }
     }
 }
