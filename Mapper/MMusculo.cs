@@ -16,7 +16,21 @@ namespace Mapper
 
         public bool Baja(BEMusculo oBEMusculo)
         {
-            throw new NotImplementedException();
+            if (ExisteEjercicioAsociado(oBEMusculo) == false)
+            {
+                string Consulta_SQL;
+                Consulta_SQL = "DELETE FROM Musculo where Codigo = " + oBEMusculo.Codigo + "";
+                oConexion = new Conexion();
+                return oConexion.Escribir(Consulta_SQL);
+            }
+            else
+            { return false; }
+        }
+
+        private bool ExisteEjercicioAsociado(BEMusculo oBEMusculo)
+        {
+            oConexion = new Conexion();
+            return oConexion.LeerAsociacion("select count(CodMusculo) from Ejercicio where CodMusculo =" + oBEMusculo.Codigo + "");
         }
 
         public bool Guardar(BEMusculo oBEMusculo)

@@ -86,14 +86,43 @@ namespace GUI
 
         void BorrarTextbox()
         {
-            TextBox_Nombre.Text = null;
-            TextBox_Peso.Text = null;
-            TextBox_ID.Text = null;
+            foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+            {
+                oTextbox.Text = null;
+            }
         }
 
         private void GUI_Materiales_Load(object sender, EventArgs e)
         {
             CargarGrilla();
+        }
+
+        private void Boton_Baja_Materiales_Click(object sender, EventArgs e)
+        {
+            if (TextBox_ID.Text != null)
+            {
+                DialogResult Respuesta;
+                Respuesta = MessageBox.Show("¿Eliminar material?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (Respuesta == DialogResult.Yes)
+                {
+                    if (oBLMateriales.Baja(oBEMateriales) == false)
+                    { MessageBox.Show("Para dar de baja el material no debe estar asociado a ningun Ejercicio"); }
+                    else
+                    {
+                        CargarGrilla();
+                        LimpiarTextBox();
+                    }
+
+                }
+            }
+            else
+            { Interaction.MsgBox("Seleccione un Musculo para dar de baja"); }
+        }
+
+        void LimpiarTextBox()
+        {
+            TextBox_ID.Text = null;
+            TextBox_Nombre.Text = null;
         }
     }
 }

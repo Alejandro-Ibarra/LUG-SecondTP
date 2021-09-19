@@ -104,7 +104,7 @@ namespace GUI
             {
                 oBLUsuario.Baja(oBEUsuario);
                 ControlesUPDownBajaUsuario();
-                LimpiarControles();
+                LimpiarControles(); 
                 LimpiarGrillas();
             }
         }
@@ -125,10 +125,10 @@ namespace GUI
 
         void LimpiarControles()
         {
-            TextBox_Apellido.Text = null;
-            TextBox_Codigo.Text = null;
-            TextBox_Nombre.Text = null;
-            TextBox_Sexo.Text = null;
+            foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+            {
+                oTextbox.Text = null;
+            }
         }
 
         void AsignarAControles(BEUsuario oBEUsuario)
@@ -258,6 +258,11 @@ namespace GUI
             groupBox2.Visible = false;
             Boton_Baja_Usuario.Visible = true;
             groupBox1.Visible = false;
+        }
+
+        private void GUI_User_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -41,6 +41,28 @@ namespace GUI
             CargarGrilla();
         }
 
+        private void Boton_Baja_Musculo_Click(object sender, EventArgs e)
+        {
+            if (TextBox_ID.Text != null)
+            {
+                DialogResult Respuesta;
+                Respuesta = MessageBox.Show("¿Eliminar Musculo?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (Respuesta == DialogResult.Yes)
+                {
+                    if (oBLMusculo.Baja(oBEMusculo) == false)
+                    { MessageBox.Show("Para dar de baja el musculo no debe estar asociado a nigun Ejercicio"); }
+                    else
+                    {
+                        CargarGrilla();
+                        LimpiarTextBox();
+                    }
+
+                }
+            }
+            else
+            { Interaction.MsgBox("Seleccione un Musculo para dar de baja"); }
+        }
+
         private void Boton_Modificar_Musculo_Click(object sender, EventArgs e)
         {
             if (TextBox_Nombre.Text == null)
@@ -69,8 +91,10 @@ namespace GUI
 
         void BorrarTextbox()
         {
-            TextBox_Nombre.Text = null;
-            TextBox_ID.Text = null;
+            foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+            {
+                oTextbox.Text = null;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,6 +105,16 @@ namespace GUI
             TextBox_Nombre.ReadOnly = false;
         }
 
-        
+        void AsignarAMusculo()
+        {
+            oBEMusculo.Codigo = int.Parse(TextBox_ID.Text);
+            oBEMusculo.Nombre= TextBox_Nombre.Text;
+        }
+
+        void LimpiarTextBox()
+        {
+            TextBox_ID.Text = null;
+            TextBox_Nombre.Text = null;
+        }
     }
 }

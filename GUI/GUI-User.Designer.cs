@@ -322,6 +322,7 @@ namespace GUI
             this.Controls.Add(this.groupBox2);
             this.Name = "GUI_User";
             this.Text = "GUI_User";
+            this.Load += new System.EventHandler(this.GUI_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_rutina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Disponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Seleccionados)).EndInit();

@@ -99,6 +99,7 @@ namespace GUI
             this.Boton_Baja_Ejercicio.TabIndex = 26;
             this.Boton_Baja_Ejercicio.Text = "Baja";
             this.Boton_Baja_Ejercicio.UseVisualStyleBackColor = true;
+            this.Boton_Baja_Ejercicio.Click += new System.EventHandler(this.Boton_Baja_Ejercicio_Click);
             // 
             // Boton_Alta_Ejercicio
             // 

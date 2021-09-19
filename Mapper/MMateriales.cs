@@ -16,7 +16,21 @@ namespace Mapper
 
         public bool Baja(BEMaterial oBEMaterial)
         {
-            throw new NotImplementedException();
+            if (ExisteMaterialAsociado(oBEMaterial) == false)
+            {
+                string Consulta_SQL;
+                Consulta_SQL = "DELETE FROM Materiales where Codigo = " + oBEMaterial.Codigo + "";
+                oConexion = new Conexion();
+                return oConexion.Escribir(Consulta_SQL);
+            }
+            else
+            { return false; }
+        }
+
+        private bool ExisteMaterialAsociado(BEMaterial oBEMaterial)
+        {
+            oConexion = new Conexion();
+            return oConexion.LeerAsociacion("select count(CodMateriales) from Ejercicio where CodMateriales =" + oBEMaterial.Codigo + "");
         }
 
         public bool Guardar(BEMaterial oBEMaterial)

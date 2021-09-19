@@ -85,6 +85,7 @@ namespace GUI
             this.Boton_Baja_Musculo.TabIndex = 17;
             this.Boton_Baja_Musculo.Text = "Baja";
             this.Boton_Baja_Musculo.UseVisualStyleBackColor = true;
+            this.Boton_Baja_Musculo.Click += new System.EventHandler(this.Boton_Baja_Musculo_Click);
             // 
             // Boton_Alta_Musculo
             // 

@@ -141,14 +141,58 @@ namespace GUI
 
             BEEjercicio oBEEjAux;
             oBEEjAux = oBLEjercicio.ListarObjeto(oBEEjercicio);
-            TextBox_ID_Ejercicio.Text = oBEEjAux.Codigo.ToString();
-            TextBox_Nombre_Ejercicio.Text = oBEEjAux.Nombre;
-            TextBox_ID_Musculo.Text = oBEEjAux.Musculo.Codigo.ToString();
-            TextBox_Nombre_Musculo.Text = oBEEjAux.Musculo.Nombre;
-            TextBox_ID_Material.Text = oBEEjAux.Materiales.Codigo.ToString();
-            TextBox_Nombre_Material.Text = oBEEjAux.Materiales.Nombre;
-            TextBox_Peso_Material.Text = oBEEjAux.Materiales.Peso.ToString();
+            AsignarAControles(oBEEjAux);
 
+        }
+
+        private void Boton_Baja_Ejercicio_Click(object sender, EventArgs e)
+        {
+            if (TextBox_ID_Ejercicio.Text != null)
+            {
+                AsignarAUsuario();
+                DialogResult Respuesta;
+                Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (Respuesta == DialogResult.Yes)
+                {
+                    oBLEjercicio.Baja(oBEEjercicio);
+                    LimpiarTextBox();
+                }
+            }
+            else
+            {
+                Interaction.MsgBox("Selecciones el Ejercicio a borrar");
+            }
+            
+        }
+
+        private void LimpiarTextBox()
+        {
+            foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+            {
+                oTextbox.Text = null;
+            }
+        }
+
+        void AsignarAUsuario()
+        {
+            oBEEjercicio.Codigo = int.Parse(TextBox_ID_Ejercicio.Text);
+            oBEEjercicio.Nombre = TextBox_Nombre_Ejercicio.Text;
+            oBEEjercicio.Musculo.Codigo = int.Parse(TextBox_ID_Musculo.Text);
+            oBEEjercicio.Musculo.Nombre = TextBox_Nombre_Musculo.Text;
+            oBEEjercicio.Materiales.Codigo = int.Parse(TextBox_ID_Material.Text);
+            oBEEjercicio.Materiales.Nombre = TextBox_Nombre_Material.Text;
+            oBEEjercicio.Materiales.Peso = TextBox_Peso_Material.Text;
+        }
+
+        void AsignarAControles(BEEjercicio oBEEjercicio)
+        {
+            TextBox_ID_Ejercicio.Text = oBEEjercicio.Codigo.ToString();
+            TextBox_Nombre_Ejercicio.Text = oBEEjercicio.Nombre;
+            TextBox_ID_Musculo.Text = oBEEjercicio.Musculo.Codigo.ToString();
+            TextBox_Nombre_Musculo.Text = oBEEjercicio.Musculo.Nombre;
+            TextBox_ID_Material.Text = oBEEjercicio.Materiales.Codigo.ToString();
+            TextBox_Nombre_Material.Text = oBEEjercicio.Materiales.Nombre;
+            TextBox_Peso_Material.Text = oBEEjercicio.Materiales.Peso.ToString();
         }
     }
 }

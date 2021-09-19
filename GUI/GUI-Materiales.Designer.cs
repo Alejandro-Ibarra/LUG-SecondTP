@@ -105,6 +105,7 @@ namespace GUI
             this.Boton_Baja_Materiales.TabIndex = 6;
             this.Boton_Baja_Materiales.Text = "Baja";
             this.Boton_Baja_Materiales.UseVisualStyleBackColor = true;
+            this.Boton_Baja_Materiales.Click += new System.EventHandler(this.Boton_Baja_Materiales_Click);
             // 
             // Boton_Modificar_Materiales
             // 
