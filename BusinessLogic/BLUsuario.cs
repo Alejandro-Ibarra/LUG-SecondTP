@@ -40,8 +40,13 @@ namespace BusinessLogic
 
         public bool AgregarUsuarioMaterial(BEUsuario oBEusuario, BEMaterial oBEMaterial)
         {
-
             return oMUsuario.AgregarUsuarioMaterial(oBEusuario, oBEMaterial);
         }
+
+        public bool EliminarMaterialUsuario(BEUsuario oBEusuario, BEMaterial oBEMaterial)
+        {
+            return oMUsuario.EliminarMaterialAsociado (oBEusuario, oBEMaterial);
+        }
     }
+    
 }

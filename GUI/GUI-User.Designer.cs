@@ -32,7 +32,7 @@ namespace GUI
             this.Grilla_rutina = new System.Windows.Forms.DataGridView();
             this.Generar_Rutina = new System.Windows.Forms.Button();
             this.Boton_Alta_usuario = new System.Windows.Forms.Button();
-            this.Seleccionar_Usuario = new System.Windows.Forms.Button();
+            this.Boton_Seleccionar_Usuario = new System.Windows.Forms.Button();
             this.Ingreso_Materiales = new System.Windows.Forms.Button();
             this.Grilla_Materiales_Disponibles = new System.Windows.Forms.DataGridView();
             this.Grilla_Materiales_Seleccionados = new System.Windows.Forms.DataGridView();
@@ -51,7 +51,8 @@ namespace GUI
             this.radioButton_Mod_Masc = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Eliminar_Materiales = new System.Windows.Forms.Button();
+            this.Boton_Baja_Usuario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_rutina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Disponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Seleccionados)).BeginInit();
@@ -87,15 +88,15 @@ namespace GUI
             this.Boton_Alta_usuario.UseVisualStyleBackColor = true;
             this.Boton_Alta_usuario.Click += new System.EventHandler(this.Alta_usuario_Click);
             // 
-            // Seleccionar_Usuario
+            // Boton_Seleccionar_Usuario
             // 
-            this.Seleccionar_Usuario.Location = new System.Drawing.Point(276, 12);
-            this.Seleccionar_Usuario.Name = "Seleccionar_Usuario";
-            this.Seleccionar_Usuario.Size = new System.Drawing.Size(227, 26);
-            this.Seleccionar_Usuario.TabIndex = 4;
-            this.Seleccionar_Usuario.Text = "Ingrese su DNI";
-            this.Seleccionar_Usuario.UseVisualStyleBackColor = true;
-            this.Seleccionar_Usuario.Click += new System.EventHandler(this.Seleccionar_Usuario_Click);
+            this.Boton_Seleccionar_Usuario.Location = new System.Drawing.Point(276, 12);
+            this.Boton_Seleccionar_Usuario.Name = "Boton_Seleccionar_Usuario";
+            this.Boton_Seleccionar_Usuario.Size = new System.Drawing.Size(227, 26);
+            this.Boton_Seleccionar_Usuario.TabIndex = 4;
+            this.Boton_Seleccionar_Usuario.Text = "Ingrese su DNI";
+            this.Boton_Seleccionar_Usuario.UseVisualStyleBackColor = true;
+            this.Boton_Seleccionar_Usuario.Click += new System.EventHandler(this.Boton_Seleccionar_Usuario_Click);
             // 
             // Ingreso_Materiales
             // 
@@ -269,21 +270,34 @@ namespace GUI
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             // 
-            // button1
+            // Eliminar_Materiales
             // 
-            this.button1.Location = new System.Drawing.Point(486, 372);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 37);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Quitar Materiales";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Eliminar_Materiales.Location = new System.Drawing.Point(486, 372);
+            this.Eliminar_Materiales.Name = "Eliminar_Materiales";
+            this.Eliminar_Materiales.Size = new System.Drawing.Size(91, 37);
+            this.Eliminar_Materiales.TabIndex = 23;
+            this.Eliminar_Materiales.Text = "Quitar Materiales";
+            this.Eliminar_Materiales.UseVisualStyleBackColor = true;
+            this.Eliminar_Materiales.Click += new System.EventHandler(this.Eliminar_Materiales_Click);
+            // 
+            // Boton_Baja_Usuario
+            // 
+            this.Boton_Baja_Usuario.Location = new System.Drawing.Point(633, 118);
+            this.Boton_Baja_Usuario.Name = "Boton_Baja_Usuario";
+            this.Boton_Baja_Usuario.Size = new System.Drawing.Size(166, 37);
+            this.Boton_Baja_Usuario.TabIndex = 24;
+            this.Boton_Baja_Usuario.Text = "Dar de baja suscripcion";
+            this.Boton_Baja_Usuario.UseVisualStyleBackColor = true;
+            this.Boton_Baja_Usuario.Visible = false;
+            this.Boton_Baja_Usuario.Click += new System.EventHandler(this.Boton_Baja_Usuario_Click);
             // 
             // GUI_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 460);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Boton_Baja_Usuario);
+            this.Controls.Add(this.Eliminar_Materiales);
             this.Controls.Add(this.radioButton_Mod_Masc);
             this.Controls.Add(this.radioButton_Mod_Fem);
             this.Controls.Add(this.Boton_Aceptar_Cambios);
@@ -300,7 +314,7 @@ namespace GUI
             this.Controls.Add(this.Grilla_Materiales_Seleccionados);
             this.Controls.Add(this.Grilla_Materiales_Disponibles);
             this.Controls.Add(this.Ingreso_Materiales);
-            this.Controls.Add(this.Seleccionar_Usuario);
+            this.Controls.Add(this.Boton_Seleccionar_Usuario);
             this.Controls.Add(this.Boton_Alta_usuario);
             this.Controls.Add(this.Generar_Rutina);
             this.Controls.Add(this.Grilla_rutina);
@@ -321,7 +335,7 @@ namespace GUI
         private System.Windows.Forms.DataGridView Grilla_rutina;
         private System.Windows.Forms.Button Generar_Rutina;
         private System.Windows.Forms.Button Boton_Alta_usuario;
-        private System.Windows.Forms.Button Seleccionar_Usuario;
+        private System.Windows.Forms.Button Boton_Seleccionar_Usuario;
         private System.Windows.Forms.Button Ingreso_Materiales;
         private System.Windows.Forms.DataGridView Grilla_Materiales_Disponibles;
         private System.Windows.Forms.DataGridView Grilla_Materiales_Seleccionados;
@@ -340,6 +354,7 @@ namespace GUI
         private System.Windows.Forms.RadioButton radioButton_Mod_Masc;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Eliminar_Materiales;
+        private System.Windows.Forms.Button Boton_Baja_Usuario;
     }
 }

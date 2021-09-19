@@ -22,7 +22,10 @@ namespace GUI
             oBLUsuario = new BLUsuario();
             oBEMateriales = new BEMaterial();
             oBLMateriales = new BLMateriales();
-            
+            Grilla_Materiales_Disponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_Materiales_Seleccionados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Grilla_rutina.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
         }
 
         BEUsuario oBEUsuario;
@@ -31,22 +34,7 @@ namespace GUI
         BLMateriales oBLMateriales;
 
 
-        private void Seleccionar_Usuario_Click(object sender, EventArgs e)
-        {
-            BEUsuario oBEUsrAux;
-            int DNI = int.Parse(Interaction.InputBox("Ingrese su DNI"));
-            oBEUsuario.DNI = DNI;
-            oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
-            oBEUsrAux.DNI = DNI;
 
-            AsignarAControles(oBEUsrAux);
-
-            Boton_Alta_usuario.Visible = false;
-            radioButton_Alta_Fem.Visible = false;
-            radioButton_Alta_Masc.Visible = false;
-            groupBox1.Visible = false;
-            CargarGrillaMaterialesDisponibles();
-        }
         #region ABM Usuario
 
         private void Alta_usuario_Click(object sender, EventArgs e)
@@ -59,17 +47,25 @@ namespace GUI
             else if (radioButton_Alta_Fem.Checked == true)
             {
                 oBEUsuario.Sexo = "Femenino";
-                CargaDatos();
-                oBLUsuario.Guardar(oBEUsuario);
+                ActualizacionAlta();
             }
             else if (radioButton_Alta_Masc.Checked == true)
             {
                 oBEUsuario.Sexo = "Masculino";
-                CargaDatos();
-                oBLUsuario.Guardar(oBEUsuario);
+                ActualizacionAlta();
             }
-            AsignarAControles(oBEUsuario);
+
+        }
+
+        private void ActualizacionAlta()
+        {
+            CargaDatos();
+            oBLUsuario.Guardar(oBEUsuario);
+            LimpiarGrillas();
             CargarGrillaMaterialesDisponibles();
+            oBEUsuario = RecuperarUsuarioPorDNI(oBEUsuario.DNI);
+            AsignarAControles(oBEUsuario);
+            ControlesUPDownAltaUsuario();
         }
 
         private void CargaDatos()
@@ -79,33 +75,61 @@ namespace GUI
             oBEUsuario.DNI = int.Parse(Interaction.InputBox("Ingrese DNI"));
         }
 
+        private BEUsuario RecuperarUsuarioPorDNI(int oDNI)
+        {
+            BEUsuario oBEUsrAux;
+            oBEUsuario.DNI = oDNI;
+            oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
+            oBEUsrAux.DNI = oDNI;
+            return oBEUsrAux;
+        }
+
+        private void Boton_Seleccionar_Usuario_Click(object sender, EventArgs e)
+        {
+            int DNI = int.Parse(Interaction.InputBox("Ingrese su DNI"));
+            oBEUsuario = RecuperarUsuarioPorDNI(DNI);
+            AsignarAControles(oBEUsuario);
+            ControlesUPDownAltaUsuario();
+            LimpiarGrillas();
+            CargarGrillaMaterialesDisponibles();
+            ListarMatUsuario(oBEUsuario);
+        }
+
+        private void Boton_Baja_Usuario_Click(object sender, EventArgs e)
+        {
+            AsignarAUsuario();
+            DialogResult Respuesta;
+            Respuesta = MessageBox.Show("¿Quiere continuar con la baja?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (Respuesta == DialogResult.Yes)
+            {
+                oBLUsuario.Baja(oBEUsuario);
+                ControlesUPDownBajaUsuario();
+                LimpiarControles();
+                LimpiarGrillas();
+            }
+        }
+
         private void Modificar_Datos_Click(object sender, EventArgs e)
         {
-            TextBox_Nombre.Enabled = true;
-            TextBox_Apellido.Enabled = true;
-            TextBox_Sexo.Enabled = true;
-            radioButton_Mod_Fem.Visible = true;
-            radioButton_Mod_Masc.Visible = true;
-            Boton_Aceptar_Cambios.Enabled = true;
-            Boton_Modificar_Datos.Enabled = false;
+            ControlesUPDownInsertarCambios();
         }
 
         private void Boton_Aceptar_Cambios_Click(object sender, EventArgs e)
         {
-
             AsignarAUsuario();
             oBLUsuario.Guardar(oBEUsuario);
-
-            TextBox_Nombre.Enabled = false;
-            TextBox_Apellido.Enabled = false;
-            TextBox_Codigo.Enabled = false;
-            TextBox_Sexo.Enabled = false;
-            radioButton_Mod_Fem.Visible = false;
-            radioButton_Mod_Masc.Visible = false;
-            Boton_Aceptar_Cambios.Enabled = false;
-            Boton_Modificar_Datos.Enabled = true;
+            AsignarAControles(oBEUsuario);
+            ControlesUPDownAceptarCambios();
         }
         #endregion
+
+        void LimpiarControles()
+        {
+            TextBox_Apellido.Text = null;
+            TextBox_Codigo.Text = null;
+            TextBox_Nombre.Text = null;
+            TextBox_Sexo.Text = null;
+        }
 
         void AsignarAControles(BEUsuario oBEUsuario)
         {
@@ -137,30 +161,103 @@ namespace GUI
             Grilla_Materiales_Disponibles.DataSource = oBLMateriales.ListarTodo();
         }
 
-        
+
         private void Ingreso_Materiales_Click(object sender, EventArgs e)
         {
+            AsignarAUsuario();
             oBEMateriales = (BEMaterial)this.Grilla_Materiales_Disponibles.CurrentRow.DataBoundItem;
-
+            int ValAux = 0;
             if (oBEUsuario.Materiales != null)
             {
                 foreach (BEMaterial Material in oBEUsuario.Materiales)
                 {
                     if (Material.Codigo == oBEMateriales.Codigo)
                     {
-                        MessageBox.Show("El Material " +oBEMateriales.Nombre+" ya esta ingresado");
-                        break;
+                        ValAux += 1;
                     }
-                    else
-                    {
-                        oBLUsuario.AgregarUsuarioMaterial(oBEUsuario,oBEMateriales)
-                    }
+                }
+                if (ValAux != 0)
+                {
+                    MessageBox.Show("El Material ya esta ingresado");
+                }
+                else
+                {
+                    oBLUsuario.AgregarUsuarioMaterial(oBEUsuario, oBEMateriales);
                 }
             }
             else
             {
                 oBLUsuario.AgregarUsuarioMaterial(oBEUsuario, oBEMateriales);
             }
+            ListarMatUsuario(oBEUsuario);
+        }
+
+        private void ListarMatUsuario(BEUsuario oBEUsuario)
+        {
+            BEUsuario oBEUsrAux;
+            AsignarAUsuario();
+            oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
+            Grilla_Materiales_Seleccionados.DataSource = null;
+            Grilla_Materiales_Seleccionados.DataSource = oBEUsrAux.Materiales;
+
+        }
+
+        private void EliminarMaterialUsuario(BEUsuario oBEUsuario)
+        {
+            oBEMateriales = (BEMaterial)this.Grilla_Materiales_Seleccionados.CurrentRow.DataBoundItem;
+            oBLUsuario.EliminarMaterialUsuario(oBEUsuario, oBEMateriales);
+            ListarMatUsuario(oBEUsuario);
+        }
+
+        private void Eliminar_Materiales_Click(object sender, EventArgs e)
+        {
+            AsignarAUsuario();
+            EliminarMaterialUsuario(oBEUsuario);
+        }
+
+        void LimpiarGrillas()
+        {
+            Grilla_Materiales_Disponibles.DataSource = null;
+            Grilla_Materiales_Seleccionados.DataSource = null;
+        }
+        void ControlesUPDownAceptarCambios()
+        {
+            TextBox_Nombre.Enabled = false;
+            TextBox_Apellido.Enabled = false;
+            TextBox_Sexo.Enabled = false;
+            radioButton_Mod_Fem.Visible = false;
+            radioButton_Mod_Masc.Visible = false;
+            Boton_Aceptar_Cambios.Enabled = false;
+            Boton_Modificar_Datos.Enabled = true;
+            groupBox1.Visible = false;
+        }
+        void ControlesUPDownInsertarCambios()
+        {
+            TextBox_Nombre.Enabled = true;
+            TextBox_Apellido.Enabled = true;
+            TextBox_Sexo.Enabled = true;
+            radioButton_Mod_Fem.Visible = true;
+            radioButton_Mod_Masc.Visible = true;
+            Boton_Aceptar_Cambios.Enabled = true;
+            Boton_Modificar_Datos.Enabled = false;
+            groupBox1.Visible = false;
+        }
+        void ControlesUPDownBajaUsuario()
+        {
+            Boton_Alta_usuario.Visible = true;
+            radioButton_Alta_Fem.Visible = true;
+            radioButton_Alta_Masc.Visible = true;
+            groupBox2.Visible = true;
+            Boton_Baja_Usuario.Visible = false;
+        }
+        void ControlesUPDownAltaUsuario()
+        {
+            Boton_Alta_usuario.Visible = false;
+            radioButton_Alta_Fem.Visible = false;
+            radioButton_Alta_Masc.Visible = false;
+            groupBox2.Visible = false;
+            Boton_Baja_Usuario.Visible = true;
+            groupBox1.Visible = false;
         }
     }
 }

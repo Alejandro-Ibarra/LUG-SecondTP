@@ -20,6 +20,7 @@ namespace GUI
             InitializeComponent();
             oBLMateriales = new BLMateriales();
             oBEMateriales = new BEMaterial();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         BLMateriales oBLMateriales;

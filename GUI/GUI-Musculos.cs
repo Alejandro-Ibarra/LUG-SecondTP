@@ -20,6 +20,7 @@ namespace GUI
             InitializeComponent();
             oBLMusculo = new BLMusculo();
             oBEMusculo = new BEMusculo();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         BLMusculo oBLMusculo;
