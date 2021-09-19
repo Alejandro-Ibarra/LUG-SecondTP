@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BERutAerobico.cs" />
     <Compile Include="BEEjercicio.cs" />
+    <Compile Include="BERutHipertrofia.cs" />
     <Compile Include="BEMusculo.cs" />
     <Compile Include="BEMaterial.cs" />
     <Compile Include="BEEntity.cs" />

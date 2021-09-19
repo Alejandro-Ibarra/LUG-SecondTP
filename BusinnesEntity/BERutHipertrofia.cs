@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinnesEntity
 {
-    public abstract class BERutina : BEEntity
+    public class BERutHipertrofia : BERutina
     {
-        public int Repeticiones { get; set; }
+        
     }
 }

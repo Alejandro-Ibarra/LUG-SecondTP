@@ -44,6 +44,8 @@
     <Compile Include="MEjercicio.cs" />
     <Compile Include="MMateriales.cs" />
     <Compile Include="MMusculo.cs" />
+    <Compile Include="MRutAerobico.cs" />
+    <Compile Include="MRutHipertrofia.cs" />
     <Compile Include="MRutina.cs" />
     <Compile Include="MUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

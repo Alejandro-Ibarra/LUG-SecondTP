@@ -13,10 +13,12 @@ namespace Mapper
     public class MEjercicio : IGestor<BEEjercicio>
     {
         Conexion oConexion;
-
+        #region ABM
         public bool Baja(BEEjercicio oBEEjercicio)
         {
-            throw new NotImplementedException();
+            string Consulta2 = "Delete from Ejercicio where Codigo = " + oBEEjercicio.Codigo + "";
+            oConexion = new Conexion();
+            return oConexion.Escribir(Consulta2);
         }
 
         public bool Guardar(BEEjercicio oBEEjercicio)
@@ -33,10 +35,8 @@ namespace Mapper
 
             oConexion = new Conexion();
             return oConexion.Escribir(Consulta_SQL);
-            
-            
         }
-       
+        #endregion
         public BEEjercicio ListarObjeto(BEEjercicio oBEEjercicio)
         {
             string Consulta_Sql = " Select Ejercicio.Codigo, Ejercicio.Nombre, Musculo.Codigo as CodMusculo, Musculo.Nombre as NombreMusculo from Ejercicio, Musculo " +
@@ -79,9 +79,8 @@ namespace Mapper
         {
             DataTable oDataTable;
             Conexion oConexion = new Conexion();
-            oDataTable = oConexion.LeerDataTable("Select Ejercicio.Codigo, Ejercicio.Nombre, Musculo.Codigo as CodMusculo, Musculo.Nombre as NombreMusculo from Ejercicio," +
-                                                 " Musculo where Ejercicio.CodMusculo = Musculo.Codigo");
-            List<BEEjercicio> ListaEjercicio = new List<BEEjercicio>();
+            oDataTable = oConexion.LeerDataTable("Select Ejercicio.Codigo, Ejercicio.Nombre, Musculo.Codigo as CodMusculo, Musculo.Nombre as NombreMusculo, Materiales.Codigo as CodigoMateriales, Materiales.Nombre as NombreMateriales, Materiales.Peso as PaesoMateriales from Ejercicio, Musculo, Materiales where Ejercicio.CodMusculo = Musculo.Codigo and Ejercicio.CodMateriales = Materiales.Codigo");
+            List <BEEjercicio> ListaEjercicio = new List<BEEjercicio>();
             try
             {
                 if (oDataTable.Rows.Count > 0)
@@ -90,25 +89,16 @@ namespace Mapper
                     {
                         BEEjercicio oBEEj = new BEEjercicio();
                         BEMusculo oBEMusc = new BEMusculo();
+                        BEMaterial oBEMat = new BEMaterial();
                         oBEEj.Codigo = Convert.ToInt32(fila[0]);
                         oBEEj.Nombre = fila[1].ToString();
                         oBEMusc.Codigo = Convert.ToInt32(fila[2]);
                         oBEMusc.Nombre = fila[3].ToString();
                         oBEEj.Musculo = oBEMusc;
-                        DataTable oDataTable2;
-                        oDataTable2 = oConexion.LeerDataTable("Select Materiales.Codigo as CodMateriales, Materiales.Nombre as MatNombres, Materiales.Peso as MatPeso from Ejercicio, Materiales " +
-                                                            "where Ejercicio.CodMateriales = Materiales.Codigo");
-                        if (oDataTable2.Rows.Count > 0)
-                        {
-                            foreach (DataRow fila2 in oDataTable2.Rows)
-                            {
-                                BEMaterial oBEMat = new BEMaterial();
-                                oBEMat.Codigo = Convert.ToInt32(fila2[0]);
-                                oBEMat.Nombre = fila2[1].ToString();
-                                oBEMat.Peso = Convert.ToInt32(fila2[2]);
-                                oBEEj.Materiales = oBEMat;
-                            }
-                        }
+                        oBEMat.Codigo = Convert.ToInt32(fila[4]);
+                        oBEMat.Nombre = fila[5].ToString();
+                        oBEMat.Peso = Convert.ToInt32(fila[6]);
+                        oBEEj.Materiales = oBEMat;
                         ListaEjercicio.Add(oBEEj);
                     }
                 }

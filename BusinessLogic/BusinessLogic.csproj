@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLRutAerobico.cs" />
     <Compile Include="BLEjercicio.cs" />
+    <Compile Include="BLRutHipertrofia.cs" />
     <Compile Include="BLMateriales.cs" />
     <Compile Include="BLMusculo.cs" />
+    <Compile Include="BLRutina.cs" />
     <Compile Include="BLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

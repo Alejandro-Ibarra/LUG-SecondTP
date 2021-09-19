@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstraction;
 using BusinnesEntity;
-using DataAccess;
+using Mapper;
 
-namespace Mapper
+namespace BusinessLogic
 {
-    public abstract class MRutina
+    public abstract class BLRutina
     {
         public abstract BEEjercicio Caluclo(BEEjercicio oBEEjercicio);
 
