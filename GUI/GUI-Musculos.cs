@@ -33,88 +33,135 @@ namespace GUI
 
         private void Boton_Alta_Musculo_Click(object sender, EventArgs e)
         {
-            oBEMusculo.Codigo = 0;
-            oBEMusculo.Nombre = Interaction.InputBox("Ingrese el nombre del musculo");
-
-            oBLMusculo.Guardar(oBEMusculo);
-            BorrarTextbox();
-            CargarGrilla();
+            try
+            {
+                oBEMusculo.Codigo = 0;
+                oBEMusculo.Nombre = Interaction.InputBox("Ingrese el nombre del musculo");
+                oBLMusculo.Guardar(oBEMusculo);
+                BorrarTextbox();
+                CargarGrilla();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Baja_Musculo_Click(object sender, EventArgs e)
         {
-            if (TextBox_ID.Text != null)
+            try
             {
-                DialogResult Respuesta;
-                Respuesta = MessageBox.Show("¿Eliminar Musculo?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (Respuesta == DialogResult.Yes)
+                if (TextBox_ID.Text != null)
                 {
-                    if (oBLMusculo.Baja(oBEMusculo) == false)
-                    { MessageBox.Show("Para dar de baja el musculo no debe estar asociado a nigun Ejercicio"); }
-                    else
+                    DialogResult Respuesta;
+                    Respuesta = MessageBox.Show("¿Eliminar Musculo?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (Respuesta == DialogResult.Yes)
                     {
-                        CargarGrilla();
-                        LimpiarTextBox();
-                    }
+                        if (oBLMusculo.Baja(oBEMusculo) == false)
+                        { MessageBox.Show("Para dar de baja el musculo no debe estar asociado a nigun Ejercicio"); }
+                        else
+                        {
+                            CargarGrilla();
+                            LimpiarTextBox();
+                        }
 
+                    }
                 }
+                else
+                { Interaction.MsgBox("Seleccione un Musculo para dar de baja"); }
             }
-            else
-            { Interaction.MsgBox("Seleccione un Musculo para dar de baja"); }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Boton_Modificar_Musculo_Click(object sender, EventArgs e)
         {
-            if (TextBox_Nombre.Text == null)
+            try
             {
-                Interaction.MsgBox("Seleccione el musculo a modificar");
+                if (TextBox_Nombre.Text == null)
+                {
+                    Interaction.MsgBox("Seleccione el musculo a modificar");
+                }
+                else
+                {
+                    InstanciarObjeto();
+                    oBLMusculo.Guardar(oBEMusculo);
+                    TextBox_Nombre.ReadOnly = true;
+                    CargarGrilla();
+                }
             }
-            else
-            {
-                InstanciarObjeto();
-                oBLMusculo.Guardar(oBEMusculo);
-                TextBox_Nombre.ReadOnly = true;
-                CargarGrilla();
-            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
 
         void CargarGrilla()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = oBLMusculo.ListarTodo();
+            try
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = oBLMusculo.ListarTodo();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            
         }
 
         void InstanciarObjeto()
         {
-            oBEMusculo.Nombre = TextBox_Nombre.Text;
+            try
+            {
+                oBEMusculo.Nombre = TextBox_Nombre.Text;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         void BorrarTextbox()
         {
-            foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+            try
             {
-                oTextbox.Text = null;
+                foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+                {
+                    oTextbox.Text = null;
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            oBEMusculo = (BEMusculo)this.dataGridView1.CurrentRow.DataBoundItem;
-            TextBox_Nombre.Text = oBEMusculo.Nombre;
-            TextBox_ID.Text = oBEMusculo.Codigo.ToString();
-            TextBox_Nombre.ReadOnly = false;
+            try
+            {
+                oBEMusculo = (BEMusculo)this.dataGridView1.CurrentRow.DataBoundItem;
+                TextBox_Nombre.Text = oBEMusculo.Nombre;
+                TextBox_ID.Text = oBEMusculo.Codigo.ToString();
+                TextBox_Nombre.ReadOnly = false;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         void AsignarAMusculo()
-        {
-            oBEMusculo.Codigo = int.Parse(TextBox_ID.Text);
-            oBEMusculo.Nombre= TextBox_Nombre.Text;
+        {  
+            try
+            {
+                oBEMusculo.Codigo = int.Parse(TextBox_ID.Text);
+                oBEMusculo.Nombre = TextBox_Nombre.Text;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         void LimpiarTextBox()
         {
-            TextBox_ID.Text = null;
-            TextBox_Nombre.Text = null;
+            try
+            {
+                TextBox_ID.Text = null;
+                TextBox_Nombre.Text = null;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+        }
+
+        private void Boton_Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

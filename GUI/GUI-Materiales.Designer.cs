@@ -46,7 +46,7 @@ namespace GUI
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 122);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(242, 282);
             this.dataGridView1.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace GUI
             // Label_Nombre
             // 
             this.Label_Nombre.AutoSize = true;
-            this.Label_Nombre.Location = new System.Drawing.Point(384, 122);
+            this.Label_Nombre.Location = new System.Drawing.Point(277, 12);
             this.Label_Nombre.Name = "Label_Nombre";
             this.Label_Nombre.Size = new System.Drawing.Size(44, 13);
             this.Label_Nombre.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace GUI
             // Label_Peso
             // 
             this.Label_Peso.AutoSize = true;
-            this.Label_Peso.Location = new System.Drawing.Point(384, 157);
+            this.Label_Peso.Location = new System.Drawing.Point(277, 47);
             this.Label_Peso.Name = "Label_Peso";
             this.Label_Peso.Size = new System.Drawing.Size(31, 13);
             this.Label_Peso.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace GUI
             // 
             // TextBox_Nombre
             // 
-            this.TextBox_Nombre.Location = new System.Drawing.Point(435, 122);
+            this.TextBox_Nombre.Location = new System.Drawing.Point(328, 12);
             this.TextBox_Nombre.Name = "TextBox_Nombre";
             this.TextBox_Nombre.ReadOnly = true;
             this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
@@ -81,7 +81,7 @@ namespace GUI
             // 
             // TextBox_Peso
             // 
-            this.TextBox_Peso.Location = new System.Drawing.Point(435, 154);
+            this.TextBox_Peso.Location = new System.Drawing.Point(328, 44);
             this.TextBox_Peso.Name = "TextBox_Peso";
             this.TextBox_Peso.ReadOnly = true;
             this.TextBox_Peso.Size = new System.Drawing.Size(100, 20);
@@ -89,7 +89,7 @@ namespace GUI
             // 
             // Boton_Alta_Materiales
             // 
-            this.Boton_Alta_Materiales.Location = new System.Drawing.Point(328, 300);
+            this.Boton_Alta_Materiales.Location = new System.Drawing.Point(280, 131);
             this.Boton_Alta_Materiales.Name = "Boton_Alta_Materiales";
             this.Boton_Alta_Materiales.Size = new System.Drawing.Size(75, 23);
             this.Boton_Alta_Materiales.TabIndex = 5;
@@ -99,7 +99,7 @@ namespace GUI
             // 
             // Boton_Baja_Materiales
             // 
-            this.Boton_Baja_Materiales.Location = new System.Drawing.Point(409, 300);
+            this.Boton_Baja_Materiales.Location = new System.Drawing.Point(361, 131);
             this.Boton_Baja_Materiales.Name = "Boton_Baja_Materiales";
             this.Boton_Baja_Materiales.Size = new System.Drawing.Size(75, 23);
             this.Boton_Baja_Materiales.TabIndex = 6;
@@ -109,7 +109,7 @@ namespace GUI
             // 
             // Boton_Modificar_Materiales
             // 
-            this.Boton_Modificar_Materiales.Location = new System.Drawing.Point(503, 300);
+            this.Boton_Modificar_Materiales.Location = new System.Drawing.Point(280, 177);
             this.Boton_Modificar_Materiales.Name = "Boton_Modificar_Materiales";
             this.Boton_Modificar_Materiales.Size = new System.Drawing.Size(75, 23);
             this.Boton_Modificar_Materiales.TabIndex = 7;
@@ -119,17 +119,18 @@ namespace GUI
             // 
             // Boton_Cerrar
             // 
-            this.Boton_Cerrar.Location = new System.Drawing.Point(603, 300);
+            this.Boton_Cerrar.Location = new System.Drawing.Point(361, 177);
             this.Boton_Cerrar.Name = "Boton_Cerrar";
             this.Boton_Cerrar.Size = new System.Drawing.Size(75, 23);
             this.Boton_Cerrar.TabIndex = 8;
             this.Boton_Cerrar.Text = "Salir";
             this.Boton_Cerrar.UseVisualStyleBackColor = true;
+            this.Boton_Cerrar.Click += new System.EventHandler(this.Boton_Cerrar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 189);
+            this.label1.Location = new System.Drawing.Point(278, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 9;
@@ -137,7 +138,7 @@ namespace GUI
             // 
             // TextBox_ID
             // 
-            this.TextBox_ID.Location = new System.Drawing.Point(435, 186);
+            this.TextBox_ID.Location = new System.Drawing.Point(328, 76);
             this.TextBox_ID.Name = "TextBox_ID";
             this.TextBox_ID.ReadOnly = true;
             this.TextBox_ID.Size = new System.Drawing.Size(100, 20);
@@ -147,7 +148,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(565, 374);
             this.Controls.Add(this.TextBox_ID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Boton_Cerrar);

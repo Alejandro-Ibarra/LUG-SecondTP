@@ -156,24 +156,39 @@ namespace GUI
         }
         private void ListarMatUsuario(BEUsuario oBEUsuario)
         {
-            BEUsuario oBEUsrAux;
-            AsignarAUsuario();
-            oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
-            Grilla_Materiales_Seleccionados.DataSource = null;
-            Grilla_Materiales_Seleccionados.DataSource = oBEUsrAux.Materiales;
+            try
+            {
+                BEUsuario oBEUsrAux;
+                AsignarAUsuario();
+                oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
+                Grilla_Materiales_Seleccionados.DataSource = null;
+                Grilla_Materiales_Seleccionados.DataSource = oBEUsrAux.Materiales;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void EliminarMaterialUsuario(BEUsuario oBEUsuario)
         {
-            oBEMateriales = (BEMaterial)this.Grilla_Materiales_Seleccionados.CurrentRow.DataBoundItem;
-            oBLUsuario.EliminarMaterialUsuario(oBEUsuario, oBEMateriales);
-            ListarMatUsuario(oBEUsuario);
+            try
+            {
+                oBEMateriales = (BEMaterial)this.Grilla_Materiales_Seleccionados.CurrentRow.DataBoundItem;
+                oBLUsuario.EliminarMaterialUsuario(oBEUsuario, oBEMateriales);
+                ListarMatUsuario(oBEUsuario);
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         private void Eliminar_Materiales_Click(object sender, EventArgs e)
         {
-            AsignarAUsuario();
-            EliminarMaterialUsuario(oBEUsuario);
+            try
+            {
+                AsignarAUsuario();
+                EliminarMaterialUsuario(oBEUsuario);
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
         #endregion
         #region rutina
@@ -209,132 +224,203 @@ namespace GUI
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
+
         }
         #endregion
         #region Manejo de controladores
         void CargarGrillaMaterialesDisponibles()
         {
-            Grilla_Materiales_Disponibles.DataSource = null;
-            Grilla_Materiales_Disponibles.DataSource = oBLMateriales.ListarTodo();
+            try
+            {
+                Grilla_Materiales_Disponibles.DataSource = null;
+                Grilla_Materiales_Disponibles.DataSource = oBLMateriales.ListarTodo();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
 
         private void ActualizacionAlta()
         {
-            CargaDatos();
-            oBLUsuario.Guardar(oBEUsuario);
-            LimpiarGrillas();
-            CargarGrillaMaterialesDisponibles();
-            oBEUsuario = RecuperarUsuarioPorDNI(oBEUsuario.DNI);
-            AsignarAControles(oBEUsuario);
-            ControlesUPDownAltaUsuario();
+            try
+            {
+                CargaDatos();
+                oBLUsuario.Guardar(oBEUsuario);
+                LimpiarGrillas();
+                CargarGrillaMaterialesDisponibles();
+                oBEUsuario = RecuperarUsuarioPorDNI(oBEUsuario.DNI);
+                AsignarAControles(oBEUsuario);
+                ControlesUPDownAltaUsuario();
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+           
         }
 
         private void CargaDatos()
         {
-            oBEUsuario.Nombre = Interaction.InputBox("Ingrese el nombre");
-            oBEUsuario.Apellido = Interaction.InputBox("Ingrese el apellido");
-            oBEUsuario.DNI = int.Parse(Interaction.InputBox("Ingrese DNI"));
+            try
+            {
+                oBEUsuario.Nombre = Interaction.InputBox("Ingrese el nombre");
+                oBEUsuario.Apellido = Interaction.InputBox("Ingrese el apellido");
+                oBEUsuario.DNI = int.Parse(Interaction.InputBox("Ingrese DNI"));
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
 
         private BEUsuario RecuperarUsuarioPorDNI(int oDNI)
         {
-            BEUsuario oBEUsrAux;
-            oBEUsuario.DNI = oDNI;
-            oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
-            oBEUsrAux.DNI = oDNI;
-            return oBEUsrAux;
+            try
+            {
+                BEUsuario oBEUsrAux;
+                oBEUsuario.DNI = oDNI;
+                oBEUsrAux = oBLUsuario.ListarObjeto(oBEUsuario);
+                oBEUsrAux.DNI = oDNI;
+                return oBEUsrAux;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            return null;
         }
 
         void LimpiarControles()
         {
-            foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+            try
             {
-                oTextbox.Text = null;
+                foreach (TextBox oTextbox in this.Controls.OfType<TextBox>())
+                {
+                    oTextbox.Text = null;
+                }
             }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         void AsignarAControles(BEUsuario oBEUsuario)
         {
-            TextBox_Apellido.Text = oBEUsuario.Apellido;
-            TextBox_Codigo.Text = oBEUsuario.Codigo.ToString();
-            TextBox_Nombre.Text = oBEUsuario.Nombre;
-            TextBox_Sexo.Text = oBEUsuario.Sexo;
+            try
+            {
+                TextBox_Apellido.Text = oBEUsuario.Apellido;
+                TextBox_Codigo.Text = oBEUsuario.Codigo.ToString();
+                TextBox_Nombre.Text = oBEUsuario.Nombre;
+                TextBox_Sexo.Text = oBEUsuario.Sexo;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
         }
 
         void AsignarAUsuario()
         {
-            oBEUsuario.Nombre = TextBox_Nombre.Text;
-            oBEUsuario.Apellido = TextBox_Apellido.Text;
-            oBEUsuario.Codigo = int.Parse(TextBox_Codigo.Text);
-            oBEUsuario.Sexo = TextBox_Sexo.Text;
-            if (radioButton_Mod_Fem.Checked == true)
+            try
             {
-                oBEUsuario.Sexo = "Femenino";
+                oBEUsuario.Nombre = TextBox_Nombre.Text;
+                oBEUsuario.Apellido = TextBox_Apellido.Text;
+                oBEUsuario.Codigo = int.Parse(TextBox_Codigo.Text);
+                oBEUsuario.Sexo = TextBox_Sexo.Text;
+                if (radioButton_Mod_Fem.Checked == true)
+                {
+                    oBEUsuario.Sexo = "Femenino";
+                }
+                else if (radioButton_Mod_Masc.Checked == true)
+                {
+                    oBEUsuario.Sexo = "Masculino";
+                }
             }
-            else if (radioButton_Mod_Masc.Checked == true)
-            {
-                oBEUsuario.Sexo = "Masculino";
-            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            
         }
         #endregion
         #region Visualizacion de formulario
 
         void LimpiarGrillas()
         {
-            Grilla_Materiales_Disponibles.DataSource = null;
-            Grilla_Materiales_Seleccionados.DataSource = null;
+            try
+            {
+                Grilla_Materiales_Disponibles.DataSource = null;
+                Grilla_Materiales_Seleccionados.DataSource = null;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
         void ControlesUPDownAceptarCambios()
         {
-            TextBox_Nombre.Enabled = false;
-            TextBox_Apellido.Enabled = false;
-            TextBox_Sexo.Enabled = false;
-            radioButton_Mod_Fem.Visible = false;
-            radioButton_Mod_Masc.Visible = false;
-            Boton_Aceptar_Cambios.Enabled = false;
-            Boton_Modificar_Datos.Enabled = true;
-            GroupBox_Mod_Sexo.Visible = false;
+            try
+            {
+                TextBox_Nombre.Enabled = false;
+                TextBox_Apellido.Enabled = false;
+                TextBox_Sexo.Enabled = false;
+                radioButton_Mod_Fem.Visible = false;
+                radioButton_Mod_Masc.Visible = false;
+                Boton_Aceptar_Cambios.Enabled = false;
+                Boton_Modificar_Datos.Enabled = true;
+                GroupBox_Mod_Sexo.Visible = false;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            
         }
         void ControlesUPDownInsertarCambios()
         {
-            TextBox_Nombre.Enabled = true;
-            TextBox_Apellido.Enabled = true;
-            TextBox_Sexo.Enabled = true;
-            radioButton_Mod_Fem.Visible = true;
-            radioButton_Mod_Masc.Visible = true;
-            Boton_Aceptar_Cambios.Enabled = true;
-            Boton_Modificar_Datos.Enabled = false;
-            GroupBox_Mod_Sexo.Visible = false;
-            GroupBox_Tipo_Rutina.Visible = true;
-            RadioButton_Aerobico.Visible = true;
-            RadioButton_Hipertrofia.Visible = true;
+            try
+            {
+                TextBox_Nombre.Enabled = true;
+                TextBox_Apellido.Enabled = true;
+                TextBox_Sexo.Enabled = true;
+                radioButton_Mod_Fem.Visible = true;
+                radioButton_Mod_Masc.Visible = true;
+                Boton_Aceptar_Cambios.Enabled = true;
+                Boton_Modificar_Datos.Enabled = false;
+                GroupBox_Mod_Sexo.Visible = false;
+                GroupBox_Tipo_Rutina.Visible = true;
+                RadioButton_Aerobico.Visible = true;
+                RadioButton_Hipertrofia.Visible = true;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+
         }
         void ControlesUPDownBajaUsuario()
         {
-            Boton_Alta_usuario.Visible = true;
-            radioButton_Alta_Fem.Visible = true;
-            radioButton_Alta_Masc.Visible = true;
-            GroupBox_Alta_Sexo.Visible = true;
-            Boton_Baja_Usuario.Visible = false;
+            try
+            {
+                Boton_Alta_usuario.Visible = true;
+                radioButton_Alta_Fem.Visible = true;
+                radioButton_Alta_Masc.Visible = true;
+                GroupBox_Alta_Sexo.Visible = true;
+                Boton_Baja_Usuario.Visible = false;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            
         }
         void ControlesUPDownAltaUsuario()
         {
-            Boton_Alta_usuario.Visible = false;
-            radioButton_Alta_Fem.Visible = false;
-            radioButton_Alta_Masc.Visible = false;
-            GroupBox_Alta_Sexo.Visible = false;
-            Boton_Baja_Usuario.Visible = true;
-            GroupBox_Mod_Sexo.Visible = false;
-            GroupBox_Tipo_Rutina.Visible = true;
-            RadioButton_Aerobico.Visible = true;
-            RadioButton_Hipertrofia.Visible = true;
+            try
+            {
+                Boton_Alta_usuario.Visible = false;
+                radioButton_Alta_Fem.Visible = false;
+                radioButton_Alta_Masc.Visible = false;
+                GroupBox_Alta_Sexo.Visible = false;
+                Boton_Baja_Usuario.Visible = true;
+                GroupBox_Mod_Sexo.Visible = false;
+                GroupBox_Tipo_Rutina.Visible = true;
+                RadioButton_Aerobico.Visible = true;
+                RadioButton_Hipertrofia.Visible = true;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            
 
         }
         #endregion
 
         private void Boton_Salir_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }    
 }

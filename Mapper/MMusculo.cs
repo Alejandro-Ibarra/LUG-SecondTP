@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Abstraction;
 using BusinnesEntity;
 using DataAccess;
@@ -16,6 +17,7 @@ namespace Mapper
 
         public bool Baja(BEMusculo oBEMusculo)
         {
+
             if (ExisteEjercicioAsociado(oBEMusculo) == false)
             {
                 string Consulta_SQL;
@@ -23,8 +25,8 @@ namespace Mapper
                 oConexion = new Conexion();
                 return oConexion.Escribir(Consulta_SQL);
             }
-            else
-            { return false; }
+            else { return false; }
+
         }
 
         private bool ExisteEjercicioAsociado(BEMusculo oBEMusculo)
@@ -56,26 +58,31 @@ namespace Mapper
 
         public List<BEMusculo> ListarTodo()
         {
-            DataTable oDAtaTable;
-            oConexion = new Conexion();
-            oDAtaTable = oConexion.LeerDataTable("Select Codigo, Nombre From Musculo");
-
             List<BEMusculo> ListaMusculo = new List<BEMusculo>();
-
-            if (oDAtaTable.Rows.Count > 0)
+            try
             {
-                foreach (DataRow item in oDAtaTable.Rows)
+                DataTable oDAtaTable;
+                oConexion = new Conexion();
+                oDAtaTable = oConexion.LeerDataTable("Select Codigo, Nombre From Musculo");
+
+                
+
+                if (oDAtaTable.Rows.Count > 0)
                 {
-                    BEMusculo oBEMusculo = new BEMusculo();
-                    oBEMusculo.Codigo = Convert.ToInt32(item[0]);
-                    oBEMusculo.Nombre = item[1].ToString();
-                    ListaMusculo.Add(oBEMusculo);
+                    foreach (DataRow item in oDAtaTable.Rows)
+                    {
+                        BEMusculo oBEMusculo = new BEMusculo();
+                        oBEMusculo.Codigo = Convert.ToInt32(item[0]);
+                        oBEMusculo.Nombre = item[1].ToString();
+                        ListaMusculo.Add(oBEMusculo);
+                    }
+                }
+                else
+                {
+                    ListaMusculo = null;
                 }
             }
-            else
-            {
-                ListaMusculo = null;
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return ListaMusculo;
         }
     }

@@ -52,6 +52,8 @@ namespace GUI
             this.label7 = new System.Windows.Forms.Label();
             this.TextBox_Peso_Material = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.Calcular_Cant_Herramientas = new System.Windows.Forms.Button();
+            this.TextBox_Herramienta_utilizada = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +82,7 @@ namespace GUI
             this.Boton_Cerrar.TabIndex = 28;
             this.Boton_Cerrar.Text = "Salir";
             this.Boton_Cerrar.UseVisualStyleBackColor = true;
+            this.Boton_Cerrar.Click += new System.EventHandler(this.Boton_Cerrar_Click);
             // 
             // Boton_Modificar_Ejercicio
             // 
@@ -258,11 +261,31 @@ namespace GUI
             this.label8.TabIndex = 44;
             this.label8.Text = "Peso del material";
             // 
+            // Calcular_Cant_Herramientas
+            // 
+            this.Calcular_Cant_Herramientas.Location = new System.Drawing.Point(709, 57);
+            this.Calcular_Cant_Herramientas.Name = "Calcular_Cant_Herramientas";
+            this.Calcular_Cant_Herramientas.Size = new System.Drawing.Size(147, 36);
+            this.Calcular_Cant_Herramientas.TabIndex = 46;
+            this.Calcular_Cant_Herramientas.Text = "Calcular la hjerramienta mas utilizada";
+            this.Calcular_Cant_Herramientas.UseVisualStyleBackColor = true;
+            this.Calcular_Cant_Herramientas.Click += new System.EventHandler(this.Calcular_Cant_Herramientas_Click);
+            // 
+            // TextBox_Herramienta_utilizada
+            // 
+            this.TextBox_Herramienta_utilizada.Location = new System.Drawing.Point(709, 99);
+            this.TextBox_Herramienta_utilizada.Multiline = true;
+            this.TextBox_Herramienta_utilizada.Name = "TextBox_Herramienta_utilizada";
+            this.TextBox_Herramienta_utilizada.Size = new System.Drawing.Size(147, 78);
+            this.TextBox_Herramienta_utilizada.TabIndex = 47;
+            // 
             // GUI_Ejercicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 534);
+            this.Controls.Add(this.TextBox_Herramienta_utilizada);
+            this.Controls.Add(this.Calcular_Cant_Herramientas);
             this.Controls.Add(this.TextBox_Peso_Material);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TextBox_ID_Material);
@@ -320,5 +343,7 @@ namespace GUI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TextBox_Peso_Material;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button Calcular_Cant_Herramientas;
+        private System.Windows.Forms.TextBox TextBox_Herramienta_utilizada;
     }
 }

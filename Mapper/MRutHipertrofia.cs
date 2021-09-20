@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abstraction;
 using DataAccess;
+using System.Windows.Forms;
 
 namespace Mapper
 {
@@ -13,50 +14,58 @@ namespace Mapper
     {
         public override BEEjercicio Caluclo(BEEjercicio oBEEjercicio)
         {
-            int peso = oBEEjercicio.Materiales.Peso;
-            double peso2 = (double)peso * 1.5;
-            oBEEjercicio.Materiales.Peso = (int)peso2;
+            try
+            {
+                int peso = oBEEjercicio.Materiales.Peso;
+                double peso2 = (double)peso * 1.5;
+                oBEEjercicio.Materiales.Peso = (int)peso2;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            
 
             return oBEEjercicio;
         }
 
         public override List<BEEjercicio> ListaEjercicio(List<BEMaterial> oListMat, List<BEEjercicio> oListEj)
         {
-
-            List<BEEjercicio> ListEjercicios = new List<BEEjercicio>();
-            List<BEEjercicio> ListEjerciciosTemp = new List<BEEjercicio>();
             List<BEEjercicio> ListEjerciciosFin = new List<BEEjercicio>();
-            foreach (BEEjercicio EjAux in oListEj)
+            try
             {
-                foreach (BEMaterial matAux2 in oListMat)
+                List<BEEjercicio> ListEjercicios = new List<BEEjercicio>();
+                List<BEEjercicio> ListEjerciciosTemp = new List<BEEjercicio>();
+                foreach (BEEjercicio EjAux in oListEj)
                 {
-                    if (EjAux.Materiales.Codigo == matAux2.Codigo || EjAux.Materiales.Codigo == 0)
+                    foreach (BEMaterial matAux2 in oListMat)
                     {
-                        BEEjercicio EjAux2 = Caluclo(EjAux);
-                        ListEjerciciosTemp.Add(EjAux);
+                        if (EjAux.Materiales.Codigo == matAux2.Codigo || EjAux.Materiales.Codigo == 0)
+                        {
+                            BEEjercicio EjAux2 = Caluclo(EjAux);
+                            ListEjerciciosTemp.Add(EjAux);
+                        }
                     }
                 }
-            }
-            var rnd = new Random();
-            ListEjerciciosTemp.OrderBy(item => rnd.Next());
+                var rnd = new Random();
+                ListEjerciciosTemp.OrderBy(item => rnd.Next());
 
-            foreach (BEEjercicio EjAux in ListEjerciciosTemp)
-            {
-                if (ListEjercicios.Count() == 0)
+                foreach (BEEjercicio EjAux in ListEjerciciosTemp)
                 {
-                    ListEjerciciosFin.Add(EjAux);
-                }
-                else
-                {
-                    foreach (BEEjercicio EjAux2 in ListEjercicios)
+                    if (ListEjercicios.Count() == 0)
                     {
-                        if (EjAux.Musculo.Codigo != EjAux2.Musculo.Codigo)
+                        ListEjerciciosFin.Add(EjAux);
+                    }
+                    else
+                    {
+                        foreach (BEEjercicio EjAux2 in ListEjercicios)
                         {
-                            ListEjerciciosFin.Add(EjAux);
+                            if (EjAux.Musculo.Codigo != EjAux2.Musculo.Codigo)
+                            {
+                                ListEjerciciosFin.Add(EjAux);
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return ListEjerciciosFin;
         }
     }

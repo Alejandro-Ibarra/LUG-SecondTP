@@ -7,6 +7,7 @@ using Abstraction;
 using BusinnesEntity;
 using DataAccess;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Mapper
 {
@@ -18,7 +19,7 @@ namespace Mapper
 
         public bool Guardar(BEUsuario oBEUsuario)
         {
-            
+
             string ConsultaSql;
             if (oBEUsuario.Codigo == 0)
             {
@@ -31,6 +32,8 @@ namespace Mapper
             }
             oConexion = new Conexion();
             return oConexion.Escribir(ConsultaSql);
+
+
         }
 
         public bool Baja(BEUsuario oBEUsuario)
@@ -47,39 +50,42 @@ namespace Mapper
             string Consulta2 = "Delete from Usuario where Codigo = " + oBEUsuario.Codigo + "";
             return oConexion.Escribir(Consulta2);
         }
+    
 
         public BEUsuario ListarObjeto(BEUsuario oBEUsuario)
         {
-            string ConsultaSql = "Select Codigo,Nombre,Apellido,Sexo from Usuario where DNI = " + oBEUsuario.DNI + "";
-            DataTable oDataTable;
-            Conexion oConexion = new Conexion();
-            List<BEMaterial> ListaMateriales = new List<BEMaterial>();
-            oDataTable = oConexion.LeerDataTable(ConsultaSql);
-            oBEUsuario.Codigo = Convert.ToInt32(oDataTable.Rows[0].ItemArray[0]);
-            oBEUsuario.Nombre = oDataTable.Rows[0].ItemArray[1].ToString();
-            oBEUsuario.Apellido = oDataTable.Rows[0].ItemArray[2].ToString();
-            oBEUsuario.Sexo = oDataTable.Rows[0].ItemArray[3].ToString();
-
-            DataSet oDataSet = new DataSet();
-            string ConsultaSql2 = "Select  Materiales.Codigo as CodMateriales, Materiales.Nombre as MatNombres, Materiales.Peso as MatPeso from Materiales, Usuario_Materiales where Materiales.Codigo = Usuario_Materiales.CodMateriales and Usuario_Materiales.CodUsuario = " + oBEUsuario.Codigo + "";
-            oDataSet = oConexion.LeerDataSet(ConsultaSql2);
-            if (oDataSet.Tables[0].Rows.Count > 0)
+            try
             {
-                foreach (DataRow fila in oDataSet.Tables[0].Rows)
+                string ConsultaSql = "Select Codigo,Nombre,Apellido,Sexo from Usuario where DNI = " + oBEUsuario.DNI + "";
+                DataTable oDataTable;
+                Conexion oConexion = new Conexion();
+                List<BEMaterial> ListaMateriales = new List<BEMaterial>();
+                oDataTable = oConexion.LeerDataTable(ConsultaSql);
+                oBEUsuario.Codigo = Convert.ToInt32(oDataTable.Rows[0].ItemArray[0]);
+                oBEUsuario.Nombre = oDataTable.Rows[0].ItemArray[1].ToString();
+                oBEUsuario.Apellido = oDataTable.Rows[0].ItemArray[2].ToString();
+                oBEUsuario.Sexo = oDataTable.Rows[0].ItemArray[3].ToString();
+
+                DataSet oDataSet = new DataSet();
+                string ConsultaSql2 = "Select  Materiales.Codigo as CodMateriales, Materiales.Nombre as MatNombres, Materiales.Peso as MatPeso from Materiales, Usuario_Materiales where Materiales.Codigo = Usuario_Materiales.CodMateriales and Usuario_Materiales.CodUsuario = " + oBEUsuario.Codigo + "";
+                oDataSet = oConexion.LeerDataSet(ConsultaSql2);
+                if (oDataSet.Tables[0].Rows.Count > 0)
                 {
-                    BEMaterial oBEMat = new BEMaterial();
-                    oBEMat.Codigo = Convert.ToInt32(fila[0]);
-                    oBEMat.Nombre = fila[1].ToString();
-                    oBEMat.Peso = Convert.ToInt32(fila[2]);
-                    ListaMateriales.Add(oBEMat);
+                    foreach (DataRow fila in oDataSet.Tables[0].Rows)
+                    {
+                        BEMaterial oBEMat = new BEMaterial();
+                        oBEMat.Codigo = Convert.ToInt32(fila[0]);
+                        oBEMat.Nombre = fila[1].ToString();
+                        oBEMat.Peso = Convert.ToInt32(fila[2]);
+                        ListaMateriales.Add(oBEMat);
+                    }
+                    oBEUsuario.Materiales = ListaMateriales;
                 }
-                oBEUsuario.Materiales = ListaMateriales;
+                else
+                { oBEUsuario.Materiales = null; }
             }
-            else
-            {oBEUsuario.Materiales = null;}
-
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             return oBEUsuario;
-
         }
         
         public bool AgregarUsuarioMaterial(BEUsuario oBEusuario, BEMaterial oBEMaterial)
@@ -87,7 +93,6 @@ namespace Mapper
             string Consulta = "INSERT INTO Usuario_Materiales (CodUsuario, CodMateriales) values(" + oBEusuario.Codigo + "," + oBEMaterial.Codigo + ")";
             oConexion = new Conexion();
             return oConexion.Escribir(Consulta);
-
         }
 
         public bool EliminarMaterialAsociado(BEUsuario oBEusuario, BEMaterial oBEMaterial)
@@ -96,14 +101,7 @@ namespace Mapper
             oConexion = new Conexion();
             return oConexion.Escribir(Consulta);
         }
-        /*
-        public bool ExisteMaterialAsociado(BEUsuario oBEusuario)
-        {  
-            oConexion = new Conexion();
-            return oConexion.LeerAsociacion("select count(CodUsuario) from Usuario_Materiales where CodUsuario =" + oBEusuario.Codigo + "");
-
-        }
-        */
+        
         public List<BEUsuario> ListarTodo()
         {
             throw new NotImplementedException();

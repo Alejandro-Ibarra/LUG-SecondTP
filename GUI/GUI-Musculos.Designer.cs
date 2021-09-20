@@ -66,6 +66,7 @@ namespace GUI
             this.Boton_Cerrar.TabIndex = 19;
             this.Boton_Cerrar.Text = "Salir";
             this.Boton_Cerrar.UseVisualStyleBackColor = true;
+            this.Boton_Cerrar.Click += new System.EventHandler(this.Boton_Cerrar_Click);
             // 
             // Boton_Modificar_Musculo
             // 
