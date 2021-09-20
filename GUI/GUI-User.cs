@@ -339,8 +339,9 @@ namespace GUI
         {
             try
             {
-                Grilla_Materiales_Disponibles.DataSource = null;
-                Grilla_Materiales_Seleccionados.DataSource = null;
+                this.Grilla_Materiales_Disponibles.DataSource = null;
+                this.Grilla_Materiales_Seleccionados.DataSource = null;
+                this.Grilla_Rutina.DataSource = null;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

@@ -257,7 +257,7 @@ namespace GUI
             // 
             // Boton_Baja_Usuario
             // 
-            this.Boton_Baja_Usuario.Location = new System.Drawing.Point(550, 193);
+            this.Boton_Baja_Usuario.Location = new System.Drawing.Point(760, 89);
             this.Boton_Baja_Usuario.Name = "Boton_Baja_Usuario";
             this.Boton_Baja_Usuario.Size = new System.Drawing.Size(133, 31);
             this.Boton_Baja_Usuario.TabIndex = 24;

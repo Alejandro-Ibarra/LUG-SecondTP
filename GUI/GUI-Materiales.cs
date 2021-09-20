@@ -20,7 +20,7 @@ namespace GUI
             InitializeComponent();
             oBLMateriales = new BLMateriales();
             oBEMateriales = new BEMaterial();
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         BLMateriales oBLMateriales;
@@ -87,8 +87,8 @@ namespace GUI
         {
             try
             {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = oBLMateriales.ListarTodo();
+                this.dataGridView1.DataSource = null;
+                this.dataGridView1.DataSource = oBLMateriales.ListarTodo();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
