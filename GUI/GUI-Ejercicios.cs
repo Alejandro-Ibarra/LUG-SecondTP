@@ -70,7 +70,7 @@ namespace GUI
             try
             {
                 oBEEjercicio.Codigo = 0;
-                oBEEjercicio.Nombre = Interaction.InputBox("Ingrese el nombre del ejercicio");
+                oBEEjercicio.Nombre = TextBox_Nombre_Ejercicio.Text;
                 oBEEjercicio.Musculo = (BEMusculo)ComboBox_Musculos.SelectedItem;
                 oBEEjercicio.Materiales = (BEMaterial)ComboBox_Materiales.SelectedItem;
                 oBLEjercicio.Guardar(oBEEjercicio);
@@ -149,19 +149,22 @@ namespace GUI
                 this.dataGridView1.DataSource = null;
                 this.dataGridView1.Rows.Clear();
                 List<BEEjercicio> ListaBEEjercicio = oBLEjercicio.ListarTodo();
-                foreach (BEEjercicio ejer in ListaBEEjercicio)
+                if (ListaBEEjercicio !=null)
                 {
-                    if (ejer.Materiales.Codigo != 0)
+                    foreach (BEEjercicio ejer in ListaBEEjercicio)
                     {
-                        dataGridView1.ColumnCount = 4;
-                        dataGridView1.Rows.Add(ejer.Codigo, ejer.Nombre, ejer.Musculo.Nombre, ejer.Materiales.Nombre);
+                        if (ejer.Materiales.Codigo != 0)
+                        {
+                            dataGridView1.ColumnCount = 4;
+                            dataGridView1.Rows.Add(ejer.Codigo, ejer.Nombre, ejer.Musculo.Nombre, ejer.Materiales.Nombre);
+                        }
+                        else
+                        {
+                            dataGridView1.ColumnCount = 4;
+                            dataGridView1.Rows.Add(ejer.Codigo, ejer.Nombre, ejer.Musculo.Nombre, "El ejercicio no posee material");
+                        }
                     }
-                    else
-                    {
-                        dataGridView1.ColumnCount = 4;
-                        dataGridView1.Rows.Add(ejer.Codigo, ejer.Nombre, ejer.Musculo.Nombre, "El ejercicio no posee material");
-                    }
-                }
+                }           
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -263,5 +266,6 @@ namespace GUI
         {
             Application.Exit();
         }
+
     }
 }

@@ -102,7 +102,6 @@ namespace GUI
             // 
             this.TextBox_Nombre.Location = new System.Drawing.Point(481, 84);
             this.TextBox_Nombre.Name = "TextBox_Nombre";
-            this.TextBox_Nombre.ReadOnly = true;
             this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Nombre.TabIndex = 14;
             // 

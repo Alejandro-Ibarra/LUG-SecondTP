@@ -9,5 +9,6 @@ namespace BusinnesEntity
     public class BEMusculo : BEEntity
     {
         public string Nombre { get; set; }
+        public bool Activo { get; set; }
     }
 }

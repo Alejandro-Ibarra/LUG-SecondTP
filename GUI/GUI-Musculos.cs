@@ -36,7 +36,7 @@ namespace GUI
             try
             {
                 oBEMusculo.Codigo = 0;
-                oBEMusculo.Nombre = Interaction.InputBox("Ingrese el nombre del musculo");
+                oBEMusculo.Nombre = TextBox_Nombre.Text;
                 oBLMusculo.Guardar(oBEMusculo);
                 BorrarTextbox();
                 CargarGrilla();

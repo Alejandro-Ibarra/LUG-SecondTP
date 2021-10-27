@@ -1,0 +1,9 @@
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\bin\Debug\BusinnesEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\bin\Debug\BusinnesEntity.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\bin\Debug\Abstraction.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\bin\Debug\Abstraction.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\obj\Debug\BusinessEntity.csproj.CopyComplete
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\obj\Debug\BusinnesEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinnesEntity\obj\Debug\BusinnesEntity.pdb

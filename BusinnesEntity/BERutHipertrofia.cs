@@ -8,6 +8,6 @@ namespace BusinnesEntity
 {
     public class BERutHipertrofia : BERutina
     {
-        
+        public bool ComidaExtra { get; set; }
     }
 }

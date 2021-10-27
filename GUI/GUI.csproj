@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI-Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Login.Designer.cs">
+      <DependentUpon>GUI-Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI-Ejercicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI-Login.resx">
+      <DependentUpon>GUI-Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Ejercicios.resx">
       <DependentUpon>GUI-Ejercicios.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,10 +129,13 @@
       <Project>{8c67943f-3534-4e0a-b695-aca8b8c8166b}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinnesEntity\BusinnesEntity.csproj">
+    <ProjectReference Include="..\BusinnesEntity\BusinessEntity.csproj">
       <Project>{bbf4da1e-8db6-49f7-8172-ff82b4467deb}</Project>
-      <Name>BusinnesEntity</Name>
+      <Name>BusinessEntity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

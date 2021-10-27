@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLogin.cs" />
     <Compile Include="BLRutAerobico.cs" />
     <Compile Include="BLEjercicio.cs" />
     <Compile Include="BLRutHipertrofia.cs" />
@@ -55,9 +56,9 @@
       <Project>{2c6bd99d-2466-426f-b34a-6c4c9dd633e9}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinnesEntity\BusinnesEntity.csproj">
+    <ProjectReference Include="..\BusinnesEntity\BusinessEntity.csproj">
       <Project>{bbf4da1e-8db6-49f7-8172-ff82b4467deb}</Project>
-      <Name>BusinnesEntity</Name>
+      <Name>BusinessEntity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mapper\Mapper.csproj">
       <Project>{3f24b42e-73f2-4a68-b346-56b25c6c3a49}</Project>

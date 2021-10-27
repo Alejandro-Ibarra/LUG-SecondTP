@@ -34,8 +34,6 @@ namespace GUI
                 TextBox_Nombre.Text = oBEMateriales.Nombre;
                 TextBox_Peso.Text = oBEMateriales.Peso.ToString();
                 TextBox_ID.Text = oBEMateriales.Codigo.ToString();
-                TextBox_Nombre.ReadOnly = false;
-                TextBox_Peso.ReadOnly = false;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -45,12 +43,12 @@ namespace GUI
             try
             {
                 oBEMateriales.Codigo = 0;
-                oBEMateriales.Nombre = Interaction.InputBox("Ingrese el nombre del material");
+                oBEMateriales.Nombre = TextBox_Nombre.Text;
                 DialogResult oRespuesta;
                 oRespuesta = MessageBox.Show("¿Posee peso el material?", "Peso", MessageBoxButtons.YesNo);
                 if (oRespuesta == DialogResult.Yes)
                 {
-                    oBEMateriales.Peso = int.Parse(Interaction.InputBox("Ingrese el peso del material"));
+                    oBEMateriales.Peso = int.Parse(TextBox_Peso.Text);
                 }
                 else
                 {
@@ -75,8 +73,6 @@ namespace GUI
                 {
                     InstanciarObjeto();
                     oBLMateriales.Guardar(oBEMateriales);
-                    TextBox_Nombre.ReadOnly = true;
-                    TextBox_Peso.ReadOnly = true;
                     CargarGrilla();
                 }
             }

@@ -75,7 +75,6 @@ namespace GUI
             // 
             this.TextBox_Nombre.Location = new System.Drawing.Point(328, 12);
             this.TextBox_Nombre.Name = "TextBox_Nombre";
-            this.TextBox_Nombre.ReadOnly = true;
             this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Nombre.TabIndex = 3;
             // 
@@ -83,7 +82,6 @@ namespace GUI
             // 
             this.TextBox_Peso.Location = new System.Drawing.Point(328, 44);
             this.TextBox_Peso.Name = "TextBox_Peso";
-            this.TextBox_Peso.ReadOnly = true;
             this.TextBox_Peso.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Peso.TabIndex = 4;
             // 
@@ -140,7 +138,6 @@ namespace GUI
             // 
             this.TextBox_ID.Location = new System.Drawing.Point(328, 76);
             this.TextBox_ID.Name = "TextBox_ID";
-            this.TextBox_ID.ReadOnly = true;
             this.TextBox_ID.Size = new System.Drawing.Size(100, 20);
             this.TextBox_ID.TabIndex = 10;
             // 

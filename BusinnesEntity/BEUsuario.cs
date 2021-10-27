@@ -13,6 +13,7 @@ namespace BusinnesEntity
         public int DNI { get; set; }
         public string Sexo { get; set; }
         public List<BEMaterial> Materiales { get; set; }
+        public bool Activo { get; set; }
 
     }
 }

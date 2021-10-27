@@ -13,3 +13,18 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ult
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\BusinessLogic\bin\Debug\DataAccess.dll
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\BusinessLogic\bin\Debug\Mapper.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\Lenguajes de ultima generación\Tps_Parciales\LUG-FirstTP\BusinessLogic\bin\Debug\DataAccess.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\Abstraction.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\BusinnesEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\Mapper.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\DataAccess.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\Abstraction.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\BusinnesEntity.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\Mapper.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\DataAccess.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.pdb

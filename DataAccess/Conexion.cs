@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using BusinnesEntity;
+using System.Collections;
 
 namespace DataAccess
 {
@@ -14,15 +15,33 @@ namespace DataAccess
     {
 
         private SqlConnection oConexion = new SqlConnection(ConfigurationManager.ConnectionStrings["MiCadenaDeConexion"].ToString());
+        string CadenaC = @ConfigurationManager.ConnectionStrings["MiCadenaDeConexion"].ToString();
+        private SqlTransaction Tranx;
+        private SqlCommand Cmd;
 
-
-        public DataTable LeerDataTable(string Consulta_SQL)
+        public DataTable LeerDataTable(string Consulta_SQL, Hashtable Hashdatos)
         {
             DataTable tabla = new DataTable();
+            SqlDataAdapter Da;
+            Cmd = new SqlCommand(Consulta_SQL, oConexion);
+            Cmd.CommandType = CommandType.StoredProcedure;
+
+            if (oConexion.State == ConnectionState.Closed)
+            {
+                oConexion.ConnectionString = CadenaC;
+                oConexion.Open();
+            }
             try
             {
-                SqlDataAdapter Da = new SqlDataAdapter(Consulta_SQL, oConexion);
-                Da.Fill(tabla);
+                Da = new SqlDataAdapter(Cmd);
+                if ((Hashdatos != null))
+                {
+                    foreach (string dato in Hashdatos.Keys)
+                    {
+                        Cmd.Parameters.AddWithValue(dato, Hashdatos[dato]);
+                    }
+                }
+
             }
             catch (SqlException ex)
             { throw ex; }
@@ -32,10 +51,11 @@ namespace DataAccess
             { 
                 oConexion.Close();
             }
+            Da.Fill(tabla);
             return tabla;
         }
 
-        public DataSet LeerDataSet(string Consulta_SQL)
+       /* public DataSet LeerDataSet(string Consulta_SQL)
         {
             DataSet oDataSet = new DataSet();
             try
@@ -52,67 +72,77 @@ namespace DataAccess
                 oConexion.Close();
             }
             return oDataSet;
-        }
+        }*/
 
-        public BEEjercicio LeerEjercicio(string Consulta_SQL)
+        public bool Escribir(string Consulta_SQL, Hashtable Hashdatos)
         {
-            oConexion.Open();
-            BEEjercicio oBEEjercicio = new BEEjercicio();
-            SqlCommand command = new SqlCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = Consulta_SQL;
-            command.Connection = oConexion;
+            if (oConexion.State == ConnectionState.Closed)
+            {
+                oConexion.ConnectionString = CadenaC;
+                oConexion.Open();
+            }
+
             try
             {
-                SqlDataReader ejercicioRecuperado = command.ExecuteReader();
+                Tranx = oConexion.BeginTransaction();
+                Cmd = new SqlCommand(Consulta_SQL, oConexion, Tranx);
+                Cmd.CommandType = CommandType.StoredProcedure;
 
-                ejercicioRecuperado.Read();
-                oBEEjercicio.Nombre = ejercicioRecuperado[0].ToString();
-                oBEEjercicio.Musculo.Codigo = Convert.ToInt32(ejercicioRecuperado[1]);
-                oBEEjercicio.Materiales.Codigo = Convert.ToInt32(ejercicioRecuperado[2]);
+                if ((Hashdatos != null))
+                {
+                    foreach (string dato in Hashdatos.Keys)
+                    {
+                        Cmd.Parameters.AddWithValue(dato, Hashdatos[dato]);
+                    }
+                }
 
-            }
-            catch (SqlException ex)
-            { throw ex; }
-            catch (Exception ex)
-            { throw ex; }
-            finally
-            {
-                oConexion.Close();
-            }
-            return oBEEjercicio;
-        }
-
-        public bool Escribir(string Consulta_SQL)
-        {
-            oConexion.Open();
-            SqlCommand command = new SqlCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = Consulta_SQL;
-            command.Connection = oConexion;
-            try
-            {
-                int respuesta = command.ExecuteNonQuery();
+                int respuesta = Cmd.ExecuteNonQuery();
+                Tranx.Commit();
                 return true;
             }
             catch (SqlException ex)
-            {throw ex;}
+            {
+                Tranx.Rollback();
+                return false;
+                throw ex;
+            }
             catch (Exception ex)
-            { throw ex; }
+            {
+                Tranx.Rollback();
+                return false;
+                throw ex;
+            }
             finally
             { 
                 oConexion.Close(); 
             }
         }
 
-        public bool LeerAsociacion(string Consulta_SQL)
+
+
+
+
+
+        public bool LeerAsociacion(string Consulta_SQL, Hashtable Hdatos)
         {
-            oConexion.Open();
-            SqlCommand command = new SqlCommand(Consulta_SQL, oConexion);
-            command.CommandType = CommandType.Text;
+            if (oConexion.State == ConnectionState.Closed)
+            {
+                oConexion.ConnectionString = CadenaC;
+                oConexion.Open();
+            }
+            Cmd = new SqlCommand(Consulta_SQL, oConexion);
+            Cmd.CommandType = CommandType.Text;
             try
             {
-                int Respuesta = Convert.ToInt32(command.ExecuteScalar());
+
+                if ((Hdatos != null))
+                {
+                    foreach (string dato in Hdatos.Keys)
+                    {
+                        Cmd.Parameters.AddWithValue(dato, Hdatos[dato]);
+                    }
+                }
+                int Respuesta = Convert.ToInt32(Cmd.ExecuteScalar());
                 if (Respuesta > 0)
                 { return true; }
                 else

@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Abstraction;
 using BusinnesEntity;
 using DataAccess;
@@ -13,17 +13,25 @@ namespace Mapper
 {
     public class MMusculo : IGestor<BEMusculo>
     {
+
         Conexion oConexion;
+        Hashtable Hashdatos;
+
+        public MMusculo()
+        {
+            oConexion = new Conexion();
+            Hashdatos = new Hashtable();
+        }
 
         public bool Baja(BEMusculo oBEMusculo)
         {
 
             if (ExisteEjercicioAsociado(oBEMusculo) == false)
             {
-                string Consulta_SQL;
-                Consulta_SQL = "DELETE FROM Musculo where Codigo = " + oBEMusculo.Codigo + "";
-                oConexion = new Conexion();
-                return oConexion.Escribir(Consulta_SQL);
+                string Consulta = "S_Eliminar_Musculo";
+                Hashdatos.Add("@Codigo", oBEMusculo.Codigo);
+
+                return oConexion.Escribir(Consulta, Hashdatos);
             }
             else { return false; }
 
@@ -31,24 +39,34 @@ namespace Mapper
 
         private bool ExisteEjercicioAsociado(BEMusculo oBEMusculo)
         {
-            oConexion = new Conexion();
-            return oConexion.LeerAsociacion("select count(CodMusculo) from Ejercicio where CodMusculo =" + oBEMusculo.Codigo + "");
+
+            Hashtable Hashdatos2 = new Hashtable();
+
+            if (oBEMusculo.Codigo == 0)
+            {
+                Hashdatos2.Add("@DNI", oBEMusculo.Codigo);
+
+                return oConexion.LeerAsociacion("S_verifia_Musculo_En_Uso", Hashdatos2);
+            }
+            else
+            { return false; }
         }
 
         public bool Guardar(BEMusculo oBEMusculo)
         {
-            string Consulta_SQL;
-            if (oBEMusculo.Codigo == 0)
-            {
-                Consulta_SQL = "Insert into Musculo (Nombre)values('" + oBEMusculo.Nombre + "' )";
-            }
-            else
-            {
-                Consulta_SQL = "update Musculo SET Nombre = '" + oBEMusculo.Nombre + "'where Codigo = " + oBEMusculo.Codigo + "";
-            }
+            Hashdatos = new Hashtable();
+            string Consulta_SQL = "S_Guarda_Musculo";
 
-            oConexion = new Conexion();
-            return oConexion.Escribir(Consulta_SQL);
+
+            if (oBEMusculo.Codigo != 0)
+            {
+                Hashdatos.Add("@Codigo", oBEMusculo.Codigo);
+                Consulta_SQL = "s_Cliente_Modificar";
+            }
+            Hashdatos.Add("@Nombre", oBEMusculo.Nombre);
+
+            return oConexion.Escribir(Consulta_SQL, Hashdatos); 
+
         }
 
         public BEMusculo ListarObjeto(BEMusculo oBEMusculo)
@@ -59,14 +77,9 @@ namespace Mapper
         public List<BEMusculo> ListarTodo()
         {
             List<BEMusculo> ListaMusculo = new List<BEMusculo>();
+            DataTable oDAtaTable = oConexion.LeerDataTable("S_Lista_Todos_Musculos", null);
             try
             {
-                DataTable oDAtaTable;
-                oConexion = new Conexion();
-                oDAtaTable = oConexion.LeerDataTable("Select Codigo, Nombre From Musculo");
-
-                
-
                 if (oDAtaTable.Rows.Count > 0)
                 {
                     foreach (DataRow item in oDAtaTable.Rows)
@@ -82,7 +95,8 @@ namespace Mapper
                     ListaMusculo = null;
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            { throw ex; }
             return ListaMusculo;
         }
     }

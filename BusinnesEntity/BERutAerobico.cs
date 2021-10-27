@@ -8,6 +8,6 @@ namespace BusinnesEntity
 {
     public class BERutAerobico : BERutina
     {
-       
+        public bool Trotar { get; set; }
     }
 }

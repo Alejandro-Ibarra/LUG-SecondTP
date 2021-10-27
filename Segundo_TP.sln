@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{E913AAAF-6A9A-4104-B23B-3180A119DE85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinnesEntity", "BusinnesEntity\BusinnesEntity.csproj", "{BBF4DA1E-8DB6-49F7-8172-FF82B4467DEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntity", "BusinnesEntity\BusinessEntity.csproj", "{BBF4DA1E-8DB6-49F7-8172-FF82B4467DEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4E7453E9-2CEC-4323-8EA9-1DC9C0D8778A}"
 EndProject

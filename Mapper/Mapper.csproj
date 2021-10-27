@@ -43,11 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MEjercicio.cs" />
+    <Compile Include="MLogin.cs" />
     <Compile Include="MMateriales.cs" />
     <Compile Include="MMusculo.cs" />
-    <Compile Include="MRutAerobico.cs" />
-    <Compile Include="MRutHipertrofia.cs" />
-    <Compile Include="MRutina.cs" />
     <Compile Include="MUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,9 +54,9 @@
       <Project>{2c6bd99d-2466-426f-b34a-6c4c9dd633e9}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BusinnesEntity\BusinnesEntity.csproj">
+    <ProjectReference Include="..\BusinnesEntity\BusinessEntity.csproj">
       <Project>{bbf4da1e-8db6-49f7-8172-ff82b4467deb}</Project>
-      <Name>BusinnesEntity</Name>
+      <Name>BusinessEntity</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{4e7453e9-2cec-4323-8ea9-1dc9c0d8778a}</Project>

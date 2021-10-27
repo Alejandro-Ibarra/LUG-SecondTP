@@ -61,7 +61,6 @@ namespace GUI
             // 
             this.TextBox_ID_Ejercicio.Location = new System.Drawing.Point(159, 397);
             this.TextBox_ID_Ejercicio.Name = "TextBox_ID_Ejercicio";
-            this.TextBox_ID_Ejercicio.ReadOnly = true;
             this.TextBox_ID_Ejercicio.Size = new System.Drawing.Size(100, 20);
             this.TextBox_ID_Ejercicio.TabIndex = 30;
             // 
@@ -178,7 +177,6 @@ namespace GUI
             // 
             this.TextBox_ID_Musculo.Location = new System.Drawing.Point(159, 448);
             this.TextBox_ID_Musculo.Name = "TextBox_ID_Musculo";
-            this.TextBox_ID_Musculo.ReadOnly = true;
             this.TextBox_ID_Musculo.Size = new System.Drawing.Size(100, 20);
             this.TextBox_ID_Musculo.TabIndex = 39;
             // 
@@ -195,7 +193,6 @@ namespace GUI
             // 
             this.TextBox_Nombre_Musculo.Location = new System.Drawing.Point(13, 448);
             this.TextBox_Nombre_Musculo.Name = "TextBox_Nombre_Musculo";
-            this.TextBox_Nombre_Musculo.ReadOnly = true;
             this.TextBox_Nombre_Musculo.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Nombre_Musculo.TabIndex = 37;
             // 
@@ -213,7 +210,6 @@ namespace GUI
             // 
             this.TextBox_ID_Material.Location = new System.Drawing.Point(159, 502);
             this.TextBox_ID_Material.Name = "TextBox_ID_Material";
-            this.TextBox_ID_Material.ReadOnly = true;
             this.TextBox_ID_Material.Size = new System.Drawing.Size(100, 20);
             this.TextBox_ID_Material.TabIndex = 43;
             // 
@@ -230,7 +226,6 @@ namespace GUI
             // 
             this.TextBox_Nombre_Material.Location = new System.Drawing.Point(13, 502);
             this.TextBox_Nombre_Material.Name = "TextBox_Nombre_Material";
-            this.TextBox_Nombre_Material.ReadOnly = true;
             this.TextBox_Nombre_Material.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Nombre_Material.TabIndex = 41;
             // 
@@ -248,7 +243,6 @@ namespace GUI
             // 
             this.TextBox_Peso_Material.Location = new System.Drawing.Point(312, 502);
             this.TextBox_Peso_Material.Name = "TextBox_Peso_Material";
-            this.TextBox_Peso_Material.ReadOnly = true;
             this.TextBox_Peso_Material.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Peso_Material.TabIndex = 45;
             // 
