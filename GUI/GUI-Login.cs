@@ -23,6 +23,8 @@ namespace GUI
         BELogin oBelogin;
         BLLogin oBLogin;
 
+
+
         private void Aceptar_Click(object sender, EventArgs e)
         {
             oBelogin.Usuario = textBox1.Text;
@@ -41,5 +43,9 @@ namespace GUI
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -54,6 +54,10 @@ namespace GUI
             this.label8 = new System.Windows.Forms.Label();
             this.Calcular_Cant_Herramientas = new System.Windows.Forms.Button();
             this.TextBox_Herramienta_utilizada = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Musculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +152,13 @@ namespace GUI
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Nombre,
+            this.Musculo,
+            this.Material});
             this.dataGridView1.Location = new System.Drawing.Point(13, 33);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(668, 339);
@@ -273,6 +283,26 @@ namespace GUI
             this.TextBox_Herramienta_utilizada.Size = new System.Drawing.Size(147, 78);
             this.TextBox_Herramienta_utilizada.TabIndex = 47;
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo de ejercicio";
+            this.Codigo.Name = "Codigo";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre del ejercicio";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Musculo
+            // 
+            this.Musculo.HeaderText = "Nombre del musculo";
+            this.Musculo.Name = "Musculo";
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Nombre del material";
+            this.Material.Name = "Material";
+            // 
             // GUI_Ejercicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +369,9 @@ namespace GUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button Calcular_Cant_Herramientas;
         private System.Windows.Forms.TextBox TextBox_Herramienta_utilizada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Musculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
     }
 }

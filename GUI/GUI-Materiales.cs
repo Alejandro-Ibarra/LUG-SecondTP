@@ -44,9 +44,8 @@ namespace GUI
             {
                 oBEMateriales.Codigo = 0;
                 oBEMateriales.Nombre = TextBox_Nombre.Text;
-                DialogResult oRespuesta;
-                oRespuesta = MessageBox.Show("¿Posee peso el material?", "Peso", MessageBoxButtons.YesNo);
-                if (oRespuesta == DialogResult.Yes)
+
+                if (TextBox_Peso.Text != null)
                 {
                     oBEMateriales.Peso = int.Parse(TextBox_Peso.Text);
                 }

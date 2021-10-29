@@ -156,6 +156,7 @@ namespace GUI
                         if (ejer.Materiales.Codigo != 0)
                         {
                             dataGridView1.ColumnCount = 4;
+                            
                             dataGridView1.Rows.Add(ejer.Codigo, ejer.Nombre, ejer.Musculo.Nombre, ejer.Materiales.Nombre);
                         }
                         else

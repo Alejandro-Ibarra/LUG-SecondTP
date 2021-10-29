@@ -126,18 +126,6 @@ namespace GUI
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                oBEMusculo = (BEMusculo)this.dataGridView1.CurrentRow.DataBoundItem;
-                TextBox_Nombre.Text = oBEMusculo.Nombre;
-                TextBox_ID.Text = oBEMusculo.Codigo.ToString();
-                TextBox_Nombre.ReadOnly = false;
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
         void AsignarAMusculo()
         {  
             try
@@ -162,6 +150,18 @@ namespace GUI
         private void Boton_Cerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                oBEMusculo = (BEMusculo)this.dataGridView1.CurrentRow.DataBoundItem;
+                TextBox_Nombre.Text = oBEMusculo.Nombre;
+                TextBox_ID.Text = oBEMusculo.Codigo.ToString();
+                TextBox_Nombre.ReadOnly = false;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

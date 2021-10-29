@@ -26,12 +26,12 @@ namespace Mapper
         public bool Guardar(BEUsuario oBEUsuario)
         {
             Hashdatos = new Hashtable();
-            string Consulta = "s_Cliente_Crear";
+            string Consulta = "S_Guarda_Usuario";
 
             if (oBEUsuario.Codigo != 0)
             {
-                Hashdatos.Add("@IdCliente", oBEUsuario.Codigo);
-                Consulta = "s_Cliente_Modificar";
+                Hashdatos.Add("@Codigo", oBEUsuario.Codigo);
+                Consulta = "S_Modifica_Usuario";
             }
 
             Hashdatos.Add("@Nombre", oBEUsuario.Nombre);
@@ -56,7 +56,7 @@ namespace Mapper
             {
                 Hashdatos2.Add("@DNI", oBEUsuario.DNI);
 
-                return oConexion.LeerAsociacion("s_Cliente_Existe_DNI", Hashdatos2);
+                return oConexion.LeerAsociacion("s_Usuario_Existe_DNI", Hashdatos2);
             }
             else
             { return false; }
@@ -102,7 +102,7 @@ namespace Mapper
 
                     string ConsultaSql2 = "S_Listar_Material_De_Usuario";
                     Hashtable Hashdatos2 = new Hashtable();
-                    Hashdatos2.Add("@DNI", oBEUsuario.DNI);
+                    Hashdatos2.Add("@Codigo", oBEUsuario.DNI);
                     DataTable oDataTable2 = oConexion.LeerDataTable(ConsultaSql2, Hashdatos2);
 
                     if (oDataTable2.Rows.Count > 0)
@@ -132,7 +132,7 @@ namespace Mapper
 
             Hashdatos = new Hashtable();
 
-            string Consulta = "S_Agrega_Material_De_Usuario";
+            string Consulta = "S_Guarda_Material_De_Usuario";
             Hashdatos.Add("@CodigoUsr", oBEusuario.Codigo);
             Hashdatos.Add("@CodigoMat", oBEMaterial.Codigo);
 

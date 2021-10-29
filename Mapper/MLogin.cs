@@ -5,17 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using BusinnesEntity;
-
+using System.Collections;
 
 namespace Mapper
 {
     public class MLogin
     {
+        public MLogin()
+        {
+            oConexion = new Conexion();
+            Hashdatos = new Hashtable();
+        }
+
+        Hashtable Hashdatos;
+        Conexion oConexion;
+
         public bool verificarUsuario(BELogin oBELogin)
         {
-            Conexion oConexion = new Conexion();
-            string consulta = "select  count (Usuario) from Login where Usuario = '" + oBELogin.Usuario +"' and Password = '" + oBELogin.Password +"'";
-            return oConexion.LeerAsociacion(consulta);
+
+            Hashdatos = new Hashtable();
+
+            Hashdatos.Add("@Usr", oBELogin.Usuario);
+            Hashdatos.Add("@Pass", oBELogin.Password);
+            string Consulta_SQL = "S_Verifica_Acceso";
+
+            return oConexion.Escribir(Consulta_SQL, Hashdatos);
         }
     }
 }

@@ -131,7 +131,7 @@ namespace DataAccess
                 oConexion.Open();
             }
             Cmd = new SqlCommand(Consulta_SQL, oConexion);
-            Cmd.CommandType = CommandType.Text;
+            Cmd.CommandType = CommandType.StoredProcedure;
             try
             {
 

@@ -10,5 +10,6 @@ namespace BusinnesEntity
     {
         public string Nombre { get; set; }
         public int Peso { get; set; }
+        public bool Activo { get; set; }
     }
 }

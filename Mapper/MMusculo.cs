@@ -42,9 +42,9 @@ namespace Mapper
 
             Hashtable Hashdatos2 = new Hashtable();
 
-            if (oBEMusculo.Codigo == 0)
+            if (oBEMusculo.Codigo != 0)
             {
-                Hashdatos2.Add("@DNI", oBEMusculo.Codigo);
+                Hashdatos2.Add("@Codigo", oBEMusculo.Codigo);
 
                 return oConexion.LeerAsociacion("S_verifia_Musculo_En_Uso", Hashdatos2);
             }
@@ -61,9 +61,10 @@ namespace Mapper
             if (oBEMusculo.Codigo != 0)
             {
                 Hashdatos.Add("@Codigo", oBEMusculo.Codigo);
-                Consulta_SQL = "s_Cliente_Modificar";
+                Consulta_SQL = "S_Modifica_Musculo";
             }
             Hashdatos.Add("@Nombre", oBEMusculo.Nombre);
+            Hashdatos.Add("@Activo", true);
 
             return oConexion.Escribir(Consulta_SQL, Hashdatos); 
 

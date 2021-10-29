@@ -11,5 +11,6 @@ namespace BusinnesEntity
         public string Nombre { get; set; }
         public BEMaterial Materiales{ get; set; }
         public BEMusculo Musculo { get; set; }
+        public bool Activo { get; set; }
     }
 }
