@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI-Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Admin.Designer.cs">
+      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI-Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,26 +70,29 @@
     <Compile Include="GUI-Materiales.Designer.cs">
       <DependentUpon>GUI-Materiales.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-MenuPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-MenuPrincipal.Designer.cs">
-      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI-Musculos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI-Musculos.Designer.cs">
       <DependentUpon>GUI-Musculos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-User.cs">
+    <Compile Include="GUI-UsrAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-User.Designer.cs">
-      <DependentUpon>GUI-User.cs</DependentUpon>
+    <Compile Include="GUI-UsrAlumno.Designer.cs">
+      <DependentUpon>GUI-UsrAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-UsrProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-UsrProfesor.Designer.cs">
+      <DependentUpon>GUI-UsrProfesor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI-Admin.resx">
+      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-Login.resx">
       <DependentUpon>GUI-Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,11 +105,11 @@
     <EmbeddedResource Include="GUI-Musculos.resx">
       <DependentUpon>GUI-Musculos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-User.resx">
-      <DependentUpon>GUI-User.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-UsrAlumno.resx">
+      <DependentUpon>GUI-UsrAlumno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI-MenuPrincipal.resx">
-      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-UsrProfesor.resx">
+      <DependentUpon>GUI-UsrProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

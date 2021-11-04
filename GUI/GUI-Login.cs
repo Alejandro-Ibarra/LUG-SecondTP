@@ -23,23 +23,50 @@ namespace GUI
         BELogin oBelogin;
         BLLogin oBLogin;
 
-
-
         private void Aceptar_Click(object sender, EventArgs e)
         {
-            oBelogin.Usuario = textBox1.Text;
-            oBelogin.Password = textBox2.Text;
-
-            if (oBLogin.verificarUsuario(oBelogin))
+            if (RadioButton_Alumno.Checked || RadioButton_Profe.Checked || RadioButton_Admin.Checked)
             {
-                Menu frm = new Menu();
-                this.Hide();
-                frm.Show();
+                oBelogin.DNI = Convert.ToInt32(textBox1.Text);
+                oBelogin.Password = textBox2.Text;
+                if (RadioButton_Profe.Checked)
+                {
+                    if (oBLogin.verificarUsuarioProfe(oBelogin))
+                    {
+                        GUI_UsrProfesor oGUI_Profesor = new GUI_UsrProfesor();
+                        this.Hide();
+                        oGUI_Profesor.Show();
+                    }
+                }
+                else if (RadioButton_Alumno.Checked)
+                {
+                    if (oBLogin.verificarUsuarioAlumno(oBelogin))
+                    {
+                        GUI_UsrAlumno oGUI_User = new GUI_UsrAlumno(oBelogin.DNI);
+                        this.Hide();
+                        oGUI_User.Show();
+                    }
+                }
+                else if (RadioButton_Admin.Checked)
+                {
+                    if (oBLogin.verificarUsuarioAdmin(oBelogin))
+                    {
+                        GUI_Admin oGUI_Admin = new GUI_Admin();
+                        this.Hide();
+                        oGUI_Admin.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el tipo de usuario");
+                }
             }
             else
             {
-                MessageBox.Show("Usuario o password incorrectos");
+                MessageBox.Show("Seleccione el tipo de cuenta");
             }
+
+            
 
         }
 

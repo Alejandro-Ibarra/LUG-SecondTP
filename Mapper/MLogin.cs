@@ -20,14 +20,35 @@ namespace Mapper
         Hashtable Hashdatos;
         Conexion oConexion;
 
-        public bool verificarUsuario(BELogin oBELogin)
+        public bool verificarUsuarioProfe(BELogin oBELogin)
         {
-
             Hashdatos = new Hashtable();
 
-            Hashdatos.Add("@Usr", oBELogin.Usuario);
+            Hashdatos.Add("@DNI", oBELogin.DNI);
             Hashdatos.Add("@Pass", oBELogin.Password);
-            string Consulta_SQL = "S_Verifica_Acceso";
+            string Consulta_SQL = "S_Verifica_Acceso_Profe";
+
+            return oConexion.Escribir(Consulta_SQL, Hashdatos);
+        }
+
+        public bool verificarUsuarioAdmin(BELogin oBELogin)
+        {
+            Hashdatos = new Hashtable();
+
+            Hashdatos.Add("@DNI", oBELogin.DNI);
+            Hashdatos.Add("@Pass", oBELogin.Password);
+            string Consulta_SQL = "S_Verifica_Acceso_Admin";
+
+            return oConexion.Escribir(Consulta_SQL, Hashdatos);
+        }
+
+        public bool verificarUsuarioAlumno(BELogin oBELogin)
+        {
+            Hashdatos = new Hashtable();
+
+            Hashdatos.Add("@DNI", oBELogin.DNI);
+            Hashdatos.Add("@Pass", oBELogin.Password);
+            string Consulta_SQL = "S_Verifica_Acceso_Alumno";
 
             return oConexion.Escribir(Consulta_SQL, Hashdatos);
         }

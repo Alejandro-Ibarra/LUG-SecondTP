@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinnesEntity
 {
-    public class BELogin : BEEntity
+    public class BEUsrProfesor : BEUsuario
     {
-        public int DNI { get; set; }
-        public string Password { get; set; }
-
+        public int NumenorDeContacto { get; set; }
     }
 }

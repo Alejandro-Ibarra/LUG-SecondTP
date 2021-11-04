@@ -34,7 +34,7 @@ namespace DataAccess
             try
             {
                 Da = new SqlDataAdapter(Cmd);
-                if ((Hashdatos != null))
+                if (Hashdatos != null)
                 {
                     foreach (string dato in Hashdatos.Keys)
                     {
@@ -103,14 +103,16 @@ namespace DataAccess
             catch (SqlException ex)
             {
                 Tranx.Rollback();
-                return false;
                 throw ex;
+               // return false;
+                
             }
             catch (Exception ex)
             {
                 Tranx.Rollback();
-                return false;
                 throw ex;
+               // return false;
+               
             }
             finally
             { 

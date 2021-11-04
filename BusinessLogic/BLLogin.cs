@@ -10,12 +10,25 @@ namespace BusinessLogic
 {
     public class BLLogin
     {
-        public bool verificarUsuario(BELogin oBELogin) 
+        public BLLogin()
         {
-            MLogin oMLogin = new MLogin();
+            oMLogin = new MLogin();
+        }
+        MLogin oMLogin;
 
-            return oMLogin.verificarUsuario(oBELogin);
+        public bool verificarUsuarioProfe(BELogin oBELogin)
+        {
+            return oMLogin.verificarUsuarioProfe(oBELogin);
+        }
 
+        public bool verificarUsuarioAlumno(BELogin oBELogin)
+        {
+            return oMLogin.verificarUsuarioAlumno(oBELogin);
+        }
+
+        public bool verificarUsuarioAdmin(BELogin oBELogin)
+        {
+            return oMLogin.verificarUsuarioAdmin(oBELogin);
         }
     }
 }

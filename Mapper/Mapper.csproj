@@ -46,7 +46,8 @@
     <Compile Include="MLogin.cs" />
     <Compile Include="MMateriales.cs" />
     <Compile Include="MMusculo.cs" />
-    <Compile Include="MUsuario.cs" />
+    <Compile Include="MUsrAlumno.cs" />
+    <Compile Include="MUsrProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

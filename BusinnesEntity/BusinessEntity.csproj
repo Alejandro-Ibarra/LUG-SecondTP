@@ -49,6 +49,8 @@
     <Compile Include="BEMaterial.cs" />
     <Compile Include="BEEntity.cs" />
     <Compile Include="BERutina.cs" />
+    <Compile Include="BEUsrAlumno.cs" />
+    <Compile Include="BEUsrProfesor.cs" />
     <Compile Include="BEUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,7 +11,7 @@ using DataAccess;
 
 namespace Mapper
 {
-    public class MMusculo : IGestor<BEMusculo>
+    public class MMusculo
     {
 
         Conexion oConexion;

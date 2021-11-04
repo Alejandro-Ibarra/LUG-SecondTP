@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace Mapper
 {
-    public class MUsuario : IGestor<BEUsuario>
+    public class MUsrAlumno : IGestor<BEUsrAlumno>
     {
-        public MUsuario()
+        public MUsrAlumno()
         {
             oConexion = new Conexion();
             Hashdatos = new Hashtable();
@@ -23,24 +23,26 @@ namespace Mapper
         Conexion oConexion;
         Hashtable Hashdatos;
 
-        public bool Guardar(BEUsuario oBEUsuario)
+        public bool Guardar(BEUsrAlumno oBEUsrAlumno)
         {
             Hashdatos = new Hashtable();
             string Consulta = "S_Guarda_Usuario";
 
-            if (oBEUsuario.Codigo != 0)
+            if (oBEUsrAlumno.Codigo != 0)
             {
-                Hashdatos.Add("@Codigo", oBEUsuario.Codigo);
+                Hashdatos.Add("@Codigo", oBEUsrAlumno.Codigo);
                 Consulta = "S_Modifica_Usuario";
             }
 
-            Hashdatos.Add("@Nombre", oBEUsuario.Nombre);
-            Hashdatos.Add("@Apellido", oBEUsuario.Apellido);
-            Hashdatos.Add("@DNI", oBEUsuario.DNI);
-            Hashdatos.Add("@Sexo", oBEUsuario.Sexo);
+            Hashdatos.Add("@Nombre", oBEUsrAlumno.Nombre);
+            Hashdatos.Add("@Apellido", oBEUsrAlumno.Apellido);
+            Hashdatos.Add("@DNI", oBEUsrAlumno.DNI);
+            Hashdatos.Add("@Sexo", oBEUsrAlumno.Sexo);
             Hashdatos.Add("@Activo", true);
+            Hashdatos.Add("@NroContacto", DBNull.Value);
+            Hashdatos.Add("@Satisfaccion", oBEUsrAlumno.Satisfaccion);
 
-            if (VerificaUsrXDNI(oBEUsuario) == false)
+            if (VerificaUsrXDNI(oBEUsrAlumno) == false)
 
             { return oConexion.Escribir(Consulta, Hashdatos); }
 
@@ -48,13 +50,13 @@ namespace Mapper
             { return false; }
         }
 
-        private bool VerificaUsrXDNI(BEUsuario oBEUsuario)
+        private bool VerificaUsrXDNI(BEUsrAlumno oBEUsrAlumno)
         {
             Hashtable Hashdatos2 = new Hashtable();
 
-            if (oBEUsuario.Codigo == 0)
+            if (oBEUsrAlumno.Codigo == 0)
             {
-                Hashdatos2.Add("@DNI", oBEUsuario.DNI);
+                Hashdatos2.Add("@DNI", oBEUsrAlumno.DNI);
 
                 return oConexion.LeerAsociacion("s_Usuario_Existe_DNI", Hashdatos2);
             }
@@ -62,47 +64,47 @@ namespace Mapper
             { return false; }
         }
 
-        public bool Baja(BEUsuario oBEUsuario)
+        public bool Baja(BEUsrAlumno oBEUsrAlumno)
         {
-            
-            if (oBEUsuario.Materiales != null)
+
+            if (oBEUsrAlumno.Materiales != null)
             {
-                foreach (BEMaterial Material in oBEUsuario.Materiales)
+                foreach (BEMaterial Material in oBEUsrAlumno.Materiales)
                 {
                     Hashtable Hash2 = new Hashtable();
-                    Hash2.Add("@CodigoUsr", oBEUsuario.Codigo);
+                    Hash2.Add("@CodigoUsr", oBEUsrAlumno.Codigo);
                     Hash2.Add("@CodigoMat", Material.Codigo);
 
                     string Consulta2 = "S_Desasocia_Material_De_Usuario";
-                    
+
                     oConexion.Escribir(Consulta2, Hash2);
                 }
             }
             string Consulta = "S_Eliminar_Usuario";
-            Hashdatos.Add("@IdCliente", oBEUsuario.Codigo);
+            Hashdatos.Add("@IdCliente", oBEUsrAlumno.Codigo);
 
             return oConexion.Escribir(Consulta, Hashdatos);
         }
-    
-        public BEUsuario ListarObjeto(BEUsuario oBEUsuario)
+
+        public BEUsrAlumno ListarObjeto(BEUsrAlumno oBEUsrAlumno)
         {
             try
             {
                 string ConsultaSql = "S_Listar_Un_Usuario";
                 Hashdatos = new Hashtable();
-                Hashdatos.Add("@DNI", oBEUsuario.DNI);
+                Hashdatos.Add("@DNI", oBEUsrAlumno.DNI);
                 DataTable oDataTable = oConexion.LeerDataTable(ConsultaSql, Hashdatos);
 
                 if (oDataTable.Rows.Count > 0)
                 {
-                    oBEUsuario.Codigo = Convert.ToInt32(oDataTable.Rows[0].ItemArray[0]);
-                    oBEUsuario.Nombre = oDataTable.Rows[0].ItemArray[1].ToString();
-                    oBEUsuario.Apellido = oDataTable.Rows[0].ItemArray[2].ToString();
-                    oBEUsuario.Sexo = oDataTable.Rows[0].ItemArray[3].ToString();
+                    oBEUsrAlumno.Codigo = Convert.ToInt32(oDataTable.Rows[0].ItemArray[0]);
+                    oBEUsrAlumno.Nombre = oDataTable.Rows[0].ItemArray[1].ToString();
+                    oBEUsrAlumno.Apellido = oDataTable.Rows[0].ItemArray[2].ToString();
+                    oBEUsrAlumno.Sexo = oDataTable.Rows[0].ItemArray[3].ToString();
 
                     string ConsultaSql2 = "S_Listar_Material_De_Usuario";
                     Hashtable Hashdatos2 = new Hashtable();
-                    Hashdatos2.Add("@Codigo", oBEUsuario.DNI);
+                    Hashdatos2.Add("@Codigo", oBEUsrAlumno.DNI);
                     DataTable oDataTable2 = oConexion.LeerDataTable(ConsultaSql2, Hashdatos2);
 
                     if (oDataTable2.Rows.Count > 0)
@@ -116,47 +118,70 @@ namespace Mapper
                             oBEMat.Peso = Convert.ToInt32(fila[2]);
                             ListaMateriales.Add(oBEMat);
                         }
-                        oBEUsuario.Materiales = ListaMateriales;
+                        oBEUsrAlumno.Materiales = ListaMateriales;
                     }
                     else
-                    { oBEUsuario.Materiales = null; }
+                    { oBEUsrAlumno.Materiales = null; }
                 }
             }
             catch (Exception ex)
             { throw ex; }
-            return oBEUsuario;
+            return oBEUsrAlumno;
         }
 
-        public bool AgregarUsuarioMaterial(BEUsuario oBEusuario, BEMaterial oBEMaterial)
+        public bool AgregarUsuarioMaterial(BEUsrAlumno oBEUsrAlumno, BEMaterial oBEMaterial)
         {
 
             Hashdatos = new Hashtable();
 
             string Consulta = "S_Guarda_Material_De_Usuario";
-            Hashdatos.Add("@CodigoUsr", oBEusuario.Codigo);
+            Hashdatos.Add("@CodigoUsr", oBEUsrAlumno.Codigo);
             Hashdatos.Add("@CodigoMat", oBEMaterial.Codigo);
 
             return oConexion.Escribir(Consulta, Hashdatos);
 
         }
 
-        public bool EliminarMaterialAsociado(BEUsuario oBEusuario, BEMaterial oBEMaterial)
+        public bool EliminarMaterialAsociado(BEUsrAlumno oBEUsrAlumno, BEMaterial oBEMaterial)
         {
             Hashdatos = new Hashtable();
 
             string Consulta = "S_Desasocia_Material_De_Usuario";
-            Hashdatos.Add("@CodigoUsr", oBEusuario.Codigo);
+            Hashdatos.Add("@CodigoUsr", oBEUsrAlumno.Codigo);
             Hashdatos.Add("@CodigoMat", oBEMaterial.Codigo);
 
             return oConexion.Escribir(Consulta, Hashdatos);
 
         }
-        
-        public List<BEUsuario> ListarTodo()
+
+        public List<BEUsrAlumno> ListarTodo()
         {
-            throw new NotImplementedException();
+            List<BEUsrAlumno> ListaUsrAlumnos = new List<BEUsrAlumno>();
+
+            string Consulta = "S_Listar_Todos_Usuarios";
+
+            DataTable Tabla = oConexion.LeerDataTable(Consulta, null);
+
+            if (Tabla.Rows.Count > 0)
+            {
+                foreach (DataRow fila in Tabla.Rows)
+                {
+                    if (fila[7] is int)
+                    {
+                        BEUsrAlumno oBEUsrAl = new BEUsrAlumno();
+                        oBEUsrAl.Codigo = Convert.ToInt32(fila[0]);
+                        oBEUsrAl.Nombre = fila[1].ToString();
+                        oBEUsrAl.Apellido = fila[2].ToString();
+                        oBEUsrAl.DNI = Convert.ToInt32(fila[3]);
+                        oBEUsrAl.Sexo = fila[4].ToString();
+                        oBEUsrAl.Activo = true;
+                        oBEUsrAl.Satisfaccion = Convert.ToInt32(fila[7]);
+                        ListaUsrAlumnos.Add(oBEUsrAl);
+
+                    }
+                }
+            }
+            return ListaUsrAlumnos;
         }
-
-
     }
 }

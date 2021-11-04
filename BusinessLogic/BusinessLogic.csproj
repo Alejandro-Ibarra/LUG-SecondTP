@@ -48,6 +48,8 @@
     <Compile Include="BLMateriales.cs" />
     <Compile Include="BLMusculo.cs" />
     <Compile Include="BLRutina.cs" />
+    <Compile Include="BLUsrAlumno.cs" />
+    <Compile Include="BLUsrProfesor.cs" />
     <Compile Include="BLUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
