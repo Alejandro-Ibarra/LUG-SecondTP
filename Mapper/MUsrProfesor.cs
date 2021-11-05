@@ -33,14 +33,19 @@ namespace Mapper
                 Hashdatos.Add("@Codigo", oBEUsrProfesor.Codigo);
                 Consulta = "S_Modifica_Usuario";
             }
+            else
+            {
+                Hashdatos.Add("@Activo", true);
+                Hashdatos.Add("Pass", oBEUsrProfesor.Pass);
+            }
 
             Hashdatos.Add("@Nombre", oBEUsrProfesor.Nombre);
             Hashdatos.Add("@Apellido", oBEUsrProfesor.Apellido);
             Hashdatos.Add("@DNI", oBEUsrProfesor.DNI);
             Hashdatos.Add("@Sexo", oBEUsrProfesor.Sexo);
             Hashdatos.Add("@NroContacto", oBEUsrProfesor.NumenorDeContacto);
-            Hashdatos.Add("@Activo", true);
             Hashdatos.Add("@Satisfaccion", DBNull.Value);
+            
 
             if (VerificaUsrXDNI(oBEUsrProfesor) == false)
 

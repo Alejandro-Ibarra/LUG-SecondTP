@@ -33,12 +33,16 @@ namespace Mapper
                 Hashdatos.Add("@Codigo", oBEUsrAlumno.Codigo);
                 Consulta = "S_Modifica_Usuario";
             }
+            else
+            {
+                Hashdatos.Add("@Activo", true);
+                Hashdatos.Add("Pass", oBEUsrAlumno.Pass);
+            }
 
             Hashdatos.Add("@Nombre", oBEUsrAlumno.Nombre);
             Hashdatos.Add("@Apellido", oBEUsrAlumno.Apellido);
             Hashdatos.Add("@DNI", oBEUsrAlumno.DNI);
             Hashdatos.Add("@Sexo", oBEUsrAlumno.Sexo);
-            Hashdatos.Add("@Activo", true);
             Hashdatos.Add("@NroContacto", DBNull.Value);
             Hashdatos.Add("@Satisfaccion", oBEUsrAlumno.Satisfaccion);
 
@@ -137,6 +141,7 @@ namespace Mapper
             string Consulta = "S_Guarda_Material_De_Usuario";
             Hashdatos.Add("@CodigoUsr", oBEUsrAlumno.Codigo);
             Hashdatos.Add("@CodigoMat", oBEMaterial.Codigo);
+            Hashdatos.Add("@Activo", true);
 
             return oConexion.Escribir(Consulta, Hashdatos);
 

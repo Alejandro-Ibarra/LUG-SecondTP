@@ -33,8 +33,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +47,26 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Val_Ape_RGX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Val_Nro_Cont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Val_Peso.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Val_Nom_RGX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Val_DNI_RGX.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI-Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,9 +163,14 @@
       <Project>{bbf4da1e-8db6-49f7-8172-ff82b4467deb}</Project>
       <Name>BusinessEntity</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TextFile1.txt" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{4e7453e9-2cec-4323-8ea9-1dc9c0d8778a}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mapper\Mapper.csproj">
+      <Project>{3f24b42e-73f2-4a68-b346-56b25c6c3a49}</Project>
+      <Name>Mapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

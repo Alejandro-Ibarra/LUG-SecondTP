@@ -21,44 +21,59 @@ namespace GUI
             oBLogin = new BLLogin();
         }
         BELogin oBelogin;
-        BLLogin oBLogin;
+        BLLogin oBLogin;    
 
         private void Aceptar_Click(object sender, EventArgs e)
         {
             if (RadioButton_Alumno.Checked || RadioButton_Profe.Checked || RadioButton_Admin.Checked)
             {
-                oBelogin.DNI = Convert.ToInt32(textBox1.Text);
-                oBelogin.Password = textBox2.Text;
-                if (RadioButton_Profe.Checked)
+                if (val_DNI_RGX1.validar())
                 {
-                    if (oBLogin.verificarUsuarioProfe(oBelogin))
+                    oBelogin.DNI = Convert.ToInt32(val_DNI_RGX1.Text);
+                    oBelogin.Password = textBox2.Text;
+                    if (RadioButton_Profe.Checked)
                     {
-                        GUI_UsrProfesor oGUI_Profesor = new GUI_UsrProfesor();
-                        this.Hide();
-                        oGUI_Profesor.Show();
+                        if (oBLogin.verificarUsuarioProfe(oBelogin))
+                        {
+                            GUI_UsrProfesor oGUI_Profesor = new GUI_UsrProfesor();
+                            this.Hide();
+                            oGUI_Profesor.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No existe un profesor con los parametros ingresados");
+                        }
                     }
-                }
-                else if (RadioButton_Alumno.Checked)
-                {
-                    if (oBLogin.verificarUsuarioAlumno(oBelogin))
+                    else if (RadioButton_Alumno.Checked)
                     {
-                        GUI_UsrAlumno oGUI_User = new GUI_UsrAlumno(oBelogin.DNI);
-                        this.Hide();
-                        oGUI_User.Show();
+                        if (oBLogin.verificarUsuarioAlumno(oBelogin))
+                        {
+                            GUI_UsrAlumno oGUI_User = new GUI_UsrAlumno(oBelogin.DNI);
+                            this.Hide();
+                            oGUI_User.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No existe un alumno con los parametros ingresados");
+                        }
                     }
-                }
-                else if (RadioButton_Admin.Checked)
-                {
-                    if (oBLogin.verificarUsuarioAdmin(oBelogin))
+                    else if (RadioButton_Admin.Checked)
                     {
-                        GUI_Admin oGUI_Admin = new GUI_Admin();
-                        this.Hide();
-                        oGUI_Admin.Show();
+                        if (oBLogin.verificarUsuarioAdmin(oBelogin))
+                        {
+                            GUI_Admin oGUI_Admin = new GUI_Admin();
+                            this.Hide();
+                            oGUI_Admin.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No existe un administrador con los parametros ingresados");
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Seleccione el tipo de usuario");
+                    else
+                    {
+                        MessageBox.Show("Seleccione el tipo de usuario");
+                    }
                 }
             }
             else
@@ -66,13 +81,16 @@ namespace GUI
                 MessageBox.Show("Seleccione el tipo de cuenta");
             }
 
-            
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void uC_LogIn1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

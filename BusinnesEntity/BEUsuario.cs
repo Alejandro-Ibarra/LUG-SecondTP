@@ -13,6 +13,6 @@ namespace BusinnesEntity
         public int DNI { get; set; }
         public string Sexo { get; set; }
         public bool Activo { get; set; }
-
+        public string Pass { get; set; }
     }
 }

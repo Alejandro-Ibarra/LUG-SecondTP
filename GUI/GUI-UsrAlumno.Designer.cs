@@ -37,19 +37,22 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.TextBox_Nombre = new System.Windows.Forms.TextBox();
-            this.TextBox_Apellido = new System.Windows.Forms.TextBox();
-            this.TextBox_Sexo = new System.Windows.Forms.TextBox();
             this.TextBox_Codigo = new System.Windows.Forms.TextBox();
-            this.Boton_Modificar_Datos_Personales = new System.Windows.Forms.Button();
             this.Eliminar_Materiales = new System.Windows.Forms.Button();
-            this.GroupBox_Mod_Sexo = new System.Windows.Forms.GroupBox();
-            this.radioButton_Mod_Fem = new System.Windows.Forms.RadioButton();
-            this.radioButton_Mod_Masc = new System.Windows.Forms.RadioButton();
             this.RadioButton_Aerobico = new System.Windows.Forms.RadioButton();
             this.RadioButton_Hipertrofia = new System.Windows.Forms.RadioButton();
             this.GroupBox_Tipo_Rutina = new System.Windows.Forms.GroupBox();
             this.Boton_Salir = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ComboBox_Sexo = new System.Windows.Forms.ComboBox();
+            this.TextBox_Nombre = new System.Windows.Forms.TextBox();
+            this.TextBox_Apellido = new System.Windows.Forms.TextBox();
+            this.Boton_Modificar_Datos_Personales = new System.Windows.Forms.Button();
+            this.ComboBox_Valoracion = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Rutina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Disponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Materiales_Seleccionados)).BeginInit();
@@ -134,48 +137,14 @@ namespace GUI
             this.label3.TabIndex = 12;
             this.label3.Text = "Agregar / Quitar";
             // 
-            // TextBox_Nombre
-            // 
-            this.TextBox_Nombre.Enabled = false;
-            this.TextBox_Nombre.Location = new System.Drawing.Point(610, 112);
-            this.TextBox_Nombre.Name = "TextBox_Nombre";
-            this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Nombre.TabIndex = 13;
-            // 
-            // TextBox_Apellido
-            // 
-            this.TextBox_Apellido.Enabled = false;
-            this.TextBox_Apellido.Location = new System.Drawing.Point(737, 112);
-            this.TextBox_Apellido.Name = "TextBox_Apellido";
-            this.TextBox_Apellido.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Apellido.TabIndex = 14;
-            // 
-            // TextBox_Sexo
-            // 
-            this.TextBox_Sexo.Enabled = false;
-            this.TextBox_Sexo.Location = new System.Drawing.Point(610, 138);
-            this.TextBox_Sexo.Name = "TextBox_Sexo";
-            this.TextBox_Sexo.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Sexo.TabIndex = 15;
-            // 
             // TextBox_Codigo
             // 
             this.TextBox_Codigo.Enabled = false;
             this.TextBox_Codigo.Location = new System.Drawing.Point(737, 138);
             this.TextBox_Codigo.Name = "TextBox_Codigo";
+            this.TextBox_Codigo.ReadOnly = true;
             this.TextBox_Codigo.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Codigo.TabIndex = 16;
-            // 
-            // Boton_Modificar_Datos_Personales
-            // 
-            this.Boton_Modificar_Datos_Personales.Enabled = false;
-            this.Boton_Modificar_Datos_Personales.Location = new System.Drawing.Point(647, 214);
-            this.Boton_Modificar_Datos_Personales.Name = "Boton_Modificar_Datos_Personales";
-            this.Boton_Modificar_Datos_Personales.Size = new System.Drawing.Size(142, 23);
-            this.Boton_Modificar_Datos_Personales.TabIndex = 18;
-            this.Boton_Modificar_Datos_Personales.Text = "Modificar datos personales";
-            this.Boton_Modificar_Datos_Personales.UseVisualStyleBackColor = true;
-            this.Boton_Modificar_Datos_Personales.Click += new System.EventHandler(this.Boton_Modificar_Datos_Personales_Click);
             // 
             // Eliminar_Materiales
             // 
@@ -186,37 +155,6 @@ namespace GUI
             this.Eliminar_Materiales.Text = "Quitar Materiales";
             this.Eliminar_Materiales.UseVisualStyleBackColor = true;
             this.Eliminar_Materiales.Click += new System.EventHandler(this.Eliminar_Materiales_Click);
-            // 
-            // GroupBox_Mod_Sexo
-            // 
-            this.GroupBox_Mod_Sexo.Location = new System.Drawing.Point(587, 158);
-            this.GroupBox_Mod_Sexo.Name = "GroupBox_Mod_Sexo";
-            this.GroupBox_Mod_Sexo.Size = new System.Drawing.Size(276, 38);
-            this.GroupBox_Mod_Sexo.TabIndex = 21;
-            this.GroupBox_Mod_Sexo.TabStop = false;
-            this.GroupBox_Mod_Sexo.Visible = false;
-            // 
-            // radioButton_Mod_Fem
-            // 
-            this.radioButton_Mod_Fem.AutoSize = true;
-            this.radioButton_Mod_Fem.Location = new System.Drawing.Point(610, 169);
-            this.radioButton_Mod_Fem.Name = "radioButton_Mod_Fem";
-            this.radioButton_Mod_Fem.Size = new System.Drawing.Size(71, 17);
-            this.radioButton_Mod_Fem.TabIndex = 19;
-            this.radioButton_Mod_Fem.Text = "Femenino";
-            this.radioButton_Mod_Fem.UseVisualStyleBackColor = true;
-            this.radioButton_Mod_Fem.Visible = false;
-            // 
-            // radioButton_Mod_Masc
-            // 
-            this.radioButton_Mod_Masc.AutoSize = true;
-            this.radioButton_Mod_Masc.Location = new System.Drawing.Point(737, 169);
-            this.radioButton_Mod_Masc.Name = "radioButton_Mod_Masc";
-            this.radioButton_Mod_Masc.Size = new System.Drawing.Size(73, 17);
-            this.radioButton_Mod_Masc.TabIndex = 20;
-            this.radioButton_Mod_Masc.Text = "Masculino";
-            this.radioButton_Mod_Masc.UseVisualStyleBackColor = true;
-            this.radioButton_Mod_Masc.Visible = false;
             // 
             // RadioButton_Aerobico
             // 
@@ -263,20 +201,108 @@ namespace GUI
             this.Boton_Salir.UseVisualStyleBackColor = true;
             this.Boton_Salir.Click += new System.EventHandler(this.Boton_Salir_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(607, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Nombre";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(734, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Apellido";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(607, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Sexo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(734, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Codigo";
+            // 
+            // ComboBox_Sexo
+            // 
+            this.ComboBox_Sexo.FormattingEnabled = true;
+            this.ComboBox_Sexo.Location = new System.Drawing.Point(610, 138);
+            this.ComboBox_Sexo.Name = "ComboBox_Sexo";
+            this.ComboBox_Sexo.Size = new System.Drawing.Size(100, 21);
+            this.ComboBox_Sexo.TabIndex = 104;
+            // 
+            // TextBox_Nombre
+            // 
+            this.TextBox_Nombre.Location = new System.Drawing.Point(610, 92);
+            this.TextBox_Nombre.Name = "TextBox_Nombre";
+            this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Nombre.TabIndex = 105;
+            // 
+            // TextBox_Apellido
+            // 
+            this.TextBox_Apellido.Location = new System.Drawing.Point(737, 92);
+            this.TextBox_Apellido.Name = "TextBox_Apellido";
+            this.TextBox_Apellido.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Apellido.TabIndex = 106;
+            // 
+            // Boton_Modificar_Datos_Personales
+            // 
+            this.Boton_Modificar_Datos_Personales.Location = new System.Drawing.Point(610, 265);
+            this.Boton_Modificar_Datos_Personales.Name = "Boton_Modificar_Datos_Personales";
+            this.Boton_Modificar_Datos_Personales.Size = new System.Drawing.Size(227, 23);
+            this.Boton_Modificar_Datos_Personales.TabIndex = 107;
+            this.Boton_Modificar_Datos_Personales.Text = "Modificar datos personales";
+            this.Boton_Modificar_Datos_Personales.UseVisualStyleBackColor = true;
+            // 
+            // ComboBox_Valoracion
+            // 
+            this.ComboBox_Valoracion.FormattingEnabled = true;
+            this.ComboBox_Valoracion.Location = new System.Drawing.Point(699, 221);
+            this.ComboBox_Valoracion.Name = "ComboBox_Valoracion";
+            this.ComboBox_Valoracion.Size = new System.Drawing.Size(41, 21);
+            this.ComboBox_Valoracion.TabIndex = 108;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(644, 175);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(181, 32);
+            this.label8.TabIndex = 109;
+            this.label8.Text = "Indique cuan satisfecho se encuentracon la aplicacion";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GUI_UsrAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 685);
-            this.Controls.Add(this.Boton_Salir);
-            this.Controls.Add(this.Eliminar_Materiales);
-            this.Controls.Add(this.radioButton_Mod_Masc);
-            this.Controls.Add(this.radioButton_Mod_Fem);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.ComboBox_Valoracion);
             this.Controls.Add(this.Boton_Modificar_Datos_Personales);
-            this.Controls.Add(this.TextBox_Codigo);
-            this.Controls.Add(this.TextBox_Sexo);
             this.Controls.Add(this.TextBox_Apellido);
             this.Controls.Add(this.TextBox_Nombre);
+            this.Controls.Add(this.ComboBox_Sexo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Boton_Salir);
+            this.Controls.Add(this.Eliminar_Materiales);
+            this.Controls.Add(this.TextBox_Codigo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -285,7 +311,6 @@ namespace GUI
             this.Controls.Add(this.Ingreso_Materiales);
             this.Controls.Add(this.Generar_Rutina);
             this.Controls.Add(this.Grilla_Rutina);
-            this.Controls.Add(this.GroupBox_Mod_Sexo);
             this.Controls.Add(this.GroupBox_Tipo_Rutina);
             this.Name = "GUI_UsrAlumno";
             this.Text = "GUI_UsrAlumno";
@@ -310,18 +335,21 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TextBox_Nombre;
-        private System.Windows.Forms.TextBox TextBox_Apellido;
-        private System.Windows.Forms.TextBox TextBox_Sexo;
         private System.Windows.Forms.TextBox TextBox_Codigo;
-        private System.Windows.Forms.Button Boton_Modificar_Datos_Personales;
         private System.Windows.Forms.Button Eliminar_Materiales;
-        private System.Windows.Forms.GroupBox GroupBox_Mod_Sexo;
-        private System.Windows.Forms.RadioButton radioButton_Mod_Fem;
-        private System.Windows.Forms.RadioButton radioButton_Mod_Masc;
         private System.Windows.Forms.RadioButton RadioButton_Aerobico;
         private System.Windows.Forms.RadioButton RadioButton_Hipertrofia;
         private System.Windows.Forms.GroupBox GroupBox_Tipo_Rutina;
         private System.Windows.Forms.Button Boton_Salir;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox ComboBox_Sexo;
+        private System.Windows.Forms.TextBox TextBox_Nombre;
+        private System.Windows.Forms.TextBox TextBox_Apellido;
+        private System.Windows.Forms.Button Boton_Modificar_Datos_Personales;
+        private System.Windows.Forms.ComboBox ComboBox_Valoracion;
+        private System.Windows.Forms.Label label8;
     }
 }

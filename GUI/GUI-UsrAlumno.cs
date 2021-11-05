@@ -27,6 +27,8 @@ namespace GUI
             Grilla_Materiales_Seleccionados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grilla_Rutina.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CargarDatosDeAlumno(DNI);
+            CargarComboboxSexo();
+            CargarComboboxValoracion();
         }
         BEUsrAlumno oBEUsrAlumno;
         BEMaterial oBEMateriales;
@@ -214,14 +216,15 @@ namespace GUI
             return null;
         }
 
-        void AsignarAControles(BEUsuario oBEUsuario)
+        void AsignarAControles(BEUsrAlumno oBEUsrAlumno)
         {
             try
             {
-                TextBox_Apellido.Text = oBEUsuario.Apellido;
-                TextBox_Codigo.Text = oBEUsuario.Codigo.ToString();
-                TextBox_Nombre.Text = oBEUsuario.Nombre;
-                TextBox_Sexo.Text = oBEUsuario.Sexo;
+                TextBox_Apellido.Text = oBEUsrAlumno.Apellido;
+                TextBox_Codigo.Text = oBEUsrAlumno.Codigo.ToString();
+                TextBox_Nombre.Text = oBEUsrAlumno.Nombre;
+                ComboBox_Sexo.Text = oBEUsrAlumno.Sexo;
+                ComboBox_Valoracion.Text = oBEUsrAlumno.Satisfaccion.ToString();
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -234,15 +237,8 @@ namespace GUI
                 oBEUsrAlumno.Nombre = TextBox_Nombre.Text;
                 oBEUsrAlumno.Apellido = TextBox_Apellido.Text;
                 oBEUsrAlumno.Codigo = int.Parse(TextBox_Codigo.Text);
-                oBEUsrAlumno.Sexo = TextBox_Sexo.Text;
-                if (radioButton_Mod_Fem.Checked == true)
-                {
-                    oBEUsrAlumno.Sexo = "Femenino";
-                }
-                else if (radioButton_Mod_Masc.Checked == true)
-                {
-                    oBEUsrAlumno.Sexo = "Masculino";
-                }
+                oBEUsrAlumno.Sexo = ComboBox_Sexo.Text;
+                oBEUsrAlumno.Satisfaccion = int.Parse(ComboBox_Valoracion.Text);
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -270,5 +266,28 @@ namespace GUI
         {
             Application.Exit();
         }
-    }    
+
+        private void CargarComboboxSexo()
+        {
+            List<string> listSexos = new List<string>();
+            listSexos.Add("Masculino");
+            listSexos.Add("Femenino");
+            ComboBox_Sexo.DataSource = null;
+            ComboBox_Sexo.DataSource = listSexos;
+
+        }
+
+        private void CargarComboboxValoracion()
+        {
+            List<string> listSexos = new List<string>();
+            listSexos.Add("1");
+            listSexos.Add("2");
+            listSexos.Add("3");
+            listSexos.Add("4");
+            listSexos.Add("5");
+            ComboBox_Valoracion.DataSource = null;
+            ComboBox_Valoracion.DataSource = listSexos;
+
+        }
+    }
 }

@@ -68,7 +68,7 @@ namespace GUI
             try
             {
                 if (VerificarRadioButton() == true)
-                {
+                    {
 
                     if (RadioButton_Alumno.Checked)
                     {
@@ -128,10 +128,12 @@ namespace GUI
                 {
                     oBEUsrProfesor.Codigo = int.Parse(TextBox_Codigo.Text);
                 }
+                else
+                {
+                    oBEUsrProfesor.Pass = val_DNI_RGX1.Text;
+                }
                 oBEUsrProfesor.Sexo = ComboBox_Sexo.Text;
-                oBEUsrProfesor.NumenorDeContacto = int.Parse(TextBox_Num_Contacto.Text);
-                oBEUsrProfesor.Sexo = ComboBox_Sexo.Text;
-               
+                oBEUsrProfesor.NumenorDeContacto = int.Parse(TextBox_Num_Contacto.Text);               
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -150,9 +152,10 @@ namespace GUI
                 else
                 {
                     oBEUsrAlumno.Satisfaccion = 0;
+                    oBEUsrAlumno.Pass = val_DNI_RGX1.Text;
                 }
                 oBEUsrAlumno.Sexo = ComboBox_Sexo.Text;
-                
+
 
             }
             catch (Exception ex)
@@ -167,7 +170,9 @@ namespace GUI
                 TextBox_Codigo.Text = oBEUsrAlumno.Codigo.ToString();
                 TextBox_Nombre.Text = oBEUsrAlumno.Nombre;
                 ComboBox_Sexo.Text = oBEUsrAlumno.Sexo;
-                TextBox_DNI.Text = oBEUsrAlumno.DNI.ToString();
+                val_DNI_RGX1.Text = oBEUsrAlumno.DNI.ToString();
+                RadioButton_Alumno.Checked = true;
+                TextBox_Num_Contacto.Text = null;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -181,8 +186,9 @@ namespace GUI
                 TextBox_Codigo.Text = oBEUsrProfesor.Codigo.ToString();
                 TextBox_Nombre.Text = oBEUsrProfesor.Nombre;
                 ComboBox_Sexo.Text = oBEUsrProfesor.Sexo;
-                TextBox_DNI.Text = oBEUsrProfesor.DNI.ToString();
+                val_DNI_RGX1.Text = oBEUsrProfesor.DNI.ToString();
                 TextBox_Num_Contacto.Text = oBEUsrProfesor.NumenorDeContacto.ToString();
+                RadioButton_Profesor.Checked = true;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -236,14 +242,10 @@ namespace GUI
 
         private void RadioButton_Profesor_CheckedChanged(object sender, EventArgs e)
         {
-            TextBox_Num_Contacto.ReadOnly = false;
+            
         }
 
-        private void RadioButton_Usuario_CheckedChanged(object sender, EventArgs e)
-        {
-            TextBox_Num_Contacto.ReadOnly = true;
-        }
-
+        
         private void CargarComboboxSexo()
         {
             List<string> listSexos = new List<string>();
@@ -271,6 +273,17 @@ namespace GUI
                 oBEUsrAlumno = (BEUsrAlumno)Grilla_Alumnos.CurrentRow.DataBoundItem;
                 AsignarAlumnoAControles(oBEUsrAlumno);
             }
+        }
+
+        private void RadioButton_Profesor_CheckedChanged_1(object sender, EventArgs e)
+        {
+            TextBox_Num_Contacto.ReadOnly = false;
+        }
+
+        private void RadioButton_Alumno_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBox_Num_Contacto.ReadOnly = true;
+            TextBox_Num_Contacto.Text = null;
         }
     }
 }
