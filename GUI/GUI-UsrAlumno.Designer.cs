@@ -267,6 +267,7 @@ namespace GUI
             this.Boton_Modificar_Datos_Personales.TabIndex = 107;
             this.Boton_Modificar_Datos_Personales.Text = "Modificar datos personales";
             this.Boton_Modificar_Datos_Personales.UseVisualStyleBackColor = true;
+            this.Boton_Modificar_Datos_Personales.Click += new System.EventHandler(this.Boton_Modificar_Datos_Personales_Click_1);
             // 
             // ComboBox_Valoracion
             // 
@@ -282,7 +283,7 @@ namespace GUI
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(181, 32);
             this.label8.TabIndex = 109;
-            this.label8.Text = "Indique cuan satisfecho se encuentracon la aplicacion";
+            this.label8.Text = "Indique cuan satisfecho se encuentra con la aplicacion";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GUI_UsrAlumno

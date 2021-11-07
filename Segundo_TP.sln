@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapper", "Mapper\Mapper.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstraction", "Abstraction\Abstraction.csproj", "{2C6BD99D-2466-426F-B34A-6C4C9DD633E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seguridad", "Seguridad\Seguridad.csproj", "{3EF4B2E2-3D2F-46D3-9A83-BF4886E3E564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2C6BD99D-2466-426F-B34A-6C4C9DD633E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C6BD99D-2466-426F-B34A-6C4C9DD633E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C6BD99D-2466-426F-B34A-6C4C9DD633E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF4B2E2-3D2F-46D3-9A83-BF4886E3E564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF4B2E2-3D2F-46D3-9A83-BF4886E3E564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF4B2E2-3D2F-46D3-9A83-BF4886E3E564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF4B2E2-3D2F-46D3-9A83-BF4886E3E564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

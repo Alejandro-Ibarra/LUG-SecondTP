@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinnesEntity;
 using BusinessLogic;
+using Seguridad;
 
 namespace GUI
 {
@@ -30,7 +31,7 @@ namespace GUI
                 if (val_DNI_RGX1.validar())
                 {
                     oBelogin.DNI = Convert.ToInt32(val_DNI_RGX1.Text);
-                    oBelogin.Password = textBox2.Text;
+                    oBelogin.Password = Encriptar.GenerarMD5(textBox2.Text);
                     if (RadioButton_Profe.Checked)
                     {
                         if (oBLogin.verificarUsuarioProfe(oBelogin))

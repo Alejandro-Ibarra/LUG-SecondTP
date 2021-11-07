@@ -289,5 +289,10 @@ namespace GUI
             ComboBox_Valoracion.DataSource = listSexos;
 
         }
+
+        private void Boton_Modificar_Datos_Personales_Click_1(object sender, EventArgs e)
+        {
+            ActualizacionAlta();
+        }
     }
 }

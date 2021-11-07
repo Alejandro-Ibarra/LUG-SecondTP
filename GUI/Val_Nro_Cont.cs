@@ -12,7 +12,7 @@ namespace GUI
     {
         public Boolean validar()
         {
-            if (Regex.IsMatch(base.Text, @"^[0-9]{4}(-[0-9]{4})?$"))
+            if (Regex.IsMatch(base.Text, @"^[0-9]{8}$"))
             {
                 return true;
             }

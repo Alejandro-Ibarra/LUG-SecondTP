@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinnesEntity;
 using BusinessLogic;
 using Microsoft.VisualBasic;
+using Seguridad;
 
 namespace GUI
 {
@@ -68,11 +69,12 @@ namespace GUI
             try
             {
                 if (VerificarRadioButton() == true)
-                    {
-
+                {
+                    TextBox_Codigo.Text = null;
                     if (RadioButton_Alumno.Checked)
                     {
                         AsignarAlumno();
+                        oBEUsrAlumno.Codigo = 0;
                         oBLUsrAlumno.Guardar(oBEUsrAlumno);
                         AsignarAlumnoAControles(oBEUsrAlumno);
                         CargarGrillaAlumno();
@@ -80,6 +82,7 @@ namespace GUI
                     else
                     {
                         AsignarProfesor();
+                        oBEUsrProfesor.Codigo = 0;
                         oBLUsrProfesor.Guardar(oBEUsrProfesor);
                         AsignarProfesorAControles(oBEUsrProfesor);
                         CargarGrillaProfesor();
@@ -122,18 +125,36 @@ namespace GUI
         {
             try
             {
-                oBEUsrProfesor.Nombre = TextBox_Nombre.Text;
-                oBEUsrProfesor.Apellido = TextBox_Apellido.Text;
+                if (val_Nom_RGX1.validar())
+                {
+                    oBEUsrProfesor.Nombre = val_Nom_RGX1.Text;
+                }
+                else{MessageBox.Show("El nombre no tiene el formato correcto");}
+                if (val_Ape_RGX1.validar())
+                {
+                    oBEUsrProfesor.Apellido = val_Ape_RGX1.Text;
+                }
+                else { MessageBox.Show("El apellido no tiene el formato correcto"); }
+
                 if (TextBox_Codigo.Text != "")
                 {
                     oBEUsrProfesor.Codigo = int.Parse(TextBox_Codigo.Text);
                 }
                 else
                 {
-                    oBEUsrProfesor.Pass = val_DNI_RGX1.Text;
+                    oBEUsrProfesor.Pass = Encriptar.GenerarMD5(TextBox_Contraseña.Text);
                 }
                 oBEUsrProfesor.Sexo = ComboBox_Sexo.Text;
-                oBEUsrProfesor.NumenorDeContacto = int.Parse(TextBox_Num_Contacto.Text);               
+                if (val_Nro_Cont1.validar())
+                {
+                    oBEUsrProfesor.NumenorDeContacto = int.Parse(val_Nro_Cont1.Text);
+                }
+                else { MessageBox.Show("El numero de contacto no tiene el formato correcto"); }
+                if (val_DNI_RGX1.validar())
+                {
+                    oBEUsrProfesor.DNI = int.Parse(val_DNI_RGX1.Text);
+                }
+                else { MessageBox.Show("El DNI no tiene el formato correcto"); }
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -143,8 +164,16 @@ namespace GUI
         {
             try
             {
-                oBEUsrAlumno.Nombre = TextBox_Nombre.Text;
-                oBEUsrAlumno.Apellido = TextBox_Apellido.Text;
+                if (val_Nom_RGX1.validar())
+                {
+                    oBEUsrAlumno.Nombre = val_Nom_RGX1.Text;
+                }
+                else { MessageBox.Show("El nombre no tiene el formato correcto"); }
+                if (val_Ape_RGX1.validar())
+                {
+                    oBEUsrAlumno.Apellido = val_Ape_RGX1.Text;
+                }
+                else { MessageBox.Show("El apellido no tiene el formato correcto"); }        
                 if (TextBox_Codigo.Text != "")
                 {
                     oBEUsrAlumno.Codigo = int.Parse(TextBox_Codigo.Text);
@@ -152,10 +181,14 @@ namespace GUI
                 else
                 {
                     oBEUsrAlumno.Satisfaccion = 0;
-                    oBEUsrAlumno.Pass = val_DNI_RGX1.Text;
+                    oBEUsrAlumno.Pass = Encriptar.GenerarMD5(TextBox_Contraseña.Text);
                 }
                 oBEUsrAlumno.Sexo = ComboBox_Sexo.Text;
-
+                if (val_DNI_RGX1.validar())
+                {
+                    oBEUsrAlumno.DNI = int.Parse(val_DNI_RGX1.Text);
+                }
+                else { MessageBox.Show("El DNI no tiene el formato correcto"); }
 
             }
             catch (Exception ex)
@@ -166,13 +199,14 @@ namespace GUI
         {
             try
             {
-                TextBox_Apellido.Text = oBEUsrAlumno.Apellido;
+                val_Ape_RGX1.Text = oBEUsrAlumno.Apellido;
                 TextBox_Codigo.Text = oBEUsrAlumno.Codigo.ToString();
-                TextBox_Nombre.Text = oBEUsrAlumno.Nombre;
+                val_Nom_RGX1.Text = oBEUsrAlumno.Nombre;
                 ComboBox_Sexo.Text = oBEUsrAlumno.Sexo;
                 val_DNI_RGX1.Text = oBEUsrAlumno.DNI.ToString();
                 RadioButton_Alumno.Checked = true;
-                TextBox_Num_Contacto.Text = null;
+                val_Nro_Cont1.ReadOnly = true;
+                val_Nro_Cont1.Text = null;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -182,13 +216,14 @@ namespace GUI
         {
             try
             {
-                TextBox_Apellido.Text = oBEUsrProfesor.Apellido;
+                val_Ape_RGX1.Text = oBEUsrProfesor.Apellido;
                 TextBox_Codigo.Text = oBEUsrProfesor.Codigo.ToString();
-                TextBox_Nombre.Text = oBEUsrProfesor.Nombre;
+                val_Nom_RGX1.Text = oBEUsrProfesor.Nombre;
                 ComboBox_Sexo.Text = oBEUsrProfesor.Sexo;
                 val_DNI_RGX1.Text = oBEUsrProfesor.DNI.ToString();
-                TextBox_Num_Contacto.Text = oBEUsrProfesor.NumenorDeContacto.ToString();
+                val_Nro_Cont1.Text = oBEUsrProfesor.NumenorDeContacto.ToString();
                 RadioButton_Profesor.Checked = true;
+                val_Nro_Cont1.ReadOnly = false;
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -275,15 +310,15 @@ namespace GUI
             }
         }
 
-        private void RadioButton_Profesor_CheckedChanged_1(object sender, EventArgs e)
+        private void RadioButton_Profesor_MouseClick(object sender, MouseEventArgs e)
         {
-            TextBox_Num_Contacto.ReadOnly = false;
+            val_Nro_Cont1.ReadOnly = false;
         }
 
-        private void RadioButton_Alumno_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton_Alumno_MouseClick(object sender, MouseEventArgs e)
         {
-            TextBox_Num_Contacto.ReadOnly = true;
-            TextBox_Num_Contacto.Text = null;
+            val_Nro_Cont1.ReadOnly = true;
+            val_Nro_Cont1.Text = null;
         }
     }
 }

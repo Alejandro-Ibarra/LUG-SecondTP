@@ -41,14 +41,14 @@ namespace GUI
             this.TextBox_Codigo = new System.Windows.Forms.TextBox();
             this.Boton_Baja_Usuario = new System.Windows.Forms.Button();
             this.Boton_Modificar_Usuario = new System.Windows.Forms.Button();
-            this.TextBox_Apellido = new System.Windows.Forms.TextBox();
-            this.TextBox_Nombre = new System.Windows.Forms.TextBox();
             this.ComboBox_Sexo = new System.Windows.Forms.ComboBox();
             this.RadioButton_Alumno = new System.Windows.Forms.RadioButton();
             this.RadioButton_Profesor = new System.Windows.Forms.RadioButton();
             this.TextBox_Contraseña = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.TextBox_Num_Contacto = new System.Windows.Forms.TextBox();
+            this.val_Ape_RGX1 = new GUI.Val_Ape_RGX();
+            this.val_Nro_Cont1 = new GUI.Val_Nro_Cont();
+            this.val_Nom_RGX1 = new GUI.Val_Nom_RGX();
             this.val_DNI_RGX1 = new GUI.Val_DNI_RGX();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Profesores)).BeginInit();
@@ -171,20 +171,6 @@ namespace GUI
             this.Boton_Modificar_Usuario.UseVisualStyleBackColor = true;
             this.Boton_Modificar_Usuario.Click += new System.EventHandler(this.Boton_Modificar_Usuario_Click);
             // 
-            // TextBox_Apellido
-            // 
-            this.TextBox_Apellido.Location = new System.Drawing.Point(147, 44);
-            this.TextBox_Apellido.Name = "TextBox_Apellido";
-            this.TextBox_Apellido.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Apellido.TabIndex = 101;
-            // 
-            // TextBox_Nombre
-            // 
-            this.TextBox_Nombre.Location = new System.Drawing.Point(15, 44);
-            this.TextBox_Nombre.Name = "TextBox_Nombre";
-            this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Nombre.TabIndex = 100;
-            // 
             // ComboBox_Sexo
             // 
             this.ComboBox_Sexo.FormattingEnabled = true;
@@ -204,7 +190,7 @@ namespace GUI
             this.RadioButton_Alumno.TabStop = true;
             this.RadioButton_Alumno.Text = "Alumno";
             this.RadioButton_Alumno.UseVisualStyleBackColor = true;
-            this.RadioButton_Alumno.CheckedChanged += new System.EventHandler(this.RadioButton_Alumno_CheckedChanged);
+            this.RadioButton_Alumno.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RadioButton_Alumno_MouseClick);
             // 
             // RadioButton_Profesor
             // 
@@ -215,7 +201,7 @@ namespace GUI
             this.RadioButton_Profesor.TabIndex = 105;
             this.RadioButton_Profesor.Text = "Profesor";
             this.RadioButton_Profesor.UseVisualStyleBackColor = true;
-            this.RadioButton_Profesor.CheckedChanged += new System.EventHandler(this.RadioButton_Profesor_CheckedChanged_1);
+            this.RadioButton_Profesor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RadioButton_Profesor_MouseClick);
             // 
             // TextBox_Contraseña
             // 
@@ -233,12 +219,26 @@ namespace GUI
             this.label7.TabIndex = 51;
             this.label7.Text = "Asignar contraseña inicial";
             // 
-            // TextBox_Num_Contacto
+            // val_Ape_RGX1
             // 
-            this.TextBox_Num_Contacto.Location = new System.Drawing.Point(291, 44);
-            this.TextBox_Num_Contacto.Name = "TextBox_Num_Contacto";
-            this.TextBox_Num_Contacto.Size = new System.Drawing.Size(100, 20);
-            this.TextBox_Num_Contacto.TabIndex = 106;
+            this.val_Ape_RGX1.Location = new System.Drawing.Point(150, 44);
+            this.val_Ape_RGX1.Name = "val_Ape_RGX1";
+            this.val_Ape_RGX1.Size = new System.Drawing.Size(100, 20);
+            this.val_Ape_RGX1.TabIndex = 114;
+            // 
+            // val_Nro_Cont1
+            // 
+            this.val_Nro_Cont1.Location = new System.Drawing.Point(292, 44);
+            this.val_Nro_Cont1.Name = "val_Nro_Cont1";
+            this.val_Nro_Cont1.Size = new System.Drawing.Size(100, 20);
+            this.val_Nro_Cont1.TabIndex = 113;
+            // 
+            // val_Nom_RGX1
+            // 
+            this.val_Nom_RGX1.Location = new System.Drawing.Point(15, 44);
+            this.val_Nom_RGX1.Name = "val_Nom_RGX1";
+            this.val_Nom_RGX1.Size = new System.Drawing.Size(100, 20);
+            this.val_Nom_RGX1.TabIndex = 112;
             // 
             // val_DNI_RGX1
             // 
@@ -252,15 +252,15 @@ namespace GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 633);
+            this.Controls.Add(this.val_Ape_RGX1);
+            this.Controls.Add(this.val_Nro_Cont1);
+            this.Controls.Add(this.val_Nom_RGX1);
             this.Controls.Add(this.val_DNI_RGX1);
-            this.Controls.Add(this.TextBox_Num_Contacto);
             this.Controls.Add(this.TextBox_Contraseña);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.RadioButton_Profesor);
             this.Controls.Add(this.RadioButton_Alumno);
             this.Controls.Add(this.ComboBox_Sexo);
-            this.Controls.Add(this.TextBox_Nombre);
-            this.Controls.Add(this.TextBox_Apellido);
             this.Controls.Add(this.Boton_Modificar_Usuario);
             this.Controls.Add(this.Boton_Baja_Usuario);
             this.Controls.Add(this.label6);
@@ -296,14 +296,14 @@ namespace GUI
         private System.Windows.Forms.TextBox TextBox_Codigo;
         private System.Windows.Forms.Button Boton_Baja_Usuario;
         private System.Windows.Forms.Button Boton_Modificar_Usuario;
-        private System.Windows.Forms.TextBox TextBox_Apellido;
-        private System.Windows.Forms.TextBox TextBox_Nombre;
         private System.Windows.Forms.ComboBox ComboBox_Sexo;
         private System.Windows.Forms.RadioButton RadioButton_Alumno;
         private System.Windows.Forms.RadioButton RadioButton_Profesor;
         private System.Windows.Forms.TextBox TextBox_Contraseña;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TextBox_Num_Contacto;
         private Val_DNI_RGX val_DNI_RGX1;
+        private Val_Nom_RGX val_Nom_RGX1;
+        private Val_Nro_Cont val_Nro_Cont1;
+        private Val_Ape_RGX val_Ape_RGX1;
     }
 }

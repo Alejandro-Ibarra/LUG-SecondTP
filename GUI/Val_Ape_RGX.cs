@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
+
 namespace GUI
 {
     class Val_Ape_RGX : TextBox
@@ -23,5 +24,7 @@ namespace GUI
             }
             //return Regex.IsMatch(base.Text, @"^[a-zA-Z]+$");
         }
+
+
     }
 }
