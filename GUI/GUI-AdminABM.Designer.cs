@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class GUI_Admin
+    partial class GUI_AdminABM
     {
         /// <summary>
         /// Required designer variable.
@@ -247,7 +247,7 @@ namespace GUI
             this.val_DNI_RGX1.Size = new System.Drawing.Size(100, 20);
             this.val_DNI_RGX1.TabIndex = 111;
             // 
-            // GUI_Admin
+            // GUI_AdminABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -273,8 +273,8 @@ namespace GUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Grilla_Profesores);
             this.Controls.Add(this.Grilla_Alumnos);
-            this.Name = "GUI_Admin";
-            this.Text = "GUI_Admin";
+            this.Name = "GUI_AdminABM";
+            this.Text = "GUI_AdminABM";
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Alumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla_Profesores)).EndInit();
             this.ResumeLayout(false);

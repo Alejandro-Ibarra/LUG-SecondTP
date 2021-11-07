@@ -62,9 +62,10 @@ namespace GUI
                     {
                         if (oBLogin.verificarUsuarioAdmin(oBelogin))
                         {
-                            GUI_Admin oGUI_Admin = new GUI_Admin();
+                            GUI_AdminRaiz oGUI_AdminRaiz = new GUI_AdminRaiz();
                             this.Hide();
-                            oGUI_Admin.Show();
+                            oGUI_AdminRaiz.Show();
+
                         }
                         else
                         {

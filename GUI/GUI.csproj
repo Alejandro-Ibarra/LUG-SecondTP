@@ -52,6 +52,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI-AdminMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-AdminMateriales.Designer.cs">
+      <DependentUpon>GUI-AdminMateriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-AdminRaiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-AdminRaiz.Designer.cs">
+      <DependentUpon>GUI-AdminRaiz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Val_Ape_RGX.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -67,11 +79,11 @@
     <Compile Include="Val_DNI_RGX.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GUI-Admin.cs">
+    <Compile Include="GUI-AdminABM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Admin.Designer.cs">
-      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    <Compile Include="GUI-AdminABM.Designer.cs">
+      <DependentUpon>GUI-AdminABM.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-Login.cs">
       <SubType>Form</SubType>
@@ -111,8 +123,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI-Admin.resx">
-      <DependentUpon>GUI-Admin.cs</DependentUpon>
+    <EmbeddedResource Include="GUI-AdminABM.resx">
+      <DependentUpon>GUI-AdminABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-AdminMateriales.resx">
+      <DependentUpon>GUI-AdminMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-AdminRaiz.resx">
+      <DependentUpon>GUI-AdminRaiz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI-Login.resx">
       <DependentUpon>GUI-Login.cs</DependentUpon>

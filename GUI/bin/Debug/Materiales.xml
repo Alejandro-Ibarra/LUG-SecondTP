@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<materiales>
+  <material id="01">
+    <nombre> Mancuerna </nombre>
+    <peso>5</peso>
+  </material>
+  <material id="02">
+    <nombre> Pesa Rusa </nombre>
+    <peso>15</peso>
+  </material>
+  <material id="03">
+    <nombre> Banda elastica </nombre>
+    <peso>2</peso>
+  </material>
+  <material id="4">
+    <nombre>Barra con discos</nombre>
+    <peso>20</peso>
+  </material>
+</materiales>

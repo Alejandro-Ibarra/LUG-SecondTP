@@ -60,8 +60,10 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciale
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.exe
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.pdb
-C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_Admin.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_UsrAlumno.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_UsrProfesor.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\bin\Debug\Seguridad.dll
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\bin\Debug\Seguridad.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_AdminABM.resources
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_AdminMAteriales.resources
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_AdminRaiz.resources

@@ -40,6 +40,7 @@ namespace GUI
             this.Boton_Cerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TextBox_ID = new System.Windows.Forms.TextBox();
+            this.TextBox_Mat_Suge = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,11 +143,20 @@ namespace GUI
             this.TextBox_ID.Size = new System.Drawing.Size(100, 20);
             this.TextBox_ID.TabIndex = 10;
             // 
+            // TextBox_Mat_Suge
+            // 
+            this.TextBox_Mat_Suge.Location = new System.Drawing.Point(488, 12);
+            this.TextBox_Mat_Suge.Multiline = true;
+            this.TextBox_Mat_Suge.Name = "TextBox_Mat_Suge";
+            this.TextBox_Mat_Suge.Size = new System.Drawing.Size(264, 282);
+            this.TextBox_Mat_Suge.TabIndex = 11;
+            // 
             // GUI_Materiales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 374);
+            this.ClientSize = new System.Drawing.Size(860, 374);
+            this.Controls.Add(this.TextBox_Mat_Suge);
             this.Controls.Add(this.TextBox_ID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Boton_Cerrar);
@@ -180,5 +190,6 @@ namespace GUI
         private System.Windows.Forms.Button Boton_Cerrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextBox_ID;
+        private System.Windows.Forms.TextBox TextBox_Mat_Suge;
     }
 }

@@ -14,9 +14,9 @@ using Seguridad;
 
 namespace GUI
 {
-    public partial class GUI_Admin : Form
+    public partial class GUI_AdminABM : Form
     {
-        public GUI_Admin()
+        public GUI_AdminABM()
         {
             InitializeComponent();
             oBEUsrAlumno = new BEUsrAlumno();
