@@ -30,5 +30,12 @@ namespace GUI
             this.Hide();
             oGUI_Adm_Mat.Show();
         }
+
+        private void graficoHerramientasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI_GraficoHerramientas oGui_Gra_Herra = new GUI_GraficoHerramientas(),
+            this.Hide();
+            oGui_Gra_Herra.Show();
+        }
     }
 }

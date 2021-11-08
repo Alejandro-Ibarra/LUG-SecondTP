@@ -67,7 +67,7 @@ namespace GUI
             this.Grilla_Rutina.Location = new System.Drawing.Point(12, 71);
             this.Grilla_Rutina.Name = "Grilla_Rutina";
             this.Grilla_Rutina.ReadOnly = true;
-            this.Grilla_Rutina.Size = new System.Drawing.Size(469, 377);
+            this.Grilla_Rutina.Size = new System.Drawing.Size(469, 231);
             this.Grilla_Rutina.TabIndex = 0;
             // 
             // Generar_Rutina
@@ -82,7 +82,7 @@ namespace GUI
             // 
             // Ingreso_Materiales
             // 
-            this.Ingreso_Materiales.Location = new System.Drawing.Point(402, 547);
+            this.Ingreso_Materiales.Location = new System.Drawing.Point(402, 387);
             this.Ingreso_Materiales.Name = "Ingreso_Materiales";
             this.Ingreso_Materiales.Size = new System.Drawing.Size(91, 37);
             this.Ingreso_Materiales.TabIndex = 5;
@@ -95,7 +95,7 @@ namespace GUI
             this.Grilla_Materiales_Disponibles.AllowUserToAddRows = false;
             this.Grilla_Materiales_Disponibles.AllowUserToDeleteRows = false;
             this.Grilla_Materiales_Disponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla_Materiales_Disponibles.Location = new System.Drawing.Point(13, 498);
+            this.Grilla_Materiales_Disponibles.Location = new System.Drawing.Point(13, 338);
             this.Grilla_Materiales_Disponibles.Name = "Grilla_Materiales_Disponibles";
             this.Grilla_Materiales_Disponibles.ReadOnly = true;
             this.Grilla_Materiales_Disponibles.Size = new System.Drawing.Size(377, 164);
@@ -106,7 +106,7 @@ namespace GUI
             this.Grilla_Materiales_Seleccionados.AllowUserToAddRows = false;
             this.Grilla_Materiales_Seleccionados.AllowUserToDeleteRows = false;
             this.Grilla_Materiales_Seleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla_Materiales_Seleccionados.Location = new System.Drawing.Point(506, 498);
+            this.Grilla_Materiales_Seleccionados.Location = new System.Drawing.Point(506, 338);
             this.Grilla_Materiales_Seleccionados.Name = "Grilla_Materiales_Seleccionados";
             this.Grilla_Materiales_Seleccionados.ReadOnly = true;
             this.Grilla_Materiales_Seleccionados.Size = new System.Drawing.Size(377, 164);
@@ -114,7 +114,7 @@ namespace GUI
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(103, 472);
+            this.label1.Location = new System.Drawing.Point(103, 312);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 23);
             this.label1.TabIndex = 8;
@@ -122,7 +122,7 @@ namespace GUI
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(584, 472);
+            this.label2.Location = new System.Drawing.Point(584, 312);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 23);
             this.label2.TabIndex = 9;
@@ -131,7 +131,7 @@ namespace GUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(410, 518);
+            this.label3.Location = new System.Drawing.Point(410, 358);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 12;
@@ -148,7 +148,7 @@ namespace GUI
             // 
             // Eliminar_Materiales
             // 
-            this.Eliminar_Materiales.Location = new System.Drawing.Point(402, 606);
+            this.Eliminar_Materiales.Location = new System.Drawing.Point(402, 446);
             this.Eliminar_Materiales.Name = "Eliminar_Materiales";
             this.Eliminar_Materiales.Size = new System.Drawing.Size(91, 37);
             this.Eliminar_Materiales.TabIndex = 23;

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using BusinnesEntity;
 using BusinessLogic;
+using System.Xml.Linq;
 
 namespace GUI
 {
@@ -21,6 +22,7 @@ namespace GUI
             oBLMateriales = new BLMateriales();
             oBEMateriales = new BEMaterial();
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            CargarMaterialesSugeridos();
         }
 
         BLMateriales oBLMateriales;
@@ -161,6 +163,26 @@ namespace GUI
         private void Boton_Cerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        
+        public List<BEMaterial> LeerXML()
+        {
+            var consulta =
+                from material in XElement.Load("Materiales.XML").Elements("material")
+                select new BEMaterial
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(material.Attribute("id").Value).Trim()),
+                    Nombre = Convert.ToString(material.Element("nombre").Value).Trim(),
+                    Peso = Convert.ToInt32(material.Element("peso").Value.Trim()),
+                };
+            List<BEMaterial> ListaMateriales = consulta.ToList<BEMaterial>();
+            return ListaMateriales;
+        }
+
+        private void CargarMaterialesSugeridos()
+        {
+            this.dataGridView2.DataSource = null;
+            this.dataGridView2.DataSource = LeerXML();
         }
     }
 }

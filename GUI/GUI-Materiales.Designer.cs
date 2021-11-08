@@ -40,8 +40,9 @@ namespace GUI
             this.Boton_Cerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TextBox_ID = new System.Windows.Forms.TextBox();
-            this.TextBox_Mat_Suge = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -143,20 +144,27 @@ namespace GUI
             this.TextBox_ID.Size = new System.Drawing.Size(100, 20);
             this.TextBox_ID.TabIndex = 10;
             // 
-            // TextBox_Mat_Suge
+            // dataGridView2
             // 
-            this.TextBox_Mat_Suge.Location = new System.Drawing.Point(488, 12);
-            this.TextBox_Mat_Suge.Multiline = true;
-            this.TextBox_Mat_Suge.Name = "TextBox_Mat_Suge";
-            this.TextBox_Mat_Suge.Size = new System.Drawing.Size(264, 282);
-            this.TextBox_Mat_Suge.TabIndex = 11;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(471, 12);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(242, 282);
+            this.dataGridView2.TabIndex = 11;
             // 
             // GUI_Materiales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 374);
-            this.Controls.Add(this.TextBox_Mat_Suge);
+            this.ClientSize = new System.Drawing.Size(734, 374);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.TextBox_ID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Boton_Cerrar);
@@ -172,6 +180,7 @@ namespace GUI
             this.Text = "GUI_Materiales";
             this.Load += new System.EventHandler(this.GUI_Materiales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +199,6 @@ namespace GUI
         private System.Windows.Forms.Button Boton_Cerrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextBox_ID;
-        private System.Windows.Forms.TextBox TextBox_Mat_Suge;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

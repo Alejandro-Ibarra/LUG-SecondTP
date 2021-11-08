@@ -32,6 +32,7 @@ namespace GUI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialesSugeridosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.graficoHerramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +40,8 @@ namespace GUI
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMToolStripMenuItem,
-            this.materialesSugeridosToolStripMenuItem});
+            this.materialesSugeridosToolStripMenuItem,
+            this.graficoHerramientasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -59,6 +61,13 @@ namespace GUI
             this.materialesSugeridosToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
             this.materialesSugeridosToolStripMenuItem.Text = "Materiales sugeridos";
             this.materialesSugeridosToolStripMenuItem.Click += new System.EventHandler(this.materialesSugeridosToolStripMenuItem_Click);
+            // 
+            // graficoHerramientasToolStripMenuItem
+            // 
+            this.graficoHerramientasToolStripMenuItem.Name = "graficoHerramientasToolStripMenuItem";
+            this.graficoHerramientasToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
+            this.graficoHerramientasToolStripMenuItem.Text = "Grafico Herramientas";
+            this.graficoHerramientasToolStripMenuItem.Click += new System.EventHandler(this.graficoHerramientasToolStripMenuItem_Click);
             // 
             // GUI_AdminRaiz
             // 
@@ -82,5 +91,6 @@ namespace GUI
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem materialesSugeridosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem graficoHerramientasToolStripMenuItem;
     }
 }

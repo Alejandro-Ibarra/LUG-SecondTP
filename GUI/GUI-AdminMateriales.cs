@@ -56,12 +56,13 @@ namespace GUI
 
             consulta.Remove();
             doc.Save("Materiales.XML");
-        }
+        }   
 
         public void ModificarMaterial(string ID)
         {
 
             XDocument doc = XDocument.Load("Materiales.XML");
+
             var consulta = from material in doc.Descendants("material")
                            where material.Attribute("id").Value == ID
                            select material;
