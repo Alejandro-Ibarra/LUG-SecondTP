@@ -290,7 +290,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 685);
+            this.ClientSize = new System.Drawing.Size(907, 553);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.ComboBox_Valoracion);
             this.Controls.Add(this.Boton_Modificar_Datos_Personales);

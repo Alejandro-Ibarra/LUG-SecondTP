@@ -23,8 +23,8 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciale
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\BusinnesEntity.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\Mapper.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\bin\Debug\DataAccess.pdb
-C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.dll
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\BusinessLogic\obj\Debug\BusinessLogic.csproj.AssemblyReference.cache

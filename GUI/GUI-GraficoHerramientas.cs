@@ -32,32 +32,13 @@ namespace GUI
         
         List<int> ListaInt;
 
-        private List<int> Can_Herramientas()
+        private void GUI_GraficoHerramientas_Load(object sender, EventArgs e)
         {
-            try
-            {
-                int aux = 0;
-                List<BEEjercicio> ListaBEEjercicio = oBLEjercicio.ListarTodo();
-                List<BEMaterial> ListaBEMateriales = oBLMateriales.ListarTodo();
-                foreach (BEEjercicio Eje in ListaBEEjercicio)
-                {
-                    foreach (BEMaterial Mat in ListaBEMateriales)
-                    {
-                        if (Eje.Materiales.Codigo == Mat.Codigo)
-                        {
-                            aux++;
-                        }
-                    }
-                    ListaInt.Add(aux);
-                    aux = 0;                    
-                }
-                return ListaInt;
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
+            CargarGraficos();
         }
 
         void CargarGraficos()
-        {   
+        {
             List<BEMaterial> ListaBEMateriales = oBLMateriales.ListarTodo();
             List<string> NombresMat = new List<string>();
             foreach (BEMaterial Mat in ListaBEMateriales)
@@ -73,9 +54,37 @@ namespace GUI
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private List<int> Can_Herramientas()
+        {
+            try
+            {
+                int aux = 0;
+                List<BEEjercicio> ListaBEEjercicio = oBLEjercicio.ListarTodo();
+                List<BEMaterial> ListaBEMateriales = oBLMateriales.ListarTodo();
+                foreach (BEMaterial Mat in ListaBEMateriales)
+                {
+                    foreach (BEEjercicio Eje in ListaBEEjercicio)
+                    {
+                        if (Eje.Materiales.Codigo == Mat.Codigo)
+                        {
+                            aux++;
+                        }
+                    }
+                    ListaInt.Add(aux);
+                    aux = 0;                    
+                }
+                return ListaInt;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
+        }
+
+        
+
+        /*private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             chart1.Series["Series1"].ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), comboBox1.SelectedItem.ToString());
         }
+        */
+        
     }
 }

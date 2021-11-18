@@ -38,5 +38,10 @@ namespace BusinessLogic
         {
             return oMMAteriales.ListarTodo();
         }
+
+        public List<BEMaterial> LeerXml()
+        {
+            return oMMAteriales.LeerXml();
+        }
     }
 }

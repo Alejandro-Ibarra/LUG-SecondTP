@@ -14,7 +14,7 @@ namespace Mapper
         public MLogin()
         {
             oConexion = new Conexion();
-            Hashdatos = new Hashtable();
+            
         }
 
         Hashtable Hashdatos;

@@ -21,7 +21,6 @@ namespace GUI
                 MessageBox.Show("Formato de DNI incorrecto, debe contener 8 numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            //return Regex.IsMatch(base.Text, @"^[a-zA-Z]+$");
         }
     }
 }

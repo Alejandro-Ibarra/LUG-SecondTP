@@ -49,7 +49,6 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciale
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\bin\Debug\Mapper.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\bin\Debug\Abstraction.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\bin\Debug\DataAccess.pdb
-C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.Login.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_Ejercicios.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_Materiales.resources
@@ -57,7 +56,6 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciale
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csproj.GenerateResource.cache
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
-C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.exe
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.pdb
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_UsrAlumno.resources
@@ -67,3 +65,6 @@ C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciale
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_AdminABM.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_AdminMAteriales.resources
 C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_AdminRaiz.resources
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.GUI_GraficoHerramientas.resources
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG-SecondTP\GUI\obj\Debug\GUI.csproj.CopyComplete

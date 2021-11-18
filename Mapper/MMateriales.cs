@@ -8,6 +8,7 @@ using Abstraction;
 using BusinnesEntity;
 using DataAccess;
 using System.Collections;
+using System.Xml.Linq;
 
 namespace Mapper
 {
@@ -19,13 +20,14 @@ namespace Mapper
         public MMateriales()
         {
             oConexion = new Conexion();
-            Hashdatos = new Hashtable();
+            
         }
 
         public bool Baja(BEMaterial oBEMaterial)
         {
             if (ExisteMaterialAsociado(oBEMaterial) == false)
             {
+                Hashdatos = new Hashtable();
                 string Consulta = "S_Eliminar_Material";
                 Hashdatos.Add("@Codigo", oBEMaterial.Codigo);
 
@@ -48,6 +50,20 @@ namespace Mapper
             else
             { return false; }
 
+        }
+
+        public List<BEMaterial> LeerXml()
+        {
+            var consulta =
+                from material in XElement.Load("Materiales.XML").Elements("material")
+                select new BEMaterial
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(material.Attribute("id").Value).Trim()),
+                    Nombre = Convert.ToString(material.Element("nombre").Value).Trim(),
+                    Peso = Convert.ToInt32(material.Element("peso").Value.Trim()),
+                };
+            List<BEMaterial> ListaMateriales = consulta.ToList<BEMaterial>();
+            return ListaMateriales;
         }
 
         public bool Guardar(BEMaterial oBEMaterial)

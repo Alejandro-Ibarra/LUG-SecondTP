@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinnesEntity
 {
-    public abstract class BERutina : BEEntity
+    public class BERutina : BEEntity
     {
         public int Repeticiones { get; set; }
     }

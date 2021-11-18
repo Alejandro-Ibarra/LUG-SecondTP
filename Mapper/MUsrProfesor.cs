@@ -17,7 +17,7 @@ namespace Mapper
         public MUsrProfesor()
         {
             oConexion = new Conexion();
-            Hashdatos = new Hashtable();
+            
         }
 
         Conexion oConexion;
@@ -71,8 +71,9 @@ namespace Mapper
 
         public bool Baja(BEUsrProfesor oBEUsrProfesor)
         {
+            Hashdatos = new Hashtable();
             string Consulta = "S_Eliminar_Usuario";
-            Hashdatos.Add("@IdCliente", oBEUsrProfesor.Codigo);
+            Hashdatos.Add("@Codigo", oBEUsrProfesor.Codigo);
 
             return oConexion.Escribir(Consulta, Hashdatos);
         }

@@ -73,19 +73,28 @@ namespace GUI
                     TextBox_Codigo.Text = null;
                     if (RadioButton_Alumno.Checked)
                     {
-                        AsignarAlumno();
-                        oBEUsrAlumno.Codigo = 0;
-                        oBLUsrAlumno.Guardar(oBEUsrAlumno);
-                        AsignarAlumnoAControles(oBEUsrAlumno);
-                        CargarGrillaAlumno();
+                        if (AsignarAlumno() == true)
+                        {
+                            oBEUsrAlumno.Codigo = 0;
+                            oBLUsrAlumno.Guardar(oBEUsrAlumno);
+                            AsignarAlumnoAControles(oBEUsrAlumno);
+                            CargarGrillaAlumno();
+                        }
+                        else
+                        {MessageBox.Show("Ingrese los datos de forma correcta");}
+                        
                     }
                     else
                     {
-                        AsignarProfesor();
-                        oBEUsrProfesor.Codigo = 0;
-                        oBLUsrProfesor.Guardar(oBEUsrProfesor);
-                        AsignarProfesorAControles(oBEUsrProfesor);
-                        CargarGrillaProfesor();
+                        if (AsignarProfesor() == true)
+                        {
+                            oBEUsrProfesor.Codigo = 0;
+                            oBLUsrProfesor.Guardar(oBEUsrProfesor);
+                            AsignarProfesorAControles(oBEUsrProfesor);
+                            CargarGrillaProfesor();
+                        }
+                        else
+                        {MessageBox.Show("Ingrese los datos de forma correcta");}
                     }
                 }
                 else
@@ -103,96 +112,107 @@ namespace GUI
             {
                 if (RadioButton_Alumno.Checked)
                 {
-                    AsignarAlumno();
-                    oBLUsrAlumno.Guardar(oBEUsrAlumno);
-                    AsignarAlumnoAControles(oBEUsrAlumno);
-                    CargarGrillaAlumno();
+                    if (AsignarAlumno() == true)
+                    {
+                        oBEUsrAlumno.Codigo = 0;
+                        oBLUsrAlumno.Guardar(oBEUsrAlumno);
+                        AsignarAlumnoAControles(oBEUsrAlumno);
+                        CargarGrillaAlumno();
+                    }
+                    else
+                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
                 }
                 else
                 {
-                    AsignarProfesor();
-                    oBLUsrProfesor.Guardar(oBEUsrProfesor);
-                    AsignarProfesorAControles(oBEUsrProfesor);
-                    CargarGrillaProfesor();
+                    if (AsignarProfesor() == true)
+                    {
+                        oBEUsrProfesor.Codigo = 0;
+                        oBLUsrProfesor.Guardar(oBEUsrProfesor);
+                        AsignarProfesorAControles(oBEUsrProfesor);
+                        CargarGrillaProfesor();
+                    }
+                    else
+                    { MessageBox.Show("Ingrese los datos de forma correcta"); }
                 }
-                
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
         }
 
-        private void AsignarProfesor()
+        private bool AsignarProfesor()
         {
             try
             {
+                oBEUsrProfesor.Sexo = ComboBox_Sexo.Text;
                 if (val_Nom_RGX1.validar())
                 {
                     oBEUsrProfesor.Nombre = val_Nom_RGX1.Text;
+                    if (val_Ape_RGX1.validar())
+                    {
+                        oBEUsrProfesor.Apellido = val_Ape_RGX1.Text;
+                        if (val_DNI_RGX1.validar())
+                        {
+                            oBEUsrProfesor.DNI = int.Parse(val_DNI_RGX1.Text);
+                            if (val_Nro_Cont1.validar())
+                            {
+                                oBEUsrProfesor.NumenorDeContacto = int.Parse(val_Nro_Cont1.Text);
+                                if (TextBox_Codigo.Text != "")
+                                {
+                                    oBEUsrProfesor.Codigo = int.Parse(TextBox_Codigo.Text);
+                                    return true;
+                                }
+                                else
+                                {
+                                    oBEUsrProfesor.Pass = Encriptar.GenerarMD5(TextBox_Contraseña.Text);
+                                    return true;
+                                }
+                            }
+                            else { return false; }
+                        }
+                        else { return false; }
+                    }
+                    else { return false; }
                 }
-                else{MessageBox.Show("El nombre no tiene el formato correcto");}
-                if (val_Ape_RGX1.validar())
-                {
-                    oBEUsrProfesor.Apellido = val_Ape_RGX1.Text;
-                }
-                else { MessageBox.Show("El apellido no tiene el formato correcto"); }
-
-                if (TextBox_Codigo.Text != "")
-                {
-                    oBEUsrProfesor.Codigo = int.Parse(TextBox_Codigo.Text);
-                }
-                else
-                {
-                    oBEUsrProfesor.Pass = Encriptar.GenerarMD5(TextBox_Contraseña.Text);
-                }
-                oBEUsrProfesor.Sexo = ComboBox_Sexo.Text;
-                if (val_Nro_Cont1.validar())
-                {
-                    oBEUsrProfesor.NumenorDeContacto = int.Parse(val_Nro_Cont1.Text);
-                }
-                else { MessageBox.Show("El numero de contacto no tiene el formato correcto"); }
-                if (val_DNI_RGX1.validar())
-                {
-                    oBEUsrProfesor.DNI = int.Parse(val_DNI_RGX1.Text);
-                }
-                else { MessageBox.Show("El DNI no tiene el formato correcto"); }
+                else{ return false; }
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
+            { MessageBox.Show(ex.Message); return false; }
         }
 
-        private void AsignarAlumno()
+        private bool AsignarAlumno()
         {
             try
             {
+                oBEUsrAlumno.Sexo = ComboBox_Sexo.Text;
                 if (val_Nom_RGX1.validar())
                 {
                     oBEUsrAlumno.Nombre = val_Nom_RGX1.Text;
+                    if (val_Ape_RGX1.validar())
+                    {
+                        oBEUsrAlumno.Apellido = val_Ape_RGX1.Text;
+                        if (val_DNI_RGX1.validar())
+                        {
+                            oBEUsrAlumno.DNI = int.Parse(val_DNI_RGX1.Text);
+                            if (TextBox_Codigo.Text != "")
+                            {
+                                oBEUsrAlumno.Codigo = int.Parse(TextBox_Codigo.Text);
+                                return true;
+                            }
+                            else
+                            {
+                                oBEUsrAlumno.Satisfaccion = 0;
+                                oBEUsrAlumno.Pass = Encriptar.GenerarMD5(TextBox_Contraseña.Text);
+                                return true;
+                            }
+                        }
+                        else { return false; }
+                    }
+                    else { return false; }
                 }
-                else { MessageBox.Show("El nombre no tiene el formato correcto"); }
-                if (val_Ape_RGX1.validar())
-                {
-                    oBEUsrAlumno.Apellido = val_Ape_RGX1.Text;
-                }
-                else { MessageBox.Show("El apellido no tiene el formato correcto"); }        
-                if (TextBox_Codigo.Text != "")
-                {
-                    oBEUsrAlumno.Codigo = int.Parse(TextBox_Codigo.Text);
-                }
-                else
-                {
-                    oBEUsrAlumno.Satisfaccion = 0;
-                    oBEUsrAlumno.Pass = Encriptar.GenerarMD5(TextBox_Contraseña.Text);
-                }
-                oBEUsrAlumno.Sexo = ComboBox_Sexo.Text;
-                if (val_DNI_RGX1.validar())
-                {
-                    oBEUsrAlumno.DNI = int.Parse(val_DNI_RGX1.Text);
-                }
-                else { MessageBox.Show("El DNI no tiene el formato correcto"); }
-
+                else {  return false; }
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message); }
+            { MessageBox.Show(ex.Message); return false; }
         }
 
         void AsignarAlumnoAControles(BEUsrAlumno oBEUsrAlumno)

@@ -21,7 +21,6 @@ namespace GUI
                 MessageBox.Show("Formato Incorrecto, deben ser solo caracteres alfabeticos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            //return Regex.IsMatch(base.Text, @"^[a-zA-Z]+$");
         }
     }
 }

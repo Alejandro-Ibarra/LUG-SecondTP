@@ -167,15 +167,7 @@ namespace GUI
         
         public List<BEMaterial> LeerXML()
         {
-            var consulta =
-                from material in XElement.Load("Materiales.XML").Elements("material")
-                select new BEMaterial
-                {
-                    Codigo = Convert.ToInt32(Convert.ToString(material.Attribute("id").Value).Trim()),
-                    Nombre = Convert.ToString(material.Element("nombre").Value).Trim(),
-                    Peso = Convert.ToInt32(material.Element("peso").Value.Trim()),
-                };
-            List<BEMaterial> ListaMateriales = consulta.ToList<BEMaterial>();
+            List<BEMaterial> ListaMateriales = oBLMateriales.LeerXml();
             return ListaMateriales;
         }
 

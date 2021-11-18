@@ -20,7 +20,7 @@ namespace Mapper
         public MMusculo()
         {
             oConexion = new Conexion();
-            Hashdatos = new Hashtable();
+            
         }
 
         public bool Baja(BEMusculo oBEMusculo)
@@ -28,6 +28,7 @@ namespace Mapper
 
             if (ExisteEjercicioAsociado(oBEMusculo) == false)
             {
+                Hashdatos = new Hashtable();
                 string Consulta = "S_Eliminar_Musculo";
                 Hashdatos.Add("@Codigo", oBEMusculo.Codigo);
 

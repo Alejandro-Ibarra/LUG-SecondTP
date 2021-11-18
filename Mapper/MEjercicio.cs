@@ -14,7 +14,7 @@ namespace Mapper
         public MEjercicio()
         {
             oConexion = new Conexion();
-            Hashdatos = new Hashtable();
+            
         }
 
         Conexion oConexion;
@@ -23,6 +23,7 @@ namespace Mapper
         #region ABM
         public bool Baja(BEEjercicio oBEEjercicio)
         {
+            Hashdatos = new Hashtable();
             string Consulta = "S_Eliminar_Ejercicio";
             Hashdatos.Add("@@Codigo", oBEEjercicio.Codigo);
 

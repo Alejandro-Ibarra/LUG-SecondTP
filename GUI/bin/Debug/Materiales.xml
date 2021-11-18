@@ -12,4 +12,28 @@
     <nombre>Barra con discos</nombre>
     <peso>20</peso>
   </material>
+  <material id="5">
+    <nombre>Banda elastica</nombre>
+    <peso>5</peso>
+  </material>
+  <material id="6">
+    <nombre>Soga</nombre>
+    <peso>0</peso>
+  </material>
+  <material id="7">
+    <nombre>Mancuerna Hexagonal</nombre>
+    <peso>10</peso>
+  </material>
+  <material id="8">
+    <nombre>Banda circular</nombre>
+    <peso>10</peso>
+  </material>
+  <material id="9">
+    <nombre>Rueda Abdominales</nombre>
+    <peso>0</peso>
+  </material>
+  <material id="10">
+    <nombre>Tobillera</nombre>
+    <peso>2</peso>
+  </material>
 </materiales>

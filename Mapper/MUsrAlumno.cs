@@ -17,7 +17,7 @@ namespace Mapper
         public MUsrAlumno()
         {
             oConexion = new Conexion();
-            Hashdatos = new Hashtable();
+            
         }
 
         Conexion oConexion;
@@ -70,7 +70,7 @@ namespace Mapper
 
         public bool Baja(BEUsrAlumno oBEUsrAlumno)
         {
-
+            Hashdatos = new Hashtable();
             if (oBEUsrAlumno.Materiales != null)
             {
                 foreach (BEMaterial Material in oBEUsrAlumno.Materiales)
@@ -85,7 +85,7 @@ namespace Mapper
                 }
             }
             string Consulta = "S_Eliminar_Usuario";
-            Hashdatos.Add("@IdCliente", oBEUsrAlumno.Codigo);
+            Hashdatos.Add("@Codigo", oBEUsrAlumno.Codigo);
 
             return oConexion.Escribir(Consulta, Hashdatos);
         }
